@@ -25,8 +25,12 @@ test("homepage describes Charles Bannister and freelance Google Ads work", () =>
   assert.match(html, /automation engineer/i);
   assert.match(html, /PPC specialist/);
   assert.match(html, /Freelance Google Ads/);
-  assert.match(html, /hello@charlesbannister\.com/);
-  assert.match(html, /mockups\/washer-disinfectors\//);
+  assert.doesNotMatch(html, /mailto:/);
+  assert.doesNotMatch(html, /hello@charlesbannister\.com/);
+  assert.doesNotMatch(html, /Email me/);
+  assert.doesNotMatch(html, /<nav/);
+  assert.doesNotMatch(html, /id="mockups"/);
+  assert.doesNotMatch(html, /Client mockups/);
 });
 
 test("washer disinfectors mockup is a static noindex preview with local logo", () => {

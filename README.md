@@ -1,6 +1,8 @@
 # charlesbannister.com
 
-Personal site for Charles Bannister, plus a place to host client mockups.
+Personal site for Charles Bannister.
+
+The public homepage has no mockup section, emails, or contact buttons.
 
 Live GitHub Pages URL after the first deploy: `https://charlesbannister.github.io`
 
@@ -18,7 +20,7 @@ The dev server is at `http://localhost:5173`.
 
 ## Mockups
 
-- Washer disinfectors landing page: `/mockups/washer-disinfectors/`
+The washer-disinfectors landing page stays at `/mockups/washer-disinfectors/`. It is a direct URL only; the homepage does not list it.
 
 Mockups are copied out of client production repos so they can be shared without deploying that whole codebase.
 
