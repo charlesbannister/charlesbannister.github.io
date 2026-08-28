@@ -1,37 +1,29 @@
-## Welcome to GitHub Pages
+# charlesbannister.com
 
-You can use the [editor on GitHub](https://github.com/automatingadwords/automatingadwords.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Personal site for Charles Bannister, plus a place to host client mockups.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Live GitHub Pages URL after the first deploy: `https://charlesbannister.github.io`
 
-### Markdown
+Custom domain after DNS: `https://charlesbannister.com`
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Local
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```bash
+npm test
+npm run build
+npm run dev
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+The dev server is at `http://localhost:5173`.
 
-### Jekyll Themes
+## Mockups
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/automatingadwords/automatingadwords.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+- Washer disinfectors landing page: `/mockups/washer-disinfectors/`
 
-### Support or Contact
+Mockups are copied out of client production repos so they can be shared without deploying that whole codebase.
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+## Deploy
+
+Pushes to `main` run tests, build `dist/`, and publish GitHub Pages.
+
+The `CNAME` file is `charlesbannister.com`. HTTPS on the custom domain only works after DNS points at GitHub Pages.
