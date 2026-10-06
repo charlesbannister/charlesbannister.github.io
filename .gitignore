@@ -2,3 +2,9 @@ node_modules/
 dist/
 .agent-runs/
 .DS_Store
+
+# Local agent files
+AGENTS.md
+opencode.json
+.opencode/
+notes/
