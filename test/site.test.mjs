@@ -17,14 +17,13 @@ function readRequired(relativePath) {
   return readFileSync(filePath, "utf8");
 }
 
-test("homepage describes Charles Bannister and freelance Google Ads work", () => {
+test("homepage describes Charles Bannister and freelance software work", () => {
   const html = readRequired("src/index.html");
 
   assert.match(html, /Charles Bannister/);
-  assert.match(html, /software engineer/i);
-  assert.match(html, /automation engineer/i);
-  assert.match(html, /PPC specialist/);
-  assert.match(html, /Freelance Google Ads/);
+  assert.match(html, /programmer/i);
+  assert.match(html, /GoDaddy/);
+  assert.match(html, /Freelance software work/);
   assert.doesNotMatch(html, /mailto:/);
   assert.doesNotMatch(html, /hello@charlesbannister\.com/);
   assert.doesNotMatch(html, /Email me/);

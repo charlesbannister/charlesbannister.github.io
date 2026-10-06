@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Charles Bannister</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;800&family=Newsreader:ital,opsz@0,6..72;1,6..72&display=swap" rel="stylesheet">
+<style>
+  :root { --ink:#16131a; --muted:#5a5560; --red:#e41e26; --line:#e4e0da; --bg:#fbfaf7; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:18px/1.6 "Newsreader", Georgia, serif; }
+  a { color:inherit; text-decoration-color:var(--red); text-decoration-thickness:2px; text-underline-offset:3px; }
+  a:hover { color:var(--red); }
+  .wrap { width:min(680px, calc(100% - 32px)); margin:0 auto; }
+  .sans { font-family:"Inter Tight", system-ui, sans-serif; }
+
+  /* The one loud thing */
+  /* Bauhaus field in greens: photo-matched wedge, mid-green base, deep-green arc */
+  header { position:relative; overflow:hidden; background:#5f8466; color:#fff; padding:clamp(80px,10vw,120px) 0 48px; }
+  header::before, header::after { content:""; position:absolute; z-index:0; }
+  header::before { inset:0; background:#96b198; clip-path:polygon(0 0,100% 0,100% 4%,0 36%); }
+  header::after { left:-22%; top:58%; width:90%; aspect-ratio:1; border-radius:50%; background:#2f4a35; }
+  header .wrap { position:relative; z-index:1; }
+  @media (max-width:640px) {
+    header::before { clip-path:polygon(0 0,100% 0,100% 2%,0 16%); }
+    header::after { left:-55%; top:45%; width:120%; }
+  }
+  header h1 { margin:0; font:800 clamp(56px,13vw,132px)/.86 "Inter Tight", sans-serif; letter-spacing:-.05em; }
+  .intro { display:flex; align-items:center; gap:20px; margin-top:24px; }
+  header p { margin:0; font-size:20px; max-width:34ch; }
+  header img { flex:none; width:96px; height:96px; object-fit:cover; border-radius:50%; border:3px solid #fff; }
+
+  section { padding:40px 0 8px; }
+  h2 { font:600 13px/1 "Inter Tight", sans-serif; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin:0 0 18px; }
+  p { margin:0 0 16px; }
+  .muted { color:var(--muted); }
+
+  .now { border-left:3px solid var(--red); padding-left:16px; }
+
+  ol.projects { list-style:none; padding:0; margin:0; }
+  .projects li { padding:16px 0; border-top:1px solid var(--line); }
+  .projects li:last-child { border-bottom:1px solid var(--line); }
+  .projects strong { font:600 17px/1.3 "Inter Tight", sans-serif; display:block; margin-bottom:4px; }
+  .placeholder { background:#fff3b0; padding:0 3px; }
+
+  dl { margin:0; }
+  dt { font:600 16px "Inter Tight", sans-serif; }
+  dd { margin:0 0 18px; color:var(--muted); }
+  dd span { font-family:"Inter Tight", sans-serif; font-size:14px; }
+
+  footer { padding:48px 0 64px; font:14px "Inter Tight", sans-serif; color:var(--muted); }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Charles<br>Bannister</h1>
+    <div class="intro">
+      <img src="../../assets/profile-pic-2025.png" alt="Charles Bannister">
+      <p>Alright! I'm Charles. I write software, mostly the boring backend kind that quietly keeps a business running.</p>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section>
+    <p class="now"><span class="sans muted" style="font-size:14px">Now · October 2026</span><br>
+    Software engineer at GoDaddy, slowly retiring a pile of Google Apps Script into Python on AWS. Taking on a bit of freelance work on the side.</p>
+  </section>
+
+  <section>
+    <h2>Some things I've built</h2>
+    <ol class="projects">
+      <li><strong>Apps Script → Python, at GoDaddy</strong>
+        Moved marketing tooling that lived in spreadsheets onto Lambda and ECS. <span class="placeholder">[real outcome: how many scripts, what broke less]</span></li>
+      <li><strong>Company-wide MCP services</strong>
+        Helped build the plumbing that lets internal LLM tools talk to real systems. <span class="placeholder">[one concrete detail]</span></li>
+      <li><strong>Warehouse → reporting pipelines</strong>
+        Scheduled ETL in Prefect, from BigQuery and Redshift into reports people actually open. <span class="placeholder">[who used it]</span></li>
+      <li><strong>Running an e-commerce shop from the code side</strong>
+        Went from paid ads to E-commerce Manager, and wrote most of the automation along the way. <span class="placeholder">[sales growth %]</span></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Before this</h2>
+    <dl>
+      <dt>GoDaddy</dt>
+      <dd><span>Software engineer · now</span><br>Python, AWS, data tooling for marketing teams, LLM integrations.</dd>
+      <dt>Digital marketing &amp; e-commerce</dt>
+      <dd><span>Promoted twice, to E-commerce Manager</span><br>Paid media, a handful of in-house sites, international expansion, and a lot of scripts nobody asked me to write.</dd>
+    </dl>
+  </section>
+
+  <section>
+    <h2>Freelance</h2>
+    <p>If something in your business runs on a spreadsheet and a prayer, I'd like to hear about it. I'm happiest turning that into a small, tested service that tells you when it breaks.</p>
+    <p>Email is my full name @ gmail.com, or find me on <a href="https://www.linkedin.com/in/charles-bannister/">LinkedIn</a>.</p>
+  </section>
+</main>
+
+<footer class="wrap">
+  Charles Bannister · <a href="https://github.com/charlesbannister">GitHub</a> · <span class="placeholder">[based in …]</span> · 2026
+</footer>
+</body>
+</html>

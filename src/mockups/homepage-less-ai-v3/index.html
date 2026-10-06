@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Charles Bannister</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;900&family=Newsreader:ital,opsz@0,6..72;1,6..72&display=swap" rel="stylesheet">
+<style>
+  :root { --ink:#17111f; --muted:#4a4152; --red:#e41e26; --blue:#2f5ea8; --yellow:#fcc221; --bg:#fffdf6; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:18px/1.6 "Newsreader", Georgia, serif;
+    border-top:12px solid; border-image:linear-gradient(90deg,var(--red) 0 33.3%,var(--blue) 0 66.6%,var(--yellow) 0) 1; }
+  a { color:var(--blue); text-decoration-thickness:2px; text-underline-offset:3px; }
+  a:hover { color:var(--red); }
+  .wrap { width:min(700px, calc(100% - 32px)); margin:0 auto; }
+  .sans { font-family:"Archivo", system-ui, sans-serif; }
+
+  /* Header: big name kept, one tilt, one hard shadow */
+  header { padding:56px 0 24px; position:relative; }
+  .name { margin:0; font:900 clamp(48px,10vw,104px)/.86 "Archivo", sans-serif; letter-spacing:-.045em; text-transform:uppercase; color:var(--blue); }
+  .name span { display:block; }
+  .name span:last-child { color:var(--ink); margin-left:.6em; }
+  .tag { display:inline-block; margin-top:22px; background:var(--yellow); padding:4px 12px; font:600 15px "Archivo", sans-serif; border-radius:2px; }
+
+  .intro { display:grid; grid-template-columns:104px 1fr; gap:24px; align-items:start; margin:36px 0 8px; }
+  .intro img { width:104px; height:104px; object-fit:cover; border-radius:50%; border:3px solid var(--red); }
+  .intro p { margin:0; font-size:21px; line-height:1.45; }
+
+  section { padding:44px 0 8px; }
+  h2 { font:900 24px/1 "Archivo", sans-serif; letter-spacing:-.02em; margin:0 0 18px; }
+  h2::after { content:""; display:block; width:32px; height:4px; background:var(--red); margin-top:10px; }
+  p { margin:0 0 16px; }
+  .muted { color:var(--muted); }
+
+  .now { border-left:6px solid var(--blue); background:#eef2fa; padding:14px 20px; margin-top:40px; }
+  .now b { font:600 13px "Archivo", sans-serif; letter-spacing:.06em; text-transform:uppercase; color:var(--blue); display:block; margin-bottom:4px; }
+
+  ol.projects { list-style:none; padding:0; margin:0; counter-reset:p; }
+  .projects li { counter-increment:p; display:grid; grid-template-columns:40px 1fr; gap:16px; padding:18px 0; border-top:1px solid #d9d3c7; }
+  .projects li:last-child { border-bottom:1px solid #d9d3c7; }
+  .projects li::before { content:counter(p,decimal-leading-zero); font:900 22px/1.2 "Archivo", sans-serif; color:var(--red); }
+  .projects li:nth-child(2)::before { color:var(--blue); }
+  .projects li:nth-child(3)::before { color:var(--yellow); -webkit-text-stroke:1px var(--ink); }
+  .projects strong { font:600 18px/1.3 "Archivo", sans-serif; display:block; margin-bottom:4px; }
+  .placeholder { background:#fff0a0; padding:0 3px; font-size:.9em; }
+
+  dl { margin:0; }
+  dt { font:600 17px "Archivo", sans-serif; }
+  dd { margin:0 0 20px; color:var(--muted); }
+  dd span { font:14px "Archivo", sans-serif; color:var(--blue); }
+
+  .freelance { background:#fff4c7; border-top:6px solid var(--yellow); padding:26px 28px 12px; margin-top:52px; }
+  .freelance a { color:var(--blue); }
+  
+
+  footer { padding:56px 0 64px; font:14px "Archivo", sans-serif; color:var(--muted); }
+  footer a { color:var(--ink); }
+
+  @media (max-width:600px) {
+    .intro { grid-template-columns:1fr; }
+    .projects li { grid-template-columns:1fr; gap:6px; }
+  }
+</style>
+</head>
+<body>
+<header class="wrap">
+  <h1 class="name"><span>Charles</span><span>Bannister</span></h1>
+  <div class="tag">Programmer, mostly backend</div>
+</header>
+
+<main class="wrap">
+  <div class="intro">
+    <img src="../../assets/profile-pic-2025.png" alt="Charles Bannister">
+    <p>Alright! I'm Charles. I write software, mostly the unglamorous backend kind that quietly keeps a business running.</p>
+  </div>
+
+  <div class="now"><b>Now · October 2026</b>
+    Software engineer at GoDaddy, slowly retiring a pile of Google Apps Script into Python on AWS. Taking on a bit of freelance work on the side.</div>
+
+  <section>
+    <h2>Some things I've built</h2>
+    <ol class="projects">
+      <li><div><strong>Apps Script → Python, at GoDaddy</strong>
+        Moved marketing tooling that lived in spreadsheets onto Lambda and ECS. <span class="placeholder">[real outcome: how many scripts, what broke less]</span></div></li>
+      <li><div><strong>Company-wide MCP services</strong>
+        Helped build the plumbing that lets internal LLM tools talk to real systems. <span class="placeholder">[one concrete detail]</span></div></li>
+      <li><div><strong>Warehouse → reporting pipelines</strong>
+        Scheduled ETL in Prefect, from BigQuery and Redshift into reports people actually open. <span class="placeholder">[who used it]</span></div></li>
+      <li><div><strong>Running an e-commerce shop from the code side</strong>
+        Went from paid ads to E-commerce Manager, and wrote most of the automation along the way. <span class="placeholder">[sales growth %]</span></div></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Before this</h2>
+    <dl>
+      <dt>GoDaddy</dt>
+      <dd><span>Software engineer · now</span><br>Python, AWS, data tooling for marketing teams, LLM integrations.</dd>
+      <dt>Digital marketing &amp; e-commerce</dt>
+      <dd><span>Promoted twice, to E-commerce Manager</span><br>Paid media, a handful of in-house sites, international expansion, and a lot of scripts nobody asked me to write.</dd>
+    </dl>
+  </section>
+
+  <section class="freelance">
+    <h2>Freelance</h2>
+    <p>If something in your business runs on a spreadsheet and a prayer, I'd like to hear about it. I'm happiest turning that into a small, tested service that tells you when it breaks.</p>
+    <p>Email is my full name @ gmail.com, or find me on <a href="https://www.linkedin.com/in/charles-bannister/">LinkedIn</a>.</p>
+  </section>
+</main>
+
+<footer class="wrap">
+  Charles Bannister · <a href="https://github.com/charlesbannister">GitHub</a> · <span class="placeholder">[based in …]</span> · 2026
+</footer>
+</body>
+</html>
