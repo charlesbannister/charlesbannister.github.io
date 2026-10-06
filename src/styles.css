@@ -119,7 +119,7 @@ section > .wrap {
   z-index: 1;
 }
 
-/* Each section heading carries one Bauhaus shape: circle, square, triangle. */
+/* Each section heading carries a green square. */
 h2 {
   display: flex;
   align-items: center;
@@ -135,15 +135,6 @@ h2::before {
   width: 18px;
   height: 18px;
   background: var(--green);
-}
-
-#work h2::before {
-  border-radius: 50%;
-}
-
-#freelance h2::before {
-  background: var(--forest);
-  clip-path: polygon(50% 0, 100% 100%, 0 100%);
 }
 
 p {
