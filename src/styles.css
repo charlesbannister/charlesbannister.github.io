@@ -150,7 +150,7 @@ p {
   margin: 0 0 16px;
 }
 
-/* Work: numbered rows, each marker a different shape and shade. */
+/* Work: numbered rows, each marker a green square. */
 ol.projects {
   list-style: none;
   padding: 0;
@@ -176,18 +176,7 @@ ol.projects {
   height: 44px;
   color: #fff;
   font: 800 18px/1 "Inter Tight", sans-serif;
-  background: var(--sage);
-  border-radius: 50%;
-}
-
-.projects li:nth-child(2)::before {
   background: var(--green);
-  border-radius: 0;
-}
-
-.projects li:nth-child(3)::before {
-  background: var(--forest);
-  border-radius: 22px 22px 0 0;
 }
 
 .projects strong {
