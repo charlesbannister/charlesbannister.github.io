@@ -16,6 +16,22 @@ Running `/publish` is Charles's go-ahead to push. Do not ask for a second confir
 
 ## 2. Apply the edit
 
+### Instructions in `<input>` tags
+
+- Carry out every `<input>…</input>` instruction in `content.md` (see `format.md`). If one is unclear, or would break the single-page rules, ask before continuing.
+- Once done, remove the `<input>` block from `content.md`, leaving whatever content the instruction produced, so it isn't applied twice. Never put the tag or its text in the HTML.
+
+### Images
+
+When `content.md` (or an `<input>` instruction) adds an image from a URL or a local path:
+- Download or copy it into `src/assets/images/` with a short descriptive kebab-case name. Never hotlink.
+- Resize to at most 1360px wide and convert to WebP (`magick in -resize '1360x>' -quality 82 out.webp`, or `cwebp -resize 1360 0 -q 82`). Keep the original only if Charles asks.
+- Rewrite the `content.md` line to point at the local file (`![alt](src/assets/images/name.webp)`), and add the `<img>` to the HTML with real `width`/`height` (`sips -g pixelWidth -g pixelHeight`) and `loading="lazy"`.
+- Alt text is required: if the brackets are empty, ask for it.
+- If the source is clearly someone else's image (a stock site, another company's site), mention it and ask Charles to confirm it can be used.
+
+### Text
+
 - Update `src/index.html` so its text matches `content.md` exactly. Only touch the markup that needs to change; leave everything else byte-for-byte.
 - Use Charles's wording as written. Do not rewrite, polish or "improve" it. British English throughout.
 - If you spot a clear typo, a broken Markdown construct, or something that breaks the single-page rules in `format.md`, don't silently fix it: list it and ask before continuing. Anything Charles agrees to change goes into both `content.md` and the HTML.

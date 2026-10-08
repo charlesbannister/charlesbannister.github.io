@@ -17,6 +17,25 @@
 | `[text](url)` external link | `<a href="url" target="_blank" rel="noopener">text</a>` |
 | `**bold**` / `*italic*` or `_italic_` inline | `<strong>` / `<em>` |
 
+## Instructions: `<input>…</input>`
+
+Anything inside `<input>…</input>` in content.md is an instruction from Charles to Claude, not page content. It can sit anywhere (inline or on its own lines, one line or several) and refers to the content around it, e.g. `<input>add this photo here: https://…</input>` or `<input>make this list two columns</input>`. Never publish the tag or its text.
+
+## Images
+
+`![alt text](source)` becomes `<img src="assets/images/<name>.webp" alt="alt text" width="…" height="…" loading="lazy">`. Images are always served from this site, never hotlinked.
+
+`![alt text](source "note")`, an image with a Markdown title, becomes a flip card: the image flips to show the note on hover, keyboard focus or tap.
+
+```html
+<figure class="flip" tabindex="0">
+  <div class="flip-inner">
+    <img class="flip-front" src="assets/images/<name>.webp" alt="alt text" width="…" height="…" loading="lazy">
+    <p class="flip-back">note</p>
+  </div>
+</figure>
+```
+
 Section ids: keep existing ids (`work`, `experience`, `freelance`, `hobbies`) for existing sections, matched by position and heading, even if the heading text changes. A new section gets a short lowercase slug id from its heading (one or two words). Sections appear in `<main>` in the same order as in `content.md`.
 
 HTML style: two-space indentation matching the current file, straight apostrophes as typed, `&` written as `&amp;` in HTML, no `<br>` inside prose.

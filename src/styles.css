@@ -258,6 +258,64 @@ dd {
   background: var(--forest);
 }
 
+/* Image that flips to a note on hover, focus or tap. */
+.flip {
+  width: min(280px, 100%);
+  aspect-ratio: 1;
+  margin: 8px 0 24px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.flip-inner {
+  position: relative;
+  height: 100%;
+  transition: transform 0.6s ease;
+  transform-style: preserve-3d;
+}
+
+.flip:hover .flip-inner,
+.flip:focus .flip-inner {
+  transform: rotateY(180deg);
+}
+
+.flip:focus-visible {
+  outline: 3px solid var(--green);
+  outline-offset: 4px;
+}
+
+.flip-front,
+.flip-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  backface-visibility: hidden;
+}
+
+.flip-front {
+  display: block;
+  object-fit: cover;
+}
+
+.flip-back {
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: var(--forest);
+  color: #fff;
+  font: 600 20px/1.35 "Inter Tight", sans-serif;
+  text-align: center;
+  transform: rotateY(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flip-inner {
+    transition: none;
+  }
+}
+
 footer {
   padding: 28px 0;
   background: var(--ink);

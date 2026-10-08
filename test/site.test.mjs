@@ -106,3 +106,10 @@ test("content.md headings and title mirror the homepage", () => {
   const htmlHeadings = [...html.matchAll(/<h2[^>]*>(.+)<\/h2>/g)].map((m) => decode(m[1]));
   assert.deepEqual(mdHeadings, htmlHeadings);
 });
+
+test("homepage never contains content.md instruction blocks or hotlinked images", () => {
+  const html = readRequired("src/index.html");
+
+  assert.doesNotMatch(html, /<\/?input\b/i);
+  assert.doesNotMatch(html, /<img[^>]+src="https?:/i);
+});

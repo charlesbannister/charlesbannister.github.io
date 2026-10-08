@@ -26,6 +26,8 @@ _This falls in with my freelancer work, but it's worth its own section after thr
 It's my job to build tools and automations for their Paid Media team. It has spanned Google Ads Scripts, AI Systems & MCPs, Web Apps and Python tools - anything to make the ads more profitable, and the team more productive.
 I've probably learnt more here than anywhere else, including university!
 
+**Freelance · Software engineer**
+
 **Digital marketing and e-commerce · E-commerce Manager**
 I started as a PPC Executive, then had a stint as a Commercial Analyst before settling as E-commerce Manager. I really enjoyed this job. It helped me understand the other side of it all - margins, stock, staffing, ROI, scaling, the lot.
 It gave me experience with Google Ads, Affiliates, Display Ads, Tracking, Retargeting, A/B Testing (CRO), not to mention all of the reporting and analysis involved.
@@ -55,10 +57,23 @@ It might be:
 - Reporting & dashboards
 - Data processing & pipelines
 
+If you've got a problem, we can work together to come up with a solution.
+Then, I can build it in a reliable, maintainable manner.
+
 ## Hobbies and interests
 
-I'm a big music fan, particularly bands like The Beatles, The Smiths and The Kinks, but I also love a lot of Soul and Motown, and lots besides. I often attempt these songs on my guitar, to the dismay of my neighbours, dog and wife.
+It's tempting to just talk about music here.
+If I had to take five artists to a desert island I'd probably take The Smiths, The Beatles, Sam Cooke, The Kinks...then probably something operatic or classical - it would be a nice change.
 
-I'm also learning Spanish at a snail's pace. I understand a good few words, but I can't understand anything people say back to me, unfortunately.
+![The Beatles' Abbey Road album cover](src/assets/images/abbey-road.webp "The second half of this album, in particular, is a masterclass")
+
+I often attempt songs from these artists on my guitar to the dismay of my neighbours, dog and wife.
+
+I'm also learning Spanish at a snail's pace. Yo se un pocito palabras (no idea if that's right), but I can't understand anything people say back to me, unfortunately.
 
 I'm also into baking and growing herbs, though the twain seldom meet.
+The herb thing is new. I currently have some Basil and Scallions peeking their heads above the soil and it's very exciting.
+
+Plus just, ya know, watching Telly! Maybe it's boring, but a Tuesday eve with my wife, a glass of red (Garnacha) and an episode of Gogglebox is a real treat.
+
+But enough about me!
