@@ -24,6 +24,10 @@ test("homepage describes Charles Bannister and freelance software work", () => {
   assert.match(html, /programmer/i);
   assert.match(html, /GoDaddy/);
   assert.match(html, /Freelance software work/);
+  assert.match(html, /PHP/);
+  assert.match(html, /Laravel/);
+  assert.match(html, /Web development/i);
+  assert.match(html, /web app/i);
   assert.doesNotMatch(html, /mailto:/);
   assert.doesNotMatch(html, /hello@charlesbannister\.com/);
   assert.doesNotMatch(html, /Email me/);
