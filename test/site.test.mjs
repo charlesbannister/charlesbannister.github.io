@@ -90,3 +90,19 @@ test("GitHub Pages workflow tests and builds dist before main-branch deployment"
   assert.match(workflow, /path:\s*dist/);
   assert.match(workflow, /actions\/deploy-pages@/);
 });
+
+test("content.md headings and title mirror the homepage", () => {
+  const html = readRequired("src/index.html");
+  const content = readRequired("content.md");
+  const decode = (text) => text.replace(/&amp;/g, "&").trim();
+
+  const title = content.match(/^title: (.+)$/m)?.[1];
+  assert.equal(title, decode(html.match(/<title>(.+)<\/title>/)[1]));
+
+  const h1 = content.match(/^# (.+)$/m)?.[1];
+  assert.equal(h1, decode(html.match(/<h1[^>]*>(.+)<\/h1>/)[1]));
+
+  const mdHeadings = [...content.matchAll(/^## (.+)$/gm)].map((m) => m[1]);
+  const htmlHeadings = [...html.matchAll(/<h2[^>]*>(.+)<\/h2>/g)].map((m) => decode(m[1]));
+  assert.deepEqual(mdHeadings, htmlHeadings);
+});
