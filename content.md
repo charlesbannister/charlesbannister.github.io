@@ -7,35 +7,53 @@ description: Charles Bannister is a programmer and web developer building web ap
 
 If you want to get in touch, my email address is my full name @ gmail.com. I'm also on [LinkedIn](https://www.linkedin.com/in/charles-bannister/).
 
-## The sort of thing I get up to
+## Experience
 
-1. **Web development** Web applications and websites from the database up: PHP and Laravel, plus Node.js, Vue, React and TypeScript. Customer-facing sites, admin dashboards, internal tools and the APIs behind them, built to be maintained long after launch.
-2. **Cloud and backend** Backend services, APIs, internal platforms and automation tooling in Python and JavaScript. AWS Lambda, ECS/Fargate, Docker, CloudFormation and CI/CD, from first requirements to running in production.
-3. **Data and automation** Scheduled ETL and automation workflows with PostgreSQL, BigQuery, Redshift, pandas and Prefect. Preparing warehouse data for reporting, applications and the people who rely on it.
-4. **Reliability** Unit and integration tests, CI quality checks, linting, CloudWatch monitoring, Slack alerting, exception tracking and structured error handling. Systems that tell you when something is wrong.
+After working freelance for a total of ~11 years my projects have been all over the shop. It keeps me on my toes. Here are a few major threads:
+
+1. **Website & Web App Development** This is where it all began, and it continues to this day. My degree is in "Interactive Digital Media" which was essentially a Web & Graphic design degree. On the backend I've worked with Laravel & Wordpress (PHP), Express (Node.js), FastAPI, Django & Flask (Python). For the shop window, I've written a lot of vanilla JavaScript/TypeScript, but also worked extensively with libraries like Vue & React.
+   I'm _ok_ with CSS, but if you're looking for a slick, well designed UI/UX I am _not_ your man.
+2. **Cloud & DevOps** I have a decent amount of Google Cloud experience (APIs, BigQuery) however, I've used AWS far more. Within AWS, I rely on a lot of the classics: EC2, S3, Lambda, ECS/Fargate, SQS, SNS, WAF, CloudFormation, and more acronyms besides!
+   I've also worked with AWS's Step Functions as a workflow orchestration tool, as well as Prefect and Airflow.
+   Whilst I don't claim to be a DevOps expert, CI/CD via GitHub actions, Pre-commit checks, linting, automated testing, strong observability, etc. are a large part of every project I work on.
+3. **Data and automation** I got a job in PPC and immediately had access to all of this data! It needed processing, turning into reports, analysis, etc. and I reached immediately for Python. I've worked with Python (including Pandas, NumPy, Polars, etc.) every since - going on ten years.
+   As well as workflow orchestration, I've worked with Data Lakes and Data Warehouses, AWS Athena & RedShift, BigQuery, as well as DuckDB/Parquet workflows.
 
 ## Experience
 
 **GoDaddy · Software engineer**
-Working across software engineering, marketing technology and internal platforms: migrating legacy Google Apps Script systems into Python and AWS, building automation and data tooling for marketing teams, running Lambda and containerised services, and contributing to LLM integrations and company-wide MCP services.
+_This falls in with my freelancer work, but it's worth its own section after three years of almost full time_
+It's my job to build tools and automations for their Paid Media team. It has spanned Google Ads Scripts, AI Systems & MCPs, Web Apps and Python tools - anything to make the ads more profitable, and the team more productive.
+I've probably learnt more here than anywhere else, including university!
 
 **Digital marketing and e-commerce · E-commerce Manager**
-Promoted twice to E-commerce Manager. Alongside paid media, several in-house websites and international expansion, much of the job was programming, automation and data analysis, and it contributed to substantial year-over-year sales growth.
+I started as a PPC Executive, then had a stint as a Commercial Analyst before settling as E-commerce Manager. I really enjoyed this job. It helped me understand the other side of it all - margins, stock, staffing, ROI, scaling, the lot.
+It gave me experience with Google Ads, Affiliates, Display Ads, Tracking, Retargeting, A/B Testing (CRO), not to mention all of the reporting and analysis involved.
+I made sure I had access to _everything_ and automated as much as possible. Probably a little too much, in fact!
 
-Web stack: PHP and Laravel, Node.js, Express, FastAPI, Vue, React and TypeScript, across full web application development as well as backend and systems work.
-
-## Freelance software work
+## Available to hire
 
 I'm available for freelance projects, from web development and web apps to the systems behind them, especially where a business has an operational problem that needs a dependable system built around it.
+What can I help with?
 
-- Web application development in PHP and Laravel: new builds, new features and looking after existing apps
-- Websites and web apps with Vue, React or plain server-rendered pages
-- Backend services, APIs and internal tools
-- AWS builds and migrations: Lambda, ECS/Fargate, Docker, infrastructure as code
-- Moving spreadsheet and Apps Script processes into proper Python services
-- Data pipelines, ETL and reporting with BigQuery, Redshift or PostgreSQL
-- Testing, CI, monitoring and alerting for systems that already exist
-- LLM integrations and MCP services
+### Let's start with some things I _don't_ do:
+
+Pretty Pictures & Design: Anything heavily graphic design or art oriented, whether it's a beautiful website or graphics for print. This includes UX/UI design, logos, branding, anything like that. This stuff is a real craft, and it's worth hiring a professional.
+
+Small business Brochure-type websites: there are people who have this down to a fine art. Use them, or maybe try AI or Squarespace.
+
+### As for things I _do_ do
+
+I'm better at backends, services, tooling, connecting things together.
+It might be:
+
+- A widget or calcualator for your website
+- A custom web app
+- Help with your existing service, website or system
+- Conversion tracking (server side, or otherwise)
+- Custom automation, such as automatically making Google Ads changes
+- Reporting & dashboards
+- Data processing & pipelines
 
 ## Hobbies and interests
 

@@ -23,7 +23,7 @@ test("homepage describes Charles Bannister and freelance software work", () => {
   assert.match(html, /Charles Bannister/);
   assert.match(html, /programmer/i);
   assert.match(html, /GoDaddy/);
-  assert.match(html, /Freelance software work/);
+  assert.match(html, /Available to hire/);
   assert.match(html, /PHP/);
   assert.match(html, /Laravel/);
   assert.match(html, /Web development/i);
