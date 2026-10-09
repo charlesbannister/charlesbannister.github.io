@@ -351,7 +351,8 @@ dd {
   text-align: center;
 }
 
-/* Logo marquee: full-width band, two identical tracks scrolling in a loop. */
+/* Logo marquee: full-width single row, two identical tracks scrolling in a loop.
+   It scrolls even with reduced motion turned on, at Charles's request; hover pauses it. */
 .logo-marquee {
   position: relative;
   z-index: 1;
@@ -359,8 +360,6 @@ dd {
   overflow: hidden;
   margin-top: 48px;
   padding: 20px 0;
-  border-top: 2px solid var(--ink);
-  border-bottom: 2px solid var(--ink);
   mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
 }
 
@@ -401,23 +400,6 @@ dd {
 @media (prefers-reduced-motion: reduce) {
   .flip-inner {
     transition: none;
-  }
-
-  .logo-marquee {
-    mask-image: none;
-  }
-
-  .logo-track {
-    flex-wrap: wrap;
-    flex: 1;
-    justify-content: center;
-    gap: 16px 32px;
-    padding: 0 16px;
-    animation: none;
-  }
-
-  .logo-track[aria-hidden="true"] {
-    display: none;
   }
 }
 
