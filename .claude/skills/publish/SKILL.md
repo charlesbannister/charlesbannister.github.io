@@ -7,6 +7,10 @@ description: Apply Charles's edits in content.md to src/index.html, test, commit
 
 Running `/publish` is Charles's go-ahead to push. Do not ask for a second confirmation unless something below says to stop.
 
+## 0. Save a copy of content.md first
+
+Before anything else, and before any edit to `content.md` (by you or a sync), copy it to `content-versions/content-YYYY-MM-DD-HHMMSS.md` (`mkdir -p content-versions && cp content.md "content-versions/content-$(date +%Y-%m-%d-%H%M%S).md"`). Skip the copy only if it is byte-identical to the newest file already there (`cmp`). Never edit or delete files in `content-versions/`. They are committed with the next publish.
+
 ## 1. Work out what changed
 
 - `git fetch origin`. If `origin/main` has commits that touch `src/index.html` and aren't in local `main`, stop: the site changed elsewhere. Suggest committing `content.md`, pulling, and reconciling before publishing.
@@ -45,7 +49,7 @@ When `content.md` (or an `<input>` instruction) adds an image from a URL or a lo
 ## 4. Ship
 
 - Show `git diff --stat` and a short plain-English summary of the content changes.
-- Commit `content.md`, `src/index.html` and any test change together, message like `Update homepage: <what changed>`. Push to `main`.
+- Commit `content.md`, any new `content-versions/` copies, the `src/` changes and any test change together, message like `Update homepage: <what changed>`. Push to `main`.
 - `gh run watch` the "Deploy GitHub Pages" run for that commit (`gh run list --branch main --limit 1` to find it). If it fails, show the failing step's log and stop.
 - Once deployed, `curl -s https://charlesbannister.com/` and confirm a distinctive phrase from the edit is there (allow a minute for the CDN; retry a few times before reporting a problem).
 - Finish with one line: what went live and the URL.

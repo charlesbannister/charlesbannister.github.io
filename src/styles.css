@@ -215,8 +215,12 @@ dt {
   font: 600 17px/1.3 "Inter Tight", sans-serif;
 }
 
+dl > div {
+  margin-bottom: 28px;
+}
+
 dd {
-  margin: 4px 0 22px;
+  margin: 6px 0 0;
   color: #dbe5db;
 }
 
@@ -239,7 +243,7 @@ dd {
 
 .plain-list {
   list-style: none;
-  margin: 0;
+  margin: 0 0 16px;
   padding: 0;
 }
 
@@ -262,7 +266,7 @@ dd {
 .flip {
   width: min(280px, 100%);
   aspect-ratio: 1;
-  margin: 8px 0 24px;
+  margin: 8px auto 24px;
   perspective: 1000px;
   cursor: pointer;
 }
@@ -310,9 +314,110 @@ dd {
   transform: rotateY(180deg);
 }
 
+/* Consecutive flip cards: three across, stacked on phones. */
+.flip-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 8px 0 24px;
+}
+
+.flip-row .flip {
+  width: 100%;
+  margin: 0;
+}
+
+.flip-row .flip-back {
+  padding: 16px;
+  font-size: 16px;
+}
+
+/* Photo with a caption. */
+.photo {
+  width: min(400px, 100%);
+  margin: 8px auto 24px;
+}
+
+.photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.photo figcaption {
+  margin-top: 8px;
+  color: var(--muted);
+  font: 15px/1.4 "Inter Tight", sans-serif;
+  text-align: center;
+}
+
+/* Logo marquee: full-width band, two identical tracks scrolling in a loop. */
+.logo-marquee {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  overflow: hidden;
+  margin-top: 48px;
+  padding: 20px 0;
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+
+.logo-track {
+  display: flex;
+  flex: none;
+  gap: 40px;
+  margin: 0;
+  padding: 0 40px 0 0;
+  list-style: none;
+  animation: marquee 60s linear infinite;
+}
+
+.logo-marquee:hover .logo-track {
+  animation-play-state: paused;
+}
+
+.logo-track li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--forest);
+  font: 600 16px/1 "Inter Tight", sans-serif;
+  white-space: nowrap;
+}
+
+.logo-track img {
+  width: 28px;
+  height: 28px;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .flip-inner {
     transition: none;
+  }
+
+  .logo-marquee {
+    mask-image: none;
+  }
+
+  .logo-track {
+    flex-wrap: wrap;
+    flex: 1;
+    justify-content: center;
+    gap: 16px 32px;
+    padding: 0 16px;
+    animation: none;
+  }
+
+  .logo-track[aria-hidden="true"] {
+    display: none;
   }
 }
 
@@ -353,5 +458,10 @@ footer a:hover {
   header img {
     width: 72px;
     height: 72px;
+  }
+
+  .flip-row {
+    grid-template-columns: min(280px, 100%);
+    justify-content: center;
   }
 }

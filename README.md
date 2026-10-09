@@ -18,7 +18,7 @@ The dev server is at `http://localhost:5173`.
 
 ## Editing content
 
-`content.md` mirrors the homepage text. In Claude Code: `/sync` refreshes it from `src/index.html`, edit it, then `/publish` applies the edits to the HTML, tests, pushes and checks the live site. The mapping is in `.claude/skills/publish/format.md`.
+`content.md` mirrors the homepage text. In Claude Code: `/sync` refreshes it from `src/index.html`, edit it, then `/publish` applies the edits to the HTML, tests, pushes and checks the live site. The mapping is in `.claude/skills/publish/format.md`. Both commands save a timestamped copy of `content.md` to `content-versions/` before changing anything.
 
 ## Deploy
 

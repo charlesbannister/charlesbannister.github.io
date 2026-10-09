@@ -13,7 +13,7 @@
 | Paragraph. Each line is its own paragraph: a single line break in content.md means a new `<p>` | `<p>` |
 | `1. **Label** text` list | `<ol class="projects">` with `<li><strong>Label</strong>` then the text on the next line. Indented continuation lines under an item become `<p>` elements inside that `<li>` (the first text line too, once there is more than one) |
 | `- item` list | `<ul class="plain-list">` with `<li>` items |
-| `**Term**` line directly followed by text lines (no blank line) | `<dt>Term</dt>` + `<dd>`; one text line is plain text in the `<dd>`, several become one `<p>` each; consecutive pairs share one `<dl>` |
+| `**Term**` line directly followed by text lines (no blank line) | A `<div>` holding `<dt>Term</dt>` + `<dd>`, so each entry is its own block; one text line is plain text in the `<dd>`, several become one `<p>` each; consecutive entries share one `<dl>`. A `**Term**` with no text gets a `<div>` with just the `<dt>` |
 | `[text](url)` external link | `<a href="url" target="_blank" rel="noopener">text</a>` |
 | `**bold**` / `*italic*` or `_italic_` inline | `<strong>` / `<em>` |
 
@@ -35,6 +35,35 @@ Anything inside `<input>…</input>` in content.md is an instruction from Charle
   </div>
 </figure>
 ```
+
+Image lines on consecutive lines (no blank line between) form a row: `<div class="flip-row">` holding the flip cards, three across on desktop and stacked on phones.
+
+An image line directly followed by an italic line (`_caption_`) is a photo with a caption:
+
+```html
+<figure class="photo">
+  <img src="assets/images/<name>.webp" alt="alt text" width="…" height="…" loading="lazy">
+  <figcaption>caption</figcaption>
+</figure>
+```
+
+Single images and photos are centred. Images are resized to at most 1360px wide (album covers and logos can stay at their original size if smaller). SVG sources are rendered to WebP.
+
+## Logo marquee
+
+A `Logos: Name, Name, …` line becomes a full-width scrolling band of technology logos at that point in the section, placed after the section's `.wrap` div (so it spans the page):
+
+```html
+<div class="logo-marquee" role="region" aria-label="Technologies I work with">
+  <ul class="logo-track">
+    <li><img src="assets/logos/<slug>.svg" alt="" width="28" height="28"><span>Name</span></li>
+    …
+  </ul>
+  <ul class="logo-track" aria-hidden="true"> …the same items again, for the seamless loop… </ul>
+</div>
+```
+
+`<slug>` is the name lowercased with runs of non-alphanumerics turned into `-` (`Node.js` → `node-js`, `GitHub Actions` → `github-actions`). For a new name, get its SVG from Simple Icons (`https://cdn.jsdelivr.net/npm/simple-icons@<pinned version>/icons/<slug>.svg`; search their slug list if it differs), or Devicon if Simple Icons doesn't have it (AWS comes from Devicon). Recolour it to `#2f4a35` and save it as `src/assets/logos/<slug>.svg`. Order in the band follows the order in the line.
 
 Section ids: keep existing ids (`work`, `experience`, `freelance`, `hobbies`) for existing sections, matched by position and heading, even if the heading text changes. A new section gets a short lowercase slug id from its heading (one or two words). Sections appear in `<main>` in the same order as in `content.md`.
 
