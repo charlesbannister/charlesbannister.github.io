@@ -1,11 +1,12 @@
 # content.md ↔ src/index.html mapping
 
-`content.md` mirrors the editable text of `src/index.html`. Fixed page chrome is not in it: the brand block ("Charles<br>Bannister"), the profile image, the footer, fonts and stylesheet links.
+`content.md` mirrors the editable text of `src/index.html`. Fixed page chrome is not in it: the brand block ("Charles<br>Bannister"), the profile image, the footer's name and GitHub link, fonts and stylesheet links.
 
 | content.md | src/index.html |
 | --- | --- |
 | Frontmatter `title` | `<title>` |
 | Frontmatter `description` | `<meta name="description">` |
+| Frontmatter `footer_quote` / `footer_quote_by` | `<blockquote class="footer-quote">` in the footer: `<p>` quote, `<cite>` author |
 | `# Heading` (one only) | `<h1 id="page-title">` in the header `.intro` |
 | Paragraphs after `#`, before the first `##` | `<p>` elements after the `<h1>` in the header `.intro` |
 | `## Heading` | A `<section id="…" aria-labelledby="…-title">` inside `<main>`, containing `<div class="wrap">` and `<h2 id="…-title">` |
@@ -47,7 +48,7 @@ An image line directly followed by an italic line (`_caption_`) is a photo with 
 </figure>
 ```
 
-Single images and photos are centred. Images are resized to at most 1360px wide (album covers and logos can stay at their original size if smaller). SVG sources are rendered to WebP.
+Single images and photos are centred. A flip card takes the image's shape: square by default, `flip-portrait` (3:4) for portrait photos. Add `flip-small` (200px) when Charles asks for a smaller card. Frankie's photo uses both, plus `flip-left` to sit left-aligned instead of centred. `flip-light` gives the back the page background (`--bg`) with dark green (`--forest`) text; the Blackpool FC card uses it. Images are resized to at most 1360px wide (album covers and logos can stay at their original size if smaller). SVG sources are rendered to WebP.
 
 ## Logo marquee
 

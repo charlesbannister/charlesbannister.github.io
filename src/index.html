@@ -9,7 +9,7 @@
     >
     <title>Charles Bannister | Programmer and Web Developer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;800&family=Newsreader:ital,opsz@0,6..72;1,6..72&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;800&family=Newsreader:ital,opsz@0,6..72;1,6..72&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
@@ -192,16 +192,18 @@
             </figure>
           </div>
           <p>I often attempt songs from these artists on my guitar to the dismay of my neighbours, dog and wife.</p>
-          <figure class="photo">
-            <img src="assets/images/frankie.webp" alt="Frankie, a young black dog, sitting on a wooden kitchen floor" width="800" height="1067" loading="lazy">
-            <figcaption>Frankie, the dog in question. Absolutely bonkers.</figcaption>
+          <figure class="flip flip-small flip-portrait flip-left" tabindex="0">
+            <div class="flip-inner">
+              <img class="flip-front" src="assets/images/frankie.webp" alt="Frankie, a young black dog, sitting on a wooden kitchen floor" width="400" height="533" loading="lazy">
+              <p class="flip-back">Frankie, the dog in question. Absolutely bonkers.</p>
+            </div>
           </figure>
           <p>I'm also learning Spanish at a snail's pace. Yo se un pocito palabras (no idea if that's right), but I can't understand anything people say back to me, unfortunately.</p>
           <p>I'm also into baking and growing herbs, though the twain seldom meet.</p>
           <p>The herb thing is new. I currently have some Basil and Scallions peeking their heads above the soil and it's very exciting.</p>
           <p>Plus just, ya know, watching Telly! Maybe it's boring, but a Tuesday eve with my wife, a glass of red (Garnacha) and an episode of Gogglebox is a real treat.</p>
           <p>But enough about me!</p>
-          <figure class="flip" tabindex="0">
+          <figure class="flip flip-light" tabindex="0">
             <div class="flip-inner">
               <img class="flip-front" src="assets/images/blackpool-fc.webp" alt="Blackpool FC crest" width="560" height="560" loading="lazy">
               <p class="flip-back">Up the Pool!</p>
@@ -212,7 +214,13 @@
     </main>
 
     <footer>
-      <p class="wrap">Charles Bannister · <a href="https://github.com/charlesbannister" target="_blank" rel="noopener">GitHub</a></p>
+      <div class="wrap">
+        <p>Charles Bannister · <a href="https://github.com/charlesbannister" target="_blank" rel="noopener">GitHub</a></p>
+        <blockquote class="footer-quote">
+          <p>We are all in the gutter, but some of us are looking at the stars.</p>
+          <cite>Oscar Wilde</cite>
+        </blockquote>
+      </div>
     </footer>
   </body>
 </html>

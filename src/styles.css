@@ -314,6 +314,31 @@ dd {
   transform: rotateY(180deg);
 }
 
+/* Smaller flip card, and a portrait one that keeps a photo's 3:4 shape. */
+.flip-small {
+  width: min(200px, 100%);
+}
+
+.flip-small .flip-back {
+  padding: 16px;
+  font-size: 16px;
+}
+
+.flip-portrait {
+  aspect-ratio: 3 / 4;
+}
+
+.flip-left {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Back matches the page background, with green text. */
+.flip-light .flip-back {
+  background: var(--bg);
+  color: var(--forest);
+}
+
 /* Consecutive flip cards: three across, stacked on phones. */
 .flip-row {
   display: grid;
@@ -414,6 +439,35 @@ footer p {
   margin: 0;
 }
 
+footer .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 32px;
+}
+
+.footer-quote {
+  max-width: 34ch;
+  margin: 0;
+  color: var(--sage);
+  text-align: right;
+}
+
+.footer-quote p {
+  font: italic 22px/1.25 "Instrument Serif", Georgia, serif;
+}
+
+.footer-quote cite {
+  display: block;
+  margin-top: 6px;
+  color: #c9d6c9;
+  font-style: normal;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 footer a:hover {
   color: #fff;
 }
@@ -445,5 +499,9 @@ footer a:hover {
   .flip-row {
     grid-template-columns: min(280px, 100%);
     justify-content: center;
+  }
+
+  .footer-quote {
+    text-align: left;
   }
 }
