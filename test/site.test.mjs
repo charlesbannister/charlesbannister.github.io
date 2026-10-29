@@ -113,3 +113,25 @@ test("homepage never contains content.md instruction blocks or hotlinked images"
   assert.doesNotMatch(html, /<\/?input\b/i);
   assert.doesNotMatch(html, /<img[^>]+src="https?:/i);
 });
+
+test("jerseys page lists scraped kids' kits from a local JSON file", async () => {
+  const html = readRequired("src/jerseys/index.html");
+  assert.match(html, /Kids' football kits/);
+  assert.match(html, /fetch\("kids-kits\.json"\)/);
+
+  const data = JSON.parse(readRequired("src/jerseys/kids-kits.json"));
+  assert.ok(data.kits.length > 100, "expected a full scrape of kids' kits");
+  for (const kit of data.kits) {
+    assert.match(kit.url, /^https:\/\/www\.ifunstudio\.ru\/products\//);
+    assert.ok(kit.team, `${kit.title} has a team`);
+  }
+
+  const { isKids, teamName } = await import("../tools/scrape-ifun-kids.mjs");
+  assert.equal(teamName("2025/2026 Manchester City Home Shirt Kids Size"), "Manchester City");
+  assert.equal(teamName("1998 Retro Brazil Home Shirt Kids Size"), "Brazil");
+  assert.equal(teamName("2026 New York Red Bulls Home Shirt Kids Size"), "New York Red Bulls");
+  assert.equal(teamName("2026 Mexico National Team Away Jersey Kids Size"), "Mexico");
+  assert.equal(isKids({ title: "2025/2026 Manchester City KidSuper Joint Edition White Shirt", handle: "x" }), false);
+  assert.equal(isKids({ title: "2024 France Half-Pull Training Suit Baby blue Shirt Set", handle: "x" }), false);
+  assert.equal(isKids({ title: "2024/2025 Liverpool Home Shirt Kids Size", handle: "x" }), true);
+});

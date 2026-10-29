@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Every kids' football kit on iFun Studio, listed by team.">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Kids' Football Kits</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;800&family=Newsreader:ital,opsz@0,6..72;1,6..72&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --ink: #16131a;
+        --muted: #5a5560;
+        --line: #d5ddd4;
+        --sage: #96b198;
+        --green: #5f8466;
+        --forest: #2f4a35;
+        --bg: #fbfaf7;
+        --card: #ffffff;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font: 17px/1.5 "Newsreader", Georgia, serif;
+      }
+
+      a { color: inherit; text-decoration-color: var(--green); text-underline-offset: 3px; }
+      a:hover { color: var(--green); }
+
+      .wrap { width: min(1200px, calc(100% - 32px)); margin: 0 auto; }
+
+      header { background: var(--forest); color: #fff; padding: 40px 0 28px; }
+      header h1 { font: 800 clamp(30px, 6vw, 52px)/1.05 "Inter Tight", sans-serif; margin: 0 0 10px; }
+      header p { margin: 0; color: #dfe8df; max-width: 640px; }
+
+      .controls {
+        position: sticky; top: 0; z-index: 2;
+        background: var(--bg); border-bottom: 1px solid var(--line);
+        padding: 14px 0;
+      }
+      .controls .wrap { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+      .controls input, .controls select {
+        font: 16px "Inter Tight", sans-serif;
+        padding: 9px 12px; border: 1px solid var(--line); border-radius: 8px; background: #fff; color: var(--ink);
+      }
+      .controls input[type="search"] { flex: 1 1 240px; min-width: 0; }
+      .controls label { font: 15px "Inter Tight", sans-serif; display: flex; gap: 6px; align-items: center; }
+      .count { font: 600 15px "Inter Tight", sans-serif; color: var(--muted); margin-left: auto; }
+
+      .teams { padding: 22px 0 6px; }
+      .teams h2, .team h2 { font: 800 22px/1.2 "Inter Tight", sans-serif; margin: 0 0 12px; }
+      .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+      .chips a {
+        font: 14px "Inter Tight", sans-serif; text-decoration: none;
+        border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; background: #fff;
+      }
+      .chips a span { color: var(--muted); }
+      .chips a:hover { border-color: var(--green); }
+
+      .team { padding: 26px 0 8px; border-top: 1px solid var(--line); margin-top: 18px; scroll-margin-top: calc(var(--bar, 72px) + 12px); }
+      .team h2 small { font-weight: 400; color: var(--muted); font-size: 15px; margin-left: 6px; }
+      .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px; }
+
+      .kit {
+        background: var(--card); border: 1px solid var(--line); border-radius: 10px; overflow: hidden;
+        display: flex; flex-direction: column; text-decoration: none;
+      }
+      .kit:hover { border-color: var(--green); color: inherit; }
+      .kit img { width: 100%; aspect-ratio: 1; object-fit: cover; background: #eef2ed; display: block; }
+      .kit div { padding: 10px 12px 12px; display: flex; flex-direction: column; gap: 4px; flex: 1; }
+      .kit strong { font: 600 14px/1.3 "Inter Tight", sans-serif; }
+      .kit .meta { font: 13px "Inter Tight", sans-serif; color: var(--muted); }
+      .kit .price { font: 800 15px "Inter Tight", sans-serif; color: var(--forest); margin-top: auto; }
+      .tag { display: inline-block; font: 600 11px "Inter Tight", sans-serif; text-transform: uppercase; letter-spacing: .04em;
+        background: #e7efe6; color: var(--forest); border-radius: 4px; padding: 1px 6px; margin-right: 4px; }
+
+      .empty { padding: 40px 0; color: var(--muted); }
+      footer { padding: 40px 0; color: var(--muted); font-size: 15px; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap">
+        <h1>Kids' football kits</h1>
+        <p id="intro">Every kids' kit on iFun Studio, listed by team. Click a kit to open it in the shop.</p>
+      </div>
+    </header>
+
+    <div class="controls">
+      <div class="wrap">
+        <input type="search" id="q" placeholder="Search team or kit, e.g. Arsenal away" aria-label="Search kits">
+        <select id="kind" aria-label="Team type">
+          <option value="">All teams</option>
+          <option value="club">Clubs</option>
+          <option value="national">National teams</option>
+        </select>
+        <select id="era" aria-label="Era">
+          <option value="">Current and retro</option>
+          <option value="current">Current only</option>
+          <option value="retro">Retro only</option>
+        </select>
+        <span class="count" id="count"></span>
+      </div>
+    </div>
+
+    <main class="wrap">
+      <section class="teams">
+        <h2>Teams</h2>
+        <nav class="chips" id="chips" aria-label="Jump to team"></nav>
+      </section>
+      <div id="list"></div>
+    </main>
+
+    <footer>
+      <div class="wrap" id="source"></div>
+    </footer>
+
+    <script>
+      const els = Object.fromEntries(["q", "kind", "era", "count", "chips", "list", "source"].map((id) => [id, document.getElementById(id)]));
+      let kits = [];
+
+      const slug = (s) => "team-" + s.toLowerCase().normalize("NFD").replace(/[^a-z0-9]+/g, "-");
+      const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+      const money = (n) => "$" + n.toFixed(2);
+
+      function sizeRange(sizes) {
+        return sizes.length ? `Sizes ${sizes[0]}–${sizes[sizes.length - 1]}` : "";
+      }
+
+      function card(k) {
+        const price = k.priceMax > k.price ? `${money(k.price)}–${money(k.priceMax)}` : money(k.price);
+        return `<a class="kit" href="${esc(k.url)}" target="_blank" rel="noopener">
+          <img src="${esc(k.image)}" alt="" loading="lazy" width="300" height="300">
+          <div>
+            <strong>${esc(k.title)}</strong>
+            <span class="meta">${k.retro ? '<span class="tag">Retro</span>' : ""}${esc(sizeRange(k.sizes))}</span>
+            <span class="price">${price}</span>
+          </div>
+        </a>`;
+      }
+
+      function render() {
+        const words = els.q.value.toLowerCase().split(/\s+/).filter(Boolean);
+        const shown = kits.filter((k) => {
+          if (els.kind.value === "club" && k.national) return false;
+          if (els.kind.value === "national" && !k.national) return false;
+          if (els.era.value === "retro" && !k.retro) return false;
+          if (els.era.value === "current" && k.retro) return false;
+          const text = `${k.team} ${k.title}`.toLowerCase();
+          return words.every((w) => text.includes(w));
+        });
+
+        const byTeam = new Map();
+        for (const k of shown) byTeam.set(k.team, [...(byTeam.get(k.team) ?? []), k]);
+        const teams = [...byTeam.keys()].sort((a, b) => a.localeCompare(b));
+
+        els.count.textContent = `${shown.length} kit${shown.length === 1 ? "" : "s"} · ${teams.length} team${teams.length === 1 ? "" : "s"}`;
+        els.chips.innerHTML = teams.map((t) => `<a href="#${slug(t)}">${esc(t)} <span>${byTeam.get(t).length}</span></a>`).join("");
+        els.list.innerHTML = teams.length
+          ? teams.map((t) => `<section class="team" id="${slug(t)}">
+              <h2>${esc(t)}<small>${byTeam.get(t).length} kit${byTeam.get(t).length > 1 ? "s" : ""}</small></h2>
+              <div class="grid">${byTeam.get(t).map(card).join("")}</div>
+            </section>`).join("")
+          : '<p class="empty">No kits match that search.</p>';
+      }
+
+      fetch("kids-kits.json")
+        .then((r) => r.json())
+        .then((data) => {
+          kits = data.kits;
+          const when = new Date(data.scrapedAt).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+          els.source.innerHTML = `Data from <a href="${esc(data.source)}" target="_blank" rel="noopener">iFun Studio</a>, checked ${when}. Prices and stock may have changed since.`;
+          render();
+        })
+        .catch(() => { els.list.innerHTML = '<p class="empty">Could not load the kit list.</p>'; });
+
+      for (const el of [els.q, els.kind, els.era]) el.addEventListener("input", render);
+
+      // Keep jumped-to team headings clear of the sticky bar, which wraps taller on phones.
+      const bar = document.querySelector(".controls");
+      new ResizeObserver(() => document.documentElement.style.setProperty("--bar", bar.offsetHeight + "px")).observe(bar);
+    </script>
+  </body>
+</html>
