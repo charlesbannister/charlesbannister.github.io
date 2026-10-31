@@ -46,6 +46,17 @@ test("washer disinfectors mockup is a static noindex preview with local logo", (
   assert.ok(statSync(projectPath("src/mockups/washer-disinfectors/assets/logo.png")).size > 0);
 });
 
+test("DDL redesign mockups are static noindex pages with local assets", () => {
+  for (const key of ["a", "b", "c"]) {
+    for (const page of ["home", "autoclave-service"]) {
+      const html = readRequired(`src/mockups/ddl-redesign/${key}-${page}.html`);
+      assert.match(html, /name="robots" content="noindex, nofollow, noarchive"/);
+      assert.match(html, new RegExp(`assets/${key}\\.css`));
+    }
+  }
+  assert.ok(statSync(projectPath("src/mockups/ddl-redesign/assets/img/logo.png")).size > 0);
+});
+
 test("robots.txt hides mockups from crawlers", () => {
   const robots = readRequired("src/robots.txt");
   assert.match(robots, /Disallow: \/mockups\//);
