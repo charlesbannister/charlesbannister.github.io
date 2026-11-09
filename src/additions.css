@@ -1,0 +1,343 @@
+/* Additions for the marketing + software homepage mock-up.
+   Everything here is new; styles.css is an unchanged copy of the live site. */
+
+/* Location line under the intro */
+header .intro p.location {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  font: 600 16px/1.3 "Inter Tight", sans-serif;
+}
+
+header .location svg {
+  flex: none;
+}
+
+/* Areas of expertise: Marketing & Analytics row, then Software row,
+   each followed by a full-width logo strip */
+.wrap.wrap-wide {
+  width: min(1120px, calc(100% - 32px));
+}
+
+.expertise-row {
+  margin-top: 40px;
+}
+
+.col-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 16px;
+  font: 800 clamp(24px, 3vw, 28px)/1.05 "Inter Tight", sans-serif;
+  letter-spacing: -0.02em;
+  color: var(--forest);
+}
+
+.col-title::before {
+  content: "";
+  flex: none;
+  width: 14px;
+  height: 14px;
+  background: var(--green);
+}
+
+ul.threads {
+  display: grid;
+  gap: 0 32px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.threads-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.threads-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+.threads li {
+  padding: 18px 0;
+  border-top: 2px solid var(--ink);
+}
+
+.threads strong {
+  display: block;
+  margin-bottom: 4px;
+  font: 600 18px/1.3 "Inter Tight", sans-serif;
+}
+
+#work .logo-marquee {
+  margin-top: 16px;
+}
+
+@media (max-width: 1000px) {
+  .threads-4, .threads-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+  .threads-4, .threads-3 { grid-template-columns: 1fr; }
+}
+
+/* What people say: Upwork record plus a wall of quotes */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+}
+
+.stats li {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 20px 16px;
+  border-left: 2px solid var(--ink);
+}
+
+.stats li:first-child {
+  border-left: 0;
+}
+
+.stats b {
+  color: var(--forest);
+  font: 800 clamp(32px, 4.5vw, 48px)/1 "Inter Tight", sans-serif;
+  letter-spacing: -0.03em;
+}
+
+.stats span {
+  color: var(--muted);
+  font: 600 15px/1.3 "Inter Tight", sans-serif;
+}
+
+.stats-link {
+  margin: 12px 0 32px;
+  font: 600 16px/1.3 "Inter Tight", sans-serif;
+}
+
+.reviews {
+  columns: 3 300px;
+  column-gap: 24px;
+}
+
+.review {
+  break-inside: avoid;
+  margin: 0 0 24px;
+  padding: 20px 20px 16px;
+  background: #fff;
+  border: 2px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--sage);
+}
+
+.review blockquote {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.review blockquote::before {
+  content: "\201C";
+  display: block;
+  height: 28px;
+  color: var(--green);
+  font: 800 52px/1 "Inter Tight", sans-serif;
+}
+
+.review blockquote p {
+  margin: 0 0 10px;
+}
+
+.review figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font: 600 14px/1.3 "Inter Tight", sans-serif;
+}
+
+.review strong {
+  font-weight: 700;
+  background: linear-gradient(transparent 60%, rgba(150, 177, 152, .45) 60%);
+}
+
+/* Pull quote above "What people say" */
+.pull-quote {
+  margin: 0 0 48px;
+  padding-left: 24px;
+  border-left: 6px solid var(--green);
+}
+
+.pull-quote p {
+  margin: 0 0 8px;
+  font: italic clamp(32px, 5vw, 48px)/1.1 "Instrument Serif", Georgia, serif;
+  color: var(--forest);
+}
+
+.pull-quote p::before { content: "\201C"; }
+.pull-quote p::after { content: "\201D"; }
+
+.pull-quote cite {
+  color: var(--muted);
+  font: 600 13px/1 "Inter Tight", sans-serif;
+  font-style: normal;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Upwork: text on the left, record on the right */
+.upwork {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  gap: 48px;
+  align-items: center;
+}
+
+.upwork .stats {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
+}
+
+.upwork .stats li:nth-child(3) { border-left: 0; }
+.upwork .stats li:nth-child(n + 3) { border-top: 2px solid var(--ink); }
+.upwork .stats-link { margin: 0; }
+
+/* Things I do do: two lists side by side */
+.do-cols {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  margin-bottom: 16px;
+}
+
+.do-cols h4 {
+  margin: 0 0 8px;
+  font: 600 18px/1.3 "Inter Tight", sans-serif;
+}
+
+@media (max-width: 760px) {
+  .upwork, .do-cols { grid-template-columns: 1fr; gap: 24px; }
+}
+
+@media (max-width: 640px) {
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .stats li:nth-child(3) {
+    border-left: 0;
+  }
+
+  .stats li:nth-child(n + 3) {
+    border-top: 2px solid var(--ink);
+  }
+}
+
+/* Get in touch: buttons at the top and bottom-right, form above Hobbies */
+.cta {
+  display: inline-block;
+  padding: 10px 18px;
+  background: var(--ink);
+  color: #fff;
+  font: 600 16px/1.2 "Inter Tight", sans-serif;
+  text-decoration: none;
+  box-shadow: 4px 4px 0 var(--forest);
+}
+
+.cta:hover { color: #fff; background: var(--forest); box-shadow: 4px 4px 0 var(--ink); }
+
+header .intro p.cta-row { margin-top: 16px; }
+header .cta { background: #fff; color: var(--forest); box-shadow: 4px 4px 0 var(--ink); }
+header .cta:hover { color: #fff; background: var(--ink); }
+
+.cta-sticky {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 50;
+  transition: opacity .2s, transform .2s;
+}
+
+.cta-sticky.is-hidden { opacity: 0; transform: translateY(12px); pointer-events: none; }
+
+html { scroll-behavior: smooth; }
+
+#contact { background: var(--forest); color: #fff; }
+#contact h2::before { background: var(--sage); }
+
+.contact-form {
+  position: relative;
+  margin-top: 8px;
+}
+
+.contact-fields {
+  display: grid;
+  gap: 6px;
+  transition: opacity .25s;
+}
+
+.contact-fields label {
+  margin-top: 12px;
+  font: 600 16px/1.3 "Inter Tight", sans-serif;
+}
+
+.contact-fields .opt { color: var(--sage); font-weight: 400; }
+
+.contact-fields input,
+.contact-fields textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid var(--ink);
+  border-radius: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 18px/1.4 "Newsreader", Georgia, serif;
+}
+
+.contact-fields input:focus,
+.contact-fields textarea:focus { outline: 3px solid var(--sage); outline-offset: 2px; }
+
+.contact-send {
+  justify-self: start;
+  margin-top: 20px;
+  padding: 12px 28px;
+  border: 0;
+  background: var(--bg);
+  color: var(--forest);
+  font: 800 18px/1 "Inter Tight", sans-serif;
+  cursor: pointer;
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+.contact-send:hover { background: #fff; }
+
+.contact-thanks {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .25s .1s, visibility 0s .1s;
+}
+
+.contact-thanks-title { margin: 0 0 8px; font: 800 clamp(28px, 4vw, 36px)/1.1 "Inter Tight", sans-serif; }
+
+.contact-form.is-sent .contact-fields { opacity: 0; visibility: hidden; }
+.contact-form.is-sent .contact-thanks { opacity: 1; visibility: visible; pointer-events: auto; }
+.contact-thanks:focus { outline: none; }
+
+/* In the editor, show the thank-you text below the form so it can be edited too */
+.ed-editing .contact-thanks, .ed-noting .contact-thanks { position: static; opacity: .85; visibility: visible; margin-top: 24px; padding: 16px; border: 2px dashed var(--sage); }
+.ed-editing .contact-thanks::before, .ed-noting .contact-thanks::before { content: "After sending, the form is replaced by:"; font: 600 13px "Inter Tight", sans-serif; color: var(--sage); margin-bottom: 8px; }
+
+/* Contact form: honeypot (hidden from people) and send error. */
+.contact-form .hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.contact-form .contact-error { color: #ffc4b8; font-weight: 600; margin-top: 0.75rem; }
+.contact-form button[disabled] { opacity: 0.6; cursor: progress; }

@@ -57,6 +57,13 @@ test("DDL redesign mockups are static noindex pages with local assets", () => {
   assert.ok(statSync(projectPath("src/mockups/ddl-redesign/assets/img/logo.png")).size > 0);
 });
 
+test("contact form posts to the Lambda endpoint with a honeypot", () => {
+  const html = readRequired("src/index.html");
+  assert.match(html, /data-endpoint="https:\/\/[a-z0-9]+\.lambda-url\.us-east-2\.on\.aws\/"/);
+  assert.match(html, /name="website"[^>]*tabindex="-1"/);
+  assert.doesNotMatch(html, /data-note|data-ed-/);
+});
+
 test("robots.txt hides mockups from crawlers", () => {
   const robots = readRequired("src/robots.txt");
   assert.match(robots, /Disallow: \/mockups\//);
@@ -120,8 +127,10 @@ test("content.md headings and title mirror the homepage", () => {
 
 test("homepage never contains content.md instruction blocks or hotlinked images", () => {
   const html = readRequired("src/index.html");
+  // The contact form is the one place inputs belong.
+  const withoutForm = html.replace(/<form class="contact-form"[\s\S]*?<\/form>/, "");
 
-  assert.doesNotMatch(html, /<\/?input\b/i);
+  assert.doesNotMatch(withoutForm, /<\/?input\b/i);
   assert.doesNotMatch(html, /<img[^>]+src="https?:/i);
 });
 
