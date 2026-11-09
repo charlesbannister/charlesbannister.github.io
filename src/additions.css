@@ -341,3 +341,56 @@ html { scroll-behavior: smooth; }
 .contact-form .hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
 .contact-form .contact-error { color: #ffc4b8; font-weight: 600; margin-top: 0.75rem; }
 .contact-form button[disabled] { opacity: 0.6; cursor: progress; }
+
+/* Speaking & community */
+.community {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.community-card {
+  margin: 0;
+  padding: 24px;
+  background: #fff;
+  border: 2px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--sage);
+}
+
+.community-card h3 { margin: 0 0 8px; }
+.community-card p { margin: 0; }
+
+.community-feature {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 280px) minmax(0, 1fr);
+  gap: 32px;
+  align-items: center;
+}
+
+.community-feature img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 2px solid var(--ink);
+}
+
+.community-meta {
+  margin: 0 0 12px !important;
+  color: var(--muted);
+  font: 600 14px/1.3 "Inter Tight", sans-serif;
+}
+
+.community-logo {
+  display: block;
+  height: 64px;
+  width: auto;
+  max-width: 100%;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 760px) {
+  .community { grid-template-columns: 1fr; }
+  .community-feature { grid-template-columns: 1fr; gap: 20px; }
+  .community-feature img { max-width: 320px; }
+}

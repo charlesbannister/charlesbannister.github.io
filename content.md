@@ -134,6 +134,24 @@ Stats:
 - **1,822** hours worked
 - **100%** Job Success
 
+## Speaking & community
+
+![The Script Day speakers: Mike Rhodes, Nils Rooijmans, Martin Röttgerding, Mike Ryan, Charles Bannister and Frederick Vallaeys](assets/images/script-day-2025.webp)
+
+### Guest speaker, The Script Day
+WMF & Search On · Online · 29 April 2025
+I spoke alongside Mike Rhodes, Nils Rooijmans, Martin Röttgerding, Mike Ryan and Frederick Vallaeys at The Script Day, a webinar series on managing Google Ads smarter, not harder. My session covered automating negative keywords with scripts.
+
+![Marketing O'Clock](assets/logos/marketing-oclock.svg)
+
+### Mentioned on Marketing O'Clock
+My work was mentioned on Marketing O'Clock, the weekly digital marketing news podcast.
+
+![God Tier Ads](assets/logos/god-tier-ads.svg)
+
+### Community Hero, God Tier Ads
+I'm a Community Hero in God Tier Ads, a community of Google Ads professionals, where I share scripts and tools.
+
 ## Available to hire
 
 I'm available for freelance projects, from web development and web apps to the systems behind them, especially where a business has an operational problem that needs a dependable system built around it.
