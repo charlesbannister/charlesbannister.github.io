@@ -53,6 +53,14 @@ I started as a PPC Executive, then had a stint as a Commercial Analyst before se
 It gave me experience with Google Ads, Affiliates, Display Ads, Tracking, Retargeting, A/B Testing (CRO), not to mention all of the reporting and analysis involved.
 I made sure I had access to _everything_ and automated as much as possible. Probably a little too much, in fact!
 
+## A few companies I've worked with
+
+![GoDaddy](assets/logos/clients/godaddy.svg)
+![Purple](assets/logos/clients/purple.webp)
+![LightHub Direct](assets/logos/clients/lighthub-direct.svg)
+![Steel Landscaping Co.](assets/logos/clients/steel-landscaping.webp)
+![Kitchen Provisions](assets/logos/clients/kitchen-provisions.webp)
+
 ## What people say
 
 Pull quote: Charles went above and beyond as always! — Upwork client
