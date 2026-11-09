@@ -1,0 +1,93 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: charlesbannister.com contact form (Lambda function URL that emails messages via SES). Source of truth is infra/contact-form/handler.py; run build.py to regenerate template.yaml.
+
+Parameters:
+  ToAddress:
+    Type: String
+    Description: Where messages are emailed. Passed at deploy time, not stored in the repo.
+  FromAddress:
+    Type: String
+    Default: "charlesbannister.com <website@shabba.io>"
+  AllowedOrigins:
+    Type: String
+    Default: "https://charlesbannister.com,https://www.charlesbannister.com,http://localhost:5173,http://127.0.0.1:8800"
+
+Resources:
+  Role:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal: { Service: lambda.amazonaws.com }
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      Policies:
+        - PolicyName: send-email
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: ses:SendEmail
+                Resource: "*"
+                Condition:
+                  StringEquals:
+                    ses:FromAddress: website@shabba.io
+
+  Function:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: charlesbannister-contact-form
+      Runtime: python3.12
+      Architectures: [arm64]
+      Handler: index.handler
+      MemorySize: 128
+      Timeout: 10
+      Role: !GetAtt Role.Arn
+      Environment:
+        Variables:
+          TO_ADDRESS: !Ref ToAddress
+          FROM_ADDRESS: !Ref FromAddress
+          ALLOWED_ORIGINS: !Ref AllowedOrigins
+      Code:
+        ZipFile: |
+{{HANDLER}}
+
+  Logs:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: /aws/lambda/charlesbannister-contact-form
+      RetentionInDays: 90
+
+  Url:
+    Type: AWS::Lambda::Url
+    Properties:
+      TargetFunctionArn: !Ref Function
+      AuthType: NONE
+      Cors:
+        AllowOrigins: !Split [",", !Ref AllowedOrigins]
+        AllowMethods: [POST]
+        AllowHeaders: [content-type]
+        MaxAge: 3600
+
+  UrlPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref Function
+      Action: lambda:InvokeFunctionUrl
+      Principal: "*"
+      FunctionUrlAuthType: NONE
+
+  InvokePermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref Function
+      Action: lambda:InvokeFunction
+      Principal: "*"
+      InvokedViaFunctionUrl: true
+
+Outputs:
+  FunctionUrl:
+    Value: !GetAtt Url.FunctionUrl
