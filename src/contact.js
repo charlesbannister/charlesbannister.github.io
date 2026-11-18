@@ -10,12 +10,19 @@ const fallback = 'Sorry, that didn’t send. Please try again in a minute.';
 form.addEventListener('submit', async event => {
   event.preventDefault();
   if (button.disabled || !form.reportValidity()) return;
+  const data = Object.fromEntries(new FormData(form));
+  const message = data.message.trim();
+  if (!message) {
+    error.textContent = 'Please tell me what you’d like to improve.';
+    error.hidden = false;
+    form.elements.message.focus();
+    return;
+  }
+
   button.disabled = true;
   button.textContent = 'Sending…';
   error.hidden = true;
-
-  const data = Object.fromEntries(new FormData(form));
-  data.message = 'Enquiry: ' + data.service + '\n\n' + data.message;
+  data.message = 'Enquiry: ' + data.service + '\n\n' + message;
   delete data.service;
 
   try {
