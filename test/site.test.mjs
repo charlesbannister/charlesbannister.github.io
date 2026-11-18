@@ -17,23 +17,32 @@ function readRequired(relativePath) {
   return readFileSync(filePath, "utf8");
 }
 
-test("homepage describes Charles Bannister and freelance software work", () => {
+test("homepage offers freelance services and uses one tools marquee", () => {
   const html = readRequired("src/index.html");
 
   assert.match(html, /Charles Bannister/);
-  assert.match(html, /programmer/i);
-  assert.match(html, /GoDaddy/);
-  assert.match(html, /Available to hire/);
-  assert.match(html, /PHP/);
-  assert.match(html, /Laravel/);
-  assert.match(html, /Web development/i);
-  assert.match(html, /web app/i);
-  assert.doesNotMatch(html, /mailto:/);
-  assert.doesNotMatch(html, /hello@charlesbannister\.com/);
-  assert.doesNotMatch(html, /Email me/);
-  assert.doesNotMatch(html, /<nav/);
-  assert.doesNotMatch(html, /id="mockups"/);
-  assert.doesNotMatch(html, /Client mockups/);
+  for (const page of ["google-ads", "end-to-end", "websites", "automation"]) {
+    assert.match(html, new RegExp(`href="${page}\\.html"`));
+    assert.doesNotMatch(readRequired(`src/${page}.html`), /class="logo-marquee"/);
+  }
+  assert.equal([...html.matchAll(/class="logo-marquee /g)].length, 1);
+  assert.match(html, /id="services"[\s\S]*?class="logo-marquee /);
+  assert.doesNotMatch(html, /data-marquee-toggle|name="robots" content="noindex/);
+  assert.doesNotMatch(html, /mailto:|id="mockups"|Client mockups/);
+});
+
+test("external links open a new tab and internal links stay in the current tab", () => {
+  for (const page of ["index", "about", "automation", "campaign-zip-sync", "contact", "end-to-end", "google-ads", "how-i-work", "reviews", "websites", "work"]) {
+    const html = readRequired(`src/${page}.html`);
+    for (const [link, href] of html.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>/g)) {
+      if (href.startsWith("https://")) {
+        assert.match(link, /target="_blank"/, `${page}: ${href}`);
+        assert.match(link, /rel="noopener"/, `${page}: ${href}`);
+      } else {
+        assert.doesNotMatch(link, /target="_blank"/, `${page}: ${href}`);
+      }
+    }
+  }
 });
 
 test("washer disinfectors mockup is a static noindex preview with local logo", () => {
@@ -57,11 +66,13 @@ test("DDL redesign mockups are static noindex pages with local assets", () => {
   assert.ok(statSync(projectPath("src/mockups/ddl-redesign/assets/img/logo.png")).size > 0);
 });
 
-test("contact form posts to the Lambda endpoint with a honeypot", () => {
-  const html = readRequired("src/index.html");
+test("contact page uses the live Lambda form and preserves the honeypot field", () => {
+  const html = readRequired("src/contact.html");
   assert.match(html, /data-endpoint="https:\/\/[a-z0-9]+\.lambda-url\.us-east-2\.on\.aws\/"/);
   assert.match(html, /name="website"[^>]*tabindex="-1"/);
-  assert.doesNotMatch(html, /data-note|data-ed-/);
+  assert.doesNotMatch(html, /data-note|data-ed-|Preview form/);
+  assert.match(html, /name="company"/);
+  assert.match(html, /src="contact\.js"/);
 });
 
 test("robots.txt hides mockups from crawlers", () => {
@@ -112,7 +123,7 @@ test("GitHub Pages workflow tests and builds dist before main-branch deployment"
 test("content.md headings and title mirror the homepage", () => {
   const html = readRequired("src/index.html");
   const content = readRequired("content.md");
-  const decode = (text) => text.replace(/&amp;/g, "&").trim();
+  const decode = (text) => text.replace(/<[^>]+>/g, "").replace(/&amp;/g, "&").trim();
 
   const title = content.match(/^title: (.+)$/m)?.[1];
   assert.equal(title, decode(html.match(/<title>(.+)<\/title>/)[1]));
@@ -121,7 +132,8 @@ test("content.md headings and title mirror the homepage", () => {
   assert.equal(h1, decode(html.match(/<h1[^>]*>(.+)<\/h1>/)[1]));
 
   const mdHeadings = [...content.matchAll(/^## (.+)$/gm)].map((m) => m[1]);
-  const htmlHeadings = [...html.matchAll(/<h2[^>]*>(.+)<\/h2>/g)].map((m) => decode(m[1]));
+  const withoutDialogs = html.replace(/<dialog[^>]*>[\s\S]*?<\/dialog>/g, "");
+  const htmlHeadings = [...withoutDialogs.matchAll(/<h2[^>]*>([^<]+)<\/h2>/g)].map((m) => decode(m[1]));
   assert.deepEqual(mdHeadings, htmlHeadings);
 });
 
