@@ -1,11 +1,11 @@
 ---
 title: Freelance Google Ads, Websites and Automation | Charles Bannister
-description: I’m Charles Bannister. I manage Google Ads, build websites and landing pages, and write the software that connects them to the rest of your business.
+description: I’m Charles Bannister. I manage Google Ads, build websites and improve conversion rates. I also write software that connects it all together, automates the mundane, and improves performance.
 ---
 
 # Google Ads that lead to real sales.
 
-I’m Charles Bannister. I manage Google Ads, build websites and landing pages, and write the software that connects them to the rest of your business.
+I’m Charles Bannister. I manage Google Ads, build websites and improve conversion rates. I *also* write software that connects it all together, automates the mundane, and improves performance.
 
 [Ask for a free consultation](src/contact.html) · [See my work](src/work.html)
 
