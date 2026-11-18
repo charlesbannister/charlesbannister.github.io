@@ -13,9 +13,7 @@ I’m Charles Bannister. I manage Google Ads, build websites and landing pages, 
 - Millions of US dollars in ad spend I’ve helped manage
 - Work directly with me. I do the account work myself.
 
-## A few companies I've worked with
-
-GoDaddy, Purple, LightHub Direct, Steel Landscaping Co. and Kitchen Provisions.
+Client logos: GoDaddy, Purple, LightHub Direct, Steel Landscaping Co. and Kitchen Provisions.
 
 ## What I can help with
 
