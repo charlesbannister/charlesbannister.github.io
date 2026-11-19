@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>What can we make? · Meal ideas</title>
+  <link rel="stylesheet" href="./food.css">
+  <script type="module" src="./food.js"></script>
+</head>
+<body>
+  <header>
+    <h1>What can we make?</h1>
+    <p>Search by ingredient or choose a meal filter.</p>
+  </header>
+  <main class="wrap">
+    <div class="toolbar">
+      <input id="search" class="search" type="search" placeholder="Try salmon rice" aria-label="Search meals or ingredients">
+      <button id="print" class="print" type="button">Print list</button>
+      <span id="count" class="count" role="status"></span>
+    </div>
+    <div id="filters" class="filters" role="group" aria-label="Filter meals"></div>
+    <div id="grid" class="grid"></div>
+    <noscript>Enable JavaScript to browse recipes.</noscript>
+    <div class="note">
+      <strong>Kitchen notes.</strong> Times are estimates and assume frozen proteins are thawed when needed.
+      Cook poultry to 165°F, ground beef to 160°F and salmon fillets to 145°F.
+      Use ready-to-eat smoked salmon for recipes that serve it without cooking.
+      <a href="https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures" target="_blank" rel="noopener">FoodSafety.gov temperature guide</a>.
+    </div>
+  </main>
+</body>
+</html>
