@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
-import { existsSync, mkdirSync, readFileSync, rmSync, statSync } from "node:fs";
+import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, statSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import test from "node:test";
@@ -166,4 +166,17 @@ test("jerseys page lists scraped kids' kits from a local JSON file", async () =>
   assert.equal(isKids({ title: "2025/2026 Manchester City KidSuper Joint Edition White Shirt", handle: "x" }), false);
   assert.equal(isKids({ title: "2024 France Half-Pull Training Suit Baby blue Shirt Set", handle: "x" }), false);
   assert.equal(isKids({ title: "2024/2025 Liverpool Home Shirt Kids Size", handle: "x" }), true);
+});
+
+test("reading index lists each article once, in descending publication order", () => {
+  const index = readRequired("src/reading/index.html");
+  const folders = readdirSync(projectPath("src/reading"), { withFileTypes: true })
+    .filter(entry => entry.isDirectory() && existsSync(projectPath("src/reading/" + entry.name + "/index.html")))
+    .map(entry => entry.name).sort();
+  const links = [...index.matchAll(/href="\.\/([^"/]+)\/"/g)].map(match => match[1]);
+  assert.deepEqual(links.sort(), folders);
+  const dates = [...index.matchAll(/<time datetime="([^"]+)"/g)].map(match => Date.parse(match[1]));
+  assert.equal(dates.length, folders.length);
+  assert.ok(dates.every(Number.isFinite));
+  assert.deepEqual(dates, [...dates].sort((a, b) => b - a));
 });

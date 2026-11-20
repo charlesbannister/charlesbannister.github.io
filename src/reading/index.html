@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Reading · Charles Bannister</title>
+  <style>
+    :root { color-scheme:dark; background:#1c1b18; color:#f0e7d3; font:18px/1.55 Georgia,serif; }
+    * { box-sizing:border-box; }
+    body { margin:0; }
+    main { max-width:44rem; margin:auto; padding:clamp(3rem,8vw,7rem) 1.25rem; }
+    h1 { font-size:clamp(3rem,9vw,5rem); font-weight:400; letter-spacing:-.05em; margin:0 0 1.5rem; line-height:1.1; }
+    label,time,input,#empty { font-family:system-ui,sans-serif; }
+    label,time { font-size:.82rem; color:#c7baa6; }
+    label { display:block; margin-bottom:.4rem; }
+    input { width:100%; font-size:1rem; padding:.85rem 1rem; color:inherit; background:#24221e; border:1px solid #746a58; border-radius:.35rem; }
+    :focus-visible { outline:2px solid #ecc189; outline-offset:3px; }
+    ol { padding:0; list-style:none; margin:2rem 0; }
+    li { padding:1.35rem 0; border-top:1px solid #494339; }
+    h2 { font-size:clamp(1.35rem,3vw,1.8rem); font-weight:400; line-height:1.25; margin:.35rem 0; }
+    a { color:inherit; text-decoration-color:#a99171; text-underline-offset:.15em; }
+    a:hover { color:#ecc189; }
+    p { margin:0; color:#cec3b1; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Reading</h1>
+  <div id="search" hidden>
+    <label for="filter">Search articles</label>
+    <input id="filter" type="search" placeholder="Title, topic or publication date">
+  </div>
+  <ol>
+    <li>
+      <time datetime="2026-11-20T01:33:08Z">November 19, 2026 · 7:33 PM CST</time>
+      <h2><a href="./shabba-organic-search-strategy/">Where Shabba should compete in Google Search</a></h2>
+      <p>SEO priorities for Shabba’s negative keyword scripts, free PPC tools and keyword wrapper.</p>
+    </li>
+    <li>
+      <time datetime="2026-11-19T16:35:41Z">November 19, 2026 · 10:35 AM CST</time>
+      <h2><a href="./marketing-positioning-and-website-copy/">What are people buying from Charles Bannister?</a></h2>
+      <p>Marketing positioning and website copy for Charles’s software and AI work.</p>
+    </li>
+  </ol>
+  <p id="empty" role="status"></p>
+</main>
+<script>
+  const filter = document.querySelector('#filter');
+  const articles = [...document.querySelectorAll('ol li')];
+  document.querySelector('#search').hidden = false;
+  filter.addEventListener('input', () => {
+    const words = filter.value.toLowerCase().trim().split(/\s+/);
+    for (const article of articles) {
+      const content = article.textContent.toLowerCase();
+      article.hidden = !words.every(word => content.includes(word));
+    }
+    document.querySelector('#empty').textContent = articles.every(article => article.hidden)
+      ? 'No articles match your search.' : '';
+  });
+</script>
+</body>
+</html>
