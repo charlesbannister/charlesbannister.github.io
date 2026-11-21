@@ -1,0 +1,347 @@
+[
+  {
+    "section": "meals",
+    "category": "Pasta & grains",
+    "title": "Tomato chicken orzo with chickpeas & crisp bacon",
+    "minutes": 35,
+    "ingredients": "1 chicken breast · 2 bacon strips · ¾ cup orzo · ½ cup drained chickpeas · 1½ cups chicken broth · 1 tbsp tomato paste · ¼ cup cream · ½ cup frozen spinach · garlic powder",
+    "method": "Crisp chopped bacon in a deep skillet and lift it out. Brown diced chicken with garlic powder in the bacon fat, then stir in orzo, tomato paste, broth and chickpeas. Simmer, stirring often, until the orzo is tender and the chicken reaches 165°F, adding water if the pan dries out. Stir through the spinach and cream and scatter the bacon on top.",
+    "dinner": true,
+    "source": {
+      "name": "RecipeTin Eats",
+      "url": "https://www.recipetineats.com/one-pot-chicken-risoni-with-crispy-salami/",
+      "rating": 4.95,
+      "ratingCount": 118
+    }
+  },
+  {
+    "section": "meals",
+    "category": "Pasta & grains",
+    "title": "Buttery baked chicken, rice & peas",
+    "minutes": 55,
+    "ingredients": "2 thawed chicken thighs · ¾ cup long-grain rice · 1⅓ cups hot chicken broth · ½ onion · 1 garlic clove · 1 tbsp butter · ½ cup frozen peas · paprika · dried thyme",
+    "method": "Soften minced onion and garlic in butter in an ovenproof skillet. Stir in rinsed rice and hot broth, then nestle in the thighs seasoned with paprika and thyme. Cover and bake at 375°F for 35–45 minutes, until the rice is tender and the chicken reaches 165°F. Remove the chicken, stir in thawed peas and cover briefly to heat them through.",
+    "dinner": true,
+    "source": {
+      "name": "RecipeTin Eats",
+      "url": "https://www.recipetineats.com/oven-baked-chicken-and-rice/",
+      "rating": 4.88,
+      "ratingCount": 637
+    }
+  },
+  {
+    "section": "meals",
+    "category": "Seafood",
+    "title": "Tuna & sweetcorn pasta with buttered crumbs",
+    "minutes": 35,
+    "ingredients": "5 oz short pasta · 1 tin tuna · ½ cup drained sweetcorn · ½ cup cream · ⅓ cup chicken broth · 1 tsp flour · 1 tbsp butter · ⅓ cup breadcrumbs · Dijon mustard · black pepper",
+    "method": "Cook and drain the pasta. In the same pan, cook the flour in half the butter, whisk in cream and broth and simmer until the sauce coats a spoon. Add Dijon, pepper, tuna, corn and pasta and heat through. Toast the crumbs in the remaining butter in a small skillet and sprinkle on each serving.",
+    "dinner": true,
+    "source": {
+      "name": "RecipeTin Eats",
+      "url": "https://www.recipetineats.com/tuna-mornay-casserole-pasta-bake/",
+      "rating": 4.97,
+      "ratingCount": 151
+    }
+  },
+  {
+    "section": "meals",
+    "category": "Pasta & grains",
+    "title": "Paprika chicken stroganoff ribbons",
+    "minutes": 30,
+    "ingredients": "1 chicken breast · 5 oz pasta · ½ onion · ½ cup condensed portobello mushroom soup · ¼ cup chicken broth · 2 tbsp plain yogurt · 1 tsp Dijon mustard · ½ tsp smoked paprika · olive oil",
+    "method": "Cook the pasta while you brown thin strips of chicken and sliced onion in oil. Dust with paprika, add mushroom soup, broth and Dijon and simmer until the chicken reaches 165°F. Off the heat, swirl in the yogurt and toss with the pasta.",
+    "dinner": true,
+    "source": {
+      "name": "RecipeTin Eats",
+      "url": "https://www.recipetineats.com/chicken-stroganoff/",
+      "rating": 4.88,
+      "ratingCount": 182
+    }
+  },
+  {
+    "section": "a-la-carte",
+    "category": "Sides",
+    "title": "Lemon-oregano jacket potato wedges",
+    "minutes": 35,
+    "ingredients": "2 cooked jacket potatoes, thawed · ¼ cup chicken broth · 1 tbsp lemon juice · 1 tbsp olive oil · 1 grated garlic clove · ½ tsp dried oregano · black pepper",
+    "method": "Cut the cooked potatoes into thick wedges. In a shallow dish, coat them with oil, lemon, garlic, oregano and pepper, then pour the broth around them. Roast at 425°F until the broth has cooked away and the wedges are golden and hot at the center, about 25 minutes, turning halfway.",
+    "source": {
+      "name": "RecipeTin Eats",
+      "url": "https://www.recipetineats.com/greek-lemon-potatoes/",
+      "rating": 4.95,
+      "ratingCount": 317
+    }
+  },
+  {
+    "section": "a-la-carte",
+    "category": "Standalone mains",
+    "title": "Honey-garlic skillet chicken cutlets",
+    "minutes": 20,
+    "ingredients": "1 large chicken breast · 2 tsp flour · 1 tbsp butter · 2 garlic cloves · 1 tbsp honey · 2 tsp soy sauce · 1 tsp white wine vinegar · black pepper",
+    "method": "Slice the breast horizontally into two cutlets, pat dry and dust lightly with pepper and flour. Sear in butter until golden and nearly cooked, then push the chicken to one side and stir finely chopped garlic, honey, soy sauce and vinegar into the pan. Turn the cutlets in the bubbling glaze and cook to 165°F, adding a splash of water if the glaze thickens too fast.",
+    "source": {
+      "name": "RecipeTin Eats",
+      "url": "https://www.recipetineats.com/honey-garlic-chicken/",
+      "rating": 4.97,
+      "ratingCount": 838
+    }
+  },
+  {
+    "section": "a-la-carte",
+    "category": "Standalone mains",
+    "title": "Honey-lime salmon with garlic pan glaze",
+    "minutes": 20,
+    "ingredients": "2 thawed salmon fillets · 1½ tbsp honey · 2 tsp soy sauce · 1 tbsp lime juice · 1 garlic clove · 2 tsp oil · 1 spring onion",
+    "method": "Pat the salmon dry and sear it in oil over medium heat, starting skin-side down if it has skin. Flip the fish and cook to 145°F, then lift it out. Add minced garlic, honey, lime juice and soy sauce to the skillet and bubble briefly until glossy. Spoon the glaze over the salmon and finish with sliced spring onion.",
+    "source": {
+      "name": "RecipeTin Eats",
+      "url": "https://www.recipetineats.com/honey-garlic-salmon-5-ingredients-15-minutes/",
+      "rating": 4.96,
+      "ratingCount": 169
+    }
+  },
+  {
+    "section": "a-la-carte",
+    "category": "Snacks",
+    "title": "Small-batch peach & cinnamon crumble",
+    "minutes": 35,
+    "ingredients": "1½ cups frozen sliced peaches · 3 tbsp all-purpose flour · 2 tbsp almond meal · 2 tbsp sugar · 1½ tbsp butter · ½ tsp cinnamon · 1 tsp lemon juice",
+    "method": "Toss the frozen peaches with lemon juice, a teaspoon of flour and half the cinnamon in a small baking dish. Work the butter into the remaining flour, almond meal, sugar and cinnamon until you have coarse crumbs. Scatter them over the peaches and bake at 375°F until the filling bubbles and the top browns, 25–30 minutes.",
+    "source": {
+      "name": "RecipeTin Eats",
+      "url": "https://www.recipetineats.com/apple-crumble/",
+      "rating": 4.95,
+      "ratingCount": 566
+    }
+  },
+  {
+    "section": "meals",
+    "category": "Pasta & grains",
+    "title": "One-pot creamy pesto chicken and spinach pasta",
+    "minutes": 30,
+    "ingredients": "8 oz short pasta · 2 chicken cutlets · 2 cups chicken broth plus more as needed · ½ cup frozen spinach · ¼ cup cream · 3 tbsp pesto · 1 tbsp olive oil",
+    "method": "Brown diced chicken in oil in a deep skillet, then add the pasta and broth. Simmer uncovered, stirring and adding splashes of broth if the pan dries out, until the pasta is tender and the chicken reaches 165°F. Heat the spinach through in the pan and finish off the heat with cream and pesto.",
+    "dinner": true,
+    "source": {
+      "name": "Budget Bytes",
+      "url": "https://www.budgetbytes.com/one-pot-creamy-pesto-chicken-pasta/",
+      "rating": 4.84,
+      "ratingCount": 258
+    }
+  },
+  {
+    "section": "meals",
+    "category": "Pasta & grains",
+    "title": "Chili-peanut turkey noodles",
+    "minutes": 25,
+    "ingredients": "6 oz noodles · 8 oz ground turkey · 2 tbsp crunchy peanut butter · 1 tbsp soy sauce · 1 tbsp sweet chili sauce · 1 tsp Sriracha · spring onions · neutral oil",
+    "method": "Cook the noodles and save a mug of their water. Brown the turkey in oil until it reaches 165°F, then stir in the peanut butter, soy and both chili sauces with enough noodle water to coat a spoon. Fold in the noodles and scatter sliced spring onions over the top.",
+    "dinner": true,
+    "source": {
+      "name": "Budget Bytes",
+      "url": "https://www.budgetbytes.com/pork-peanut-dragon-noodles/",
+      "rating": 4.79,
+      "ratingCount": 232
+    }
+  },
+  {
+    "section": "meals",
+    "category": "Soup & comfort",
+    "title": "Thyme-scented lentil and potato stew",
+    "minutes": 45,
+    "ingredients": "¾ cup brown or green lentils · 1½ cups frozen carrot, onion and celery mix · 2 cooked jacket potatoes · 4 cups water · 1 tsp Marmite · dried thyme · 1 tbsp olive oil",
+    "method": "Sauté the vegetable mix in oil until its excess moisture cooks off. Add the rinsed lentils, water, Marmite and a pinch of thyme and simmer until the lentils are tender. Add cubed potatoes, crush a few against the side of the pot to thicken the broth, and simmer until the potatoes are steaming hot.",
+    "dinner": true,
+    "source": {
+      "name": "Budget Bytes",
+      "url": "https://www.budgetbytes.com/vegan-winter-lentil-stew/",
+      "rating": 4.89,
+      "ratingCount": 198
+    }
+  },
+  {
+    "section": "a-la-carte",
+    "category": "Sides",
+    "title": "Buttery soy-garlic noodles",
+    "minutes": 15,
+    "ingredients": "6 oz thin spaghetti · 2 tbsp butter · 3 garlic cloves · 1 tbsp soy sauce · 1 tsp honey · toasted sesame oil",
+    "method": "Cook the spaghetti in lightly salted water and save a splash of the cooking water. Sizzle finely chopped garlic in butter over medium-low heat without browning it, then add soy sauce, honey and the reserved water. Toss with the spaghetti and finish with a few drops of sesame oil.",
+    "source": {
+      "name": "Budget Bytes",
+      "url": "https://www.budgetbytes.com/garlic-noodles/",
+      "rating": 4.78,
+      "ratingCount": 124
+    }
+  },
+  {
+    "section": "a-la-carte",
+    "category": "Sides",
+    "title": "Cold peanut-lime noodles with water chestnuts",
+    "minutes": 20,
+    "ingredients": "4 oz thin noodles · ½ cup water chestnuts · ½ cup thinly sliced sweet pepper · 2 tbsp peanut butter · 1 tbsp lime juice · 1 tsp soy sauce · spring onions",
+    "method": "Cook the noodles, rinse them under cool running water and drain well. Stir peanut butter with lime and soy, then thin with cold water until it pours easily. Toss the noodles, chopped water chestnuts and peppers in the dressing and finish with spring onions.",
+    "source": {
+      "name": "Budget Bytes",
+      "url": "https://www.budgetbytes.com/cold-peanut-noodle-salad/",
+      "rating": 4.84,
+      "ratingCount": 122
+    }
+  },
+  {
+    "section": "a-la-carte",
+    "category": "Snacks",
+    "title": "Black bean, corn and feta quesadilla wedges",
+    "minutes": 15,
+    "ingredients": "2 flour tortillas · ½ cup drained black beans · ¼ cup sweet corn · ¼ cup feta · 1 spring onion · ground cumin · 1 tsp olive oil",
+    "method": "Crush half the beans with a pinch of cumin to make a spread. Spread it on each tortilla and add the remaining beans, corn, feta and chopped spring onion, keeping the edges clear. Fold, toast in the oiled skillet until crisp on both sides and slice into wedges.",
+    "source": {
+      "name": "Budget Bytes",
+      "url": "https://www.budgetbytes.com/hearty-black-bean-quesadillas/",
+      "rating": 4.74,
+      "ratingCount": 310
+    }
+  },
+  {
+    "section": "a-la-carte",
+    "category": "Standalone mains",
+    "title": "Chicken cutlets with whole-clove garlic cream",
+    "minutes": 30,
+    "ingredients": "2 chicken cutlets · 6 peeled garlic cloves · ¼ cup cream · ½ cup chicken broth · 1 tbsp flour · 1 tbsp butter · black pepper",
+    "method": "Lightly dust the cutlets with flour and sear in butter, then move them to a plate. Soften the whole garlic cloves in the pan and add the broth, simmering until the cloves crush easily. Mash a few into the sauce, add the cream and return the cutlets until their thickest points reach 165°F.",
+    "source": {
+      "name": "Budget Bytes",
+      "url": "https://www.budgetbytes.com/creamy-garlic-chicken/",
+      "rating": 4.77,
+      "ratingCount": 203
+    }
+  },
+  {
+    "section": "a-la-carte",
+    "category": "Standalone mains",
+    "title": "All-purpose oven-baked beef meatballs",
+    "minutes": 30,
+    "ingredients": "1 lb ground beef · 1 egg · ⅓ cup breadcrumbs · 2 tbsp water · 1 tsp Italian seasoning · ½ tsp garlic powder · ½ tsp salt · black pepper",
+    "method": "Moisten the breadcrumbs with water, then gently work in the egg, beef and seasonings. Shape twelve loose balls on a lined baking sheet and bake at 425°F until browned and 160°F in the center. Rest briefly before serving or tossing with sauce.",
+    "source": {
+      "name": "Budget Bytes",
+      "url": "https://www.budgetbytes.com/homemade-meatballs/",
+      "rating": 4.93,
+      "ratingCount": 100
+    }
+  },
+  {
+    "section": "a-la-carte",
+    "category": "Sides",
+    "title": "Overnight crusty pantry loaf",
+    "minutes": 600,
+    "ingredients": "3 cups all-purpose flour · 1¼ tsp fine salt · ½ tsp instant yeast · 1 cup plus 2 tbsp water",
+    "method": "Stir everything into a rough, sticky dough, cover and leave on the counter until bubbly, 8–10 hours. Fold the edges inward on a floured surface, then rest seam-side down on parchment for about 45 minutes while a covered Dutch oven heats to 450°F. Lower the loaf into the pot, bake covered for 25 minutes and uncover for another 12–18 minutes, until the crust is deep gold. Cool on a rack.",
+    "source": {
+      "name": "King Arthur Baking",
+      "url": "https://www.kingarthurbaking.com/recipes/no-knead-crusty-white-bread-recipe",
+      "rating": 4.7,
+      "ratingCount": 1463
+    }
+  },
+  {
+    "section": "a-la-carte",
+    "category": "Sides",
+    "title": "Sheet-pan herb focaccia",
+    "minutes": 105,
+    "ingredients": "2 cups all-purpose flour · ¾ cup plus 2 tbsp lukewarm water · 1 tsp instant yeast · ¾ tsp fine salt · 3 tbsp olive oil · ½ tsp Italian seasoning",
+    "method": "Beat the flour, water, yeast, salt and 1 tablespoon oil together until sticky, then scrape into an oiled 8-inch square pan. Cover and let the dough spread and puff for 60–75 minutes. Press oiled fingertips down to make dimples, add the remaining oil and herbs, and bake at 425°F for 20–25 minutes until golden.",
+    "source": {
+      "name": "King Arthur Baking",
+      "url": "https://www.kingarthurbaking.com/recipes/no-fuss-focaccia-recipe",
+      "rating": 4.7,
+      "ratingCount": 476
+    }
+  },
+  {
+    "section": "a-la-carte",
+    "category": "Sides",
+    "title": "English muffin toast loaf",
+    "minutes": 115,
+    "ingredients": "2½ cups all-purpose flour · 1¼ tsp instant yeast · 1 tsp fine salt · 1 tsp sugar · ⅞ cup lukewarm water · 2 tbsp heavy cream · 1 tbsp oil",
+    "method": "Stir the dry ingredients together, then beat in the water and cream to make a stiff, sticky batter. Scrape it into an oiled 8-by-4-inch loaf pan and cover until the center reaches the rim, about an hour. Bake at 400°F until brown and 190°F inside, 22–28 minutes, then cool before slicing and toasting.",
+    "source": {
+      "name": "King Arthur Baking",
+      "url": "https://www.kingarthurbaking.com/recipes/english-muffin-toasting-bread-recipe",
+      "rating": 4.7,
+      "ratingCount": 898
+    }
+  },
+  {
+    "section": "a-la-carte",
+    "category": "Snacks",
+    "title": "Cream scones with lemon curd",
+    "minutes": 30,
+    "ingredients": "1½ cups all-purpose flour · 1½ tbsp sugar · 1½ tsp baking powder · ¼ tsp fine salt · ⅔ cup heavy cream · 3 tbsp lemon curd",
+    "method": "Stir the flour, sugar, baking powder and salt together, then fold in just enough cream to pull the dough together. Pat it into a thick round, divide into six wedges and bake at 425°F for 13–16 minutes, until the tops are golden and the centers are set. Split the warm scones and add a little lemon curd.",
+    "source": {
+      "name": "King Arthur Baking",
+      "url": "https://www.kingarthurbaking.com/recipes/cream-tea-scones-recipe",
+      "rating": 4.8,
+      "ratingCount": 243
+    }
+  },
+  {
+    "section": "a-la-carte",
+    "category": "Snacks",
+    "title": "Cinnamon doughnut mini muffins",
+    "minutes": 35,
+    "ingredients": "1 cup all-purpose flour · ⅓ cup sugar and 2 tbsp for coating · 1½ tsp baking powder · ¼ tsp salt · ½ tsp cinnamon · 1 egg · ¼ cup heavy cream · ¼ cup water · 3 tbsp melted butter",
+    "method": "Mix the flour, sugar, baking powder and salt. Whisk the egg, cream, water and 2 tablespoons butter separately, then fold into the flour and divide among greased mini-muffin cups. Bake at 400°F until springy, 10–13 minutes. Brush the warm tops with the remaining butter and dip into the cinnamon mixed with the extra sugar.",
+    "source": {
+      "name": "King Arthur Baking",
+      "url": "https://www.kingarthurbaking.com/recipes/cinnamon-sugar-doughnut-muffins-recipe",
+      "rating": 4.7,
+      "ratingCount": 454
+    }
+  },
+  {
+    "section": "meals",
+    "category": "Wraps & burgers",
+    "title": "From-scratch roasted pepper and feta pan pizza",
+    "minutes": 90,
+    "dinner": true,
+    "ingredients": "2 cups all-purpose flour · ⅔ cup lukewarm water · 1 tsp instant yeast · ¾ tsp fine salt · 1½ tbsp olive oil · ⅓ cup marinara sauce · ½ cup sliced roasted peppers · ¼ cup olives · ½ cup feta",
+    "method": "Mix flour, water, yeast, salt and oil into a soft dough, knead for a few minutes and cover until puffy, about an hour. Stretch it onto an oiled sheet pan, spread with marinara and scatter the well-drained peppers, olives and crumbled feta. Bake at 450°F until the underside is browned and the rim is firm, 14–18 minutes.",
+    "source": {
+      "name": "King Arthur Baking",
+      "url": "https://www.kingarthurbaking.com/recipes/the-easiest-pizza-youll-ever-make-recipe",
+      "rating": 4.8,
+      "ratingCount": 299
+    }
+  },
+  {
+    "section": "meals",
+    "category": "Pasta & grains",
+    "title": "Creamy sun-dried tomato chicken pasta",
+    "minutes": 35,
+    "ingredients": "8 oz pasta · 2 chicken breasts · ⅓ cup sun-dried tomatoes · ¼ cup Parmesan · ½ cup cream · ½ cup chicken broth · 2 garlic cloves · 1 tsp Dijon mustard",
+    "method": "Cook the pasta and save a mug of its cooking water. Sear thinly sliced chicken in a little oil until cooked through, then set it aside. Simmer garlic, chopped sun-dried tomatoes, broth, cream and mustard until slightly thickened, then toss with the chicken, pasta and Parmesan. Loosen with pasta water as needed.",
+    "dinner": true,
+    "source": {
+      "name": "RecipeTin Eats",
+      "url": "https://www.recipetineats.com/chicken-with-creamy-sun-dried-tomato-sauce/",
+      "rating": 4.97,
+      "ratingCount": 209
+    }
+  },
+  {
+    "section": "a-la-carte",
+    "category": "Standalone mains",
+    "title": "Chicken piccata with lemon, capers & fresh parsley",
+    "minutes": 25,
+    "ingredients": "2 thin chicken cutlets · 2 tbsp flour · 1 tbsp olive oil · 2 tbsp butter · ⅓ cup chicken broth · 1 lemon · 1 tbsp capers · fresh parsley",
+    "method": "Dust the cutlets lightly with flour and pan-fry in the oil and half the butter until golden and 165°F inside. Transfer the chicken to a plate. Simmer the broth, lemon juice and capers in the pan until reduced, then turn off the heat and whisk in the remaining butter. Spoon over the chicken and finish with chopped parsley.",
+    "source": {
+      "name": "RecipeTin Eats",
+      "url": "https://www.recipetineats.com/chicken-piccata/",
+      "rating": 4.91,
+      "ratingCount": 107
+    }
+  }
+]

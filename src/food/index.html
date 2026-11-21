@@ -11,23 +11,62 @@
 <body>
   <header>
     <h1>What can we make?</h1>
-    <p>Search by ingredient or choose a meal filter.</p>
+    <p>Find a meal or pick dishes to mix and match.</p>
   </header>
   <main class="wrap">
-    <div class="toolbar">
-      <input id="search" class="search" type="search" placeholder="Try salmon rice" aria-label="Search meals or ingredients">
-      <button id="print" class="print" type="button">Print list</button>
-      <span id="count" class="count" role="status"></span>
+    <div class="recipe-tabs" role="tablist" aria-label="Recipe sections">
+      <button id="meals-tab" class="recipe-tab" type="button" role="tab" aria-selected="true" aria-controls="meals-panel">Meals</button>
+      <button id="a-la-carte-tab" class="recipe-tab" type="button" role="tab" aria-selected="false" aria-controls="a-la-carte-panel" tabindex="-1">À la carte</button>
+      <button id="pantry-tab" class="recipe-tab" type="button" role="tab" aria-selected="false" aria-controls="pantry-panel" tabindex="-1">Pantry</button>
     </div>
-    <div id="filters" class="filters" role="group" aria-label="Filter meals"></div>
-    <div id="grid" class="grid"></div>
+    <div id="recipe-toolbar" class="recipe-toolbar">
+      <div class="toolbar">
+        <input id="search" class="search" type="search" placeholder="Try salmon rice" aria-label="Search recipes or ingredients">
+        <button id="random" class="random-button" type="button" aria-haspopup="dialog">
+          <span class="dice" aria-hidden="true"></span>Random
+        </button>
+        <button id="print" class="print" type="button">Print list</button>
+        <span id="count" class="count" role="status"></span>
+      </div>
+      <label class="stock-option">
+        <input id="in-stock-only" type="checkbox">In stock only
+      </label>
+    </div>
+    <section id="meals-panel" role="tabpanel" aria-labelledby="meals-tab">
+      <div class="filters" role="group" aria-label="Filter meals"></div>
+      <div class="grid"></div>
+    </section>
+    <section id="a-la-carte-panel" role="tabpanel" aria-labelledby="a-la-carte-tab" hidden>
+      <div class="filters" role="group" aria-label="Filter dishes"></div>
+      <div class="grid"></div>
+    </section>
+    <section id="pantry-panel" role="tabpanel" aria-labelledby="pantry-tab" hidden>
+      <p class="pantry-instructions">Uncheck anything you’ve run out of. Changes are saved in this browser.</p>
+      <div class="pantry-groups"></div>
+    </section>
     <noscript>Enable JavaScript to browse recipes.</noscript>
-    <div class="note">
+    <div id="recipe-notes" class="note">
       <strong>Kitchen notes.</strong> Times are estimates and assume frozen proteins are thawed when needed.
       Cook poultry to 165°F, ground beef to 160°F and salmon fillets to 145°F.
       Use ready-to-eat smoked salmon for recipes that serve it without cooking.
       <a href="https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures" target="_blank" rel="noopener">FoodSafety.gov temperature guide</a>.
     </div>
   </main>
+  <dialog id="random-dialog" class="random-dialog" aria-label="Random recipe">
+    <div class="random-header">
+      <span class="random-label"><span class="dice" aria-hidden="true"></span>Random recipe</span>
+      <button id="close-random" class="random-close" type="button" aria-label="Close recipe" autofocus>×</button>
+    </div>
+    <div class="random-stage">
+      <p id="random-shuffle" class="random-shuffle" aria-hidden="true" hidden></p>
+      <div id="random-result" class="random-result"></div>
+      <span id="random-status" class="visually-hidden" role="status"></span>
+    </div>
+    <div class="random-footer">
+      <button id="random-again" class="random-button" type="button">
+        <span class="dice" aria-hidden="true"></span>Random
+      </button>
+    </div>
+  </dialog>
 </body>
 </html>

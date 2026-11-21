@@ -26,6 +26,14 @@ Pushes to `main` run tests, build `dist/`, and publish GitHub Pages.
 
 The `CNAME` file is `charlesbannister.com`. HTTPS on the custom domain only works after DNS points at GitHub Pages.
 
+## Food catalog
+
+Edit the individual dishes in `tools/food-a-la-carte.json` and the reviewed picks for both tabs in `tools/food-popular-picks.json`. Reviewed picks require at least 4.7 out of 5 from 100 ratings on the linked original. Regenerate the site data offline with `python3 tools/update-food-catalog.py`.
+
+Use `python3 tools/update-food-catalog.py --check-source "RecipeTin Eats"` to check publisher metadata. The command also supports `"Good Food"` and accepts repeated `--url` options for candidate links. It checks the publisher's crawler rules and reports the title, author, time and rating when available.
+
+Publisher recipe indexes help find candidates. [Budget Bytes recipe index](https://www.budgetbytes.com/index/) · [King Arthur Baking recipes](https://www.kingarthurbaking.com/recipes)
+
 ## Contact form
 
 The homepage form posts JSON to a small AWS Lambda (function URL) in the Shabba AWS account (`216989108664`, `us-east-2`, stack `charlesbannister-contact-form`). It emails each message to Charles through SES from `website@shabba.io`, with the visitor as Reply-To. Spam guards: hidden `website` honeypot, at least 3 seconds on the page, length limits, 5 messages an hour per IP. Logs: CloudWatch `/aws/lambda/charlesbannister-contact-form` (one JSON line per request, no message text).
