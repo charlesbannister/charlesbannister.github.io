@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#1c1b18">
+  <title>Notes, tasks or projects? What job-specific software does, and what Shabba could borrow</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --paper: #1c1b18;
+      --text: #d6cfbf;
+      --heading: #f0e7d3;
+      --muted: #b7ab96;
+      --link: #e0b582;
+      --rule: #494339;
+      color: var(--text);
+      background: var(--paper);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font: clamp(1.08rem, 1rem + .32vw, 1.24rem)/1.72 Georgia, "Times New Roman", serif;
+      overflow-wrap: break-word;
+    }
+    main {
+      max-width: 35em;
+      margin-inline: auto;
+      padding: clamp(2.5rem, 7vw, 6rem) 0 6rem;
+      width: calc(100% - 2.5rem);
+    }
+    h1, h2, h3, h4, h5 { color: var(--heading); line-height: 1.2; text-wrap: balance; }
+    h1 {
+      margin: 0;
+      max-width: 18ch;
+      font-size: clamp(2.55rem, 7vw, 4.15rem);
+      font-weight: 400;
+      letter-spacing: -.04em;
+    }
+    h1 + p { color: var(--muted); font-size: .9em; margin: 1.2rem 0 0; }
+    h2 {
+      border-top: 1px solid var(--rule);
+      padding-top: 1.05em;
+      margin: 2.15em 0 .65em;
+      font-size: clamp(1.8rem, 4.4vw, 2.5rem);
+      font-weight: 400;
+      letter-spacing: -.025em;
+    }
+    h3 { margin: 1.75em 0 .65em; font-size: 1.33em; }
+    h4 { margin: 1.7em 0 .5em; font-size: 1.18em; }
+    p { margin: 0 0 1em; }
+    strong { color: var(--heading); }
+    a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: .18em; }
+    a:hover { text-decoration-thickness: 2px; }
+    a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+    blockquote {
+      margin: 1.5em 0;
+      padding: .15em 0 .15em 1em;
+      border-left: 2px solid var(--link);
+      color: var(--heading);
+      font-style: italic;
+    }
+    blockquote p:last-child, li p:last-child { margin-bottom: 0; }
+    ol, ul { padding-inline-start: 1.5em; }
+    li { margin-block: .45em; padding-inline-start: .15em; }
+    .sources li { font-size: .88em; }
+    ::selection { background: #d3b895; color: #201e1a; }
+    @page { size: letter; margin: .72in .85in; }
+    @media print {
+      :root {
+        color-scheme: light;
+        --paper: white;
+        --text: #222;
+        --heading: #111;
+        --muted: #444;
+        --link: #222;
+        --rule: #aaa;
+      }
+      body { font-size: 11pt; line-height: 1.42; }
+      main { width: auto; max-width: none; padding: 0; }
+      h1 { font-size: 27pt; max-width: none; }
+      h2 { font-size: 19pt; }
+      h1, h2, h3, h4 { break-after: avoid; }
+      blockquote { break-inside: avoid; }
+      p, li { orphans: 3; widows: 3; }
+    }
+  </style>
+</head>
+<body>
+<main><h1>Notes, tasks or projects?</h1>
+<p><em>What job-specific software does with notes and to-dos, and what Shabba could borrow · A reading copy for Charles · 21 November 2026</em></p>
+
+<h2>The short answer</h2>
+<p><strong>Keep the name Notes. Make tasks a visible second thing inside it. Don’t split it out as its own product.</strong></p>
+<p>Shabba’s notes have already grown a small project tool. A note can carry a due date, a status, a priority and an assignee, and teammates can be @mentioned on it. What hasn’t happened yet is the step most job-specific software takes: treating a note (something you know) and a task (something someone has to do by a date) as two kinds of item that live in the same place and hang off the same account.</p>
+<p>Software built for one trade almost never starts from a blank page called “Projects”. A law firm’s notes and tasks belong to a matter. An accounting firm’s belong to a client job. A hotel’s follow-ups belong to a reservation. A restaurant manager’s belong to a shift. In each case the software already knows what the job is about, and the notes and tasks attach to it. For Shabba that thing is the Google Ads account, and below it the campaign, the change and the alert.</p>
+<p>In the order I’d build them, the suggestions are:</p>
+<ol>
+<li>Show tasks as tasks: a Tasks view and a “New task” button, using the fields notes already have.</li>
+<li>Put notes on charts, as Google Ads, Google Analytics and Search Console now do.</li>
+<li>Let a task be made from anything Shabba shows: an alert, a queued change, a row in a shot’s results.</li>
+<li>Add recurring checklists that tie into schedules, so “review search terms every Monday” turns up with the result attached.</li>
+<li>Build an account log: one timeline per account where Shabba fills in the facts and people add the reasons.</li>
+<li>Later: turn a client email into a task, and put finished tasks into client reports.</li>
+</ol>
+<p>The rest of this page sets out what Shabba’s notes do now, what the research found, the patterns that repeat across trades, and the reasoning behind each suggestion. The same thinking applies to AdEvolver, where Shabba’s notes came from.</p>
+
+<h2>What Shabba’s notes do today</h2>
+<p>It helps to be precise about the starting point, because more of a project tool is already built than the name suggests.</p>
+<ul>
+<li><strong>Writing:</strong> rich-text notes with checklists, an optional title, pinning, an archive and a bin that empties after 30 days.</li>
+<li><strong>Where they appear:</strong> in a drawer on every page and on a full Notes page. A new note is tagged with the page it was written on, and optionally with the account picked on that page. Custom tags come in ten colours.</li>
+<li><strong>Sharing:</strong> private by default, or shared with the team. Team Admins can edit a shared note; the person it’s assigned to can change its status.</li>
+<li><strong>The project panel:</strong> due date, status (to do, in progress, done, blocked), priority and assignee. There’s a Due view, an “Assigned to me” view and a badge in the header showing how many are due.</li>
+<li><strong>@mentions and notices:</strong> mentioning a teammate or assigning a note to them sends an in-app notice, and an email if they’ve asked for one.</li>
+<li><strong>The chat:</strong> it can create and edit notes (“make a note of that, assign it to me, due next week”), but only notes the user has opened to the AI.</li>
+<li><strong>Being built:</strong> a due time and an “Add to Google Calendar” switch.</li>
+</ul>
+<p>So the half-done part isn’t the data. Every field a simple task list needs is there. What’s missing is that nobody sees “tasks” as a thing. A task is a note with a panel switched on, and the notes don’t yet connect to the rest of Shabba (the charts, the changes, the alerts, the schedules) beyond page and account tags.</p>
+
+<h2>What software for one trade does</h2>
+<p>I looked at tools built for accountants, lawyers, hotels, restaurants and bars, sales teams and marketers, focusing on how each one handles notes and to-dos. Most of what follows comes from the vendors’ own help pages and marketing, plus review sites. I haven’t used these products, so treat the details as what the vendors say they do.</p>
+
+<h3>Accountants: Karbon, TaxDome and Financial Cents</h3>
+<p><strong>Karbon</strong> brings the tasks, notes, emails and documents for a client job together in one place. The team can comment directly on an email, a note or a task, so the discussion stays with the work. Its most distinctive feature is <strong>Triage</strong>, an inbox for email, mentions and assigned work. From it you can turn an email into a task, attach it to a client or job, or start a new project, without leaving the inbox. Reviewers also mention work templates, recurring checklists and board views. Some reviewers say they wanted a simpler task list.</p>
+<p><strong>TaxDome</strong> keeps internal-only <strong>account notes</strong> about each client, such as preferences and background, and those notes can be linked to jobs and tasks. Tasks can sit inside a job or stand alone. <strong>Job recurrences</strong> create repeating jobs for a client at set intervals. One complaint in reviews is that permissions aren’t fine-grained enough for notes and folders.</p>
+<p><strong>Financial Cents</strong> covers similar ground (workflows, deadlines, notes, client requests and time tracking) and is usually described as strongest on recurring work templates.</p>
+
+<h3>Lawyers: Clio</h3>
+<p>In <strong>Clio</strong>, everything belongs to a <strong>matter</strong>: contacts, documents, calendar events, notes, time entries and bills. Tasks have an owner, a due date and a status, and they link to the matter, the calendar and reminders. A firm can turn its process for a type of case into a <strong>reusable task list with relative deadlines</strong>, so opening a new matter sets out the steps and their dates in one go. Time can be logged from a task, a note or a calendar event, and Clio shows which tasks have no time logged before billing. Its AI can draft a new matter’s tasks, events and notes, and the user approves, edits or rejects each suggestion.</p>
+
+<h3>Hotels: OPERA Cloud and ALICE</h3>
+<p>Oracle’s <strong>OPERA Cloud</strong>, a widely used hotel system, has <strong>traces</strong>. A trace is an instruction for one department, for a date and time, on a specific reservation: “extra pillows for room 214 on arrival”, say. When the department does it, the trace is marked resolved. Overdue traces and those due today show by default. Traces for housekeeping appear in housekeeping’s own task screens and on their printed task sheets. Before a guest arrives, staff can review and update the reservation’s preferences, notes and traces together. Traces are deleted automatically 30 days after checkout, a no-show or a cancellation.</p>
+<p><strong>ALICE</strong>, now part of Actabl, links the front desk, housekeeping, maintenance and guest services through shared tasks. Supervisors can track progress on rooms, reassign tasks during a shift and flag maintenance problems.</p>
+<p>Notice that a hotel doesn’t call these “tasks” or “projects”. It calls them traces, and the trace belongs to the reservation.</p>
+
+<h3>Restaurants and bars: 7shifts and the manager’s log book</h3>
+<p>Restaurant managers have long kept a paper log book: what happened on the shift, what broke, what ran out, what the next manager needs to know. The <strong>7shifts Manager Log Book</strong> is the software version, and it’s one of the clearest examples of what job-specific software adds.</p>
+<ul>
+<li>Managers write shift notes and create follow-up tasks for other managers. Task activity flows into the log, so it records what was done, what’s in progress and what wasn’t finished.</li>
+<li>If the restaurant’s till system or the 7shifts time clock is connected, <strong>sales and labour figures are added to the shift notes automatically</strong>. Shift feedback scores from staff are added too.</li>
+<li>Admins set categories in the trade’s own language, such as maintenance requests or “86’d” items (dishes that have run out).</li>
+<li>Over time the entries build up into a searchable history.</li>
+</ul>
+<p>Fourth sells a similar Restaurant Manager LogBook, and Toast publishes guidance on how managers use one. The log book is a standard tool in that trade, not one vendor’s idea.</p>
+
+<h3>Sales teams: HubSpot</h3>
+<p>In <strong>HubSpot</strong>, notes, tasks, calls, emails and meetings are separate <strong>activity types</strong>, and all of them appear on the same timeline on a contact, company or deal record. A note logged on a contact is linked automatically to that contact’s main company and their most recent open deals. When a new deal is created, past notes and tasks can be pulled into it. The point is that notes and tasks are different things, shown together in date order on the record they’re about.</p>
+
+<h3>Marketing and Google Ads</h3>
+<p>This is the closest comparison, and the most useful pattern here is <strong>notes on charts</strong>.</p>
+<ul>
+<li><strong>Google Ads</strong> marks changes on the change history chart. A small marker under the chart opens a card listing the changes made in that period, so you can see what changed next to the line that moved.</li>
+<li><strong>Google Analytics 4</strong> brought back annotations in 2025. They are short notes tied to a date or a date range, shown on reports. Google adds its own system annotations for platform changes, and they can also be created through the Admin API.</li>
+<li><strong>Search Console</strong> added custom annotations in November 2025. You right-click a performance chart, pick a date and write up to 120 characters. Each property can hold 200, and annotations older than 500 days are deleted. They can’t be edited, only deleted and written again.</li>
+<li><strong>AgencyAnalytics</strong>, a reporting tool for marketing agencies, has both. Annotations go on date-based charts. Its optional <strong>Tasks</strong> app works per client or across the agency, can sit on a client’s dashboard as a table, and can put <strong>completed tasks into the monthly client report</strong>, so the client sees what the agency did.</li>
+<li><strong>Optmyzr</strong>, a Google Ads optimisation tool, has <strong>Blueprints</strong>: a schedule of recurring tasks, each with an owner, viewable by account and owner for a given week. Tasks can include work outside the tool, such as a client meeting. Its newer Express feature is pitched as a daily to-do list of the highest-priority optimisation tasks.</li>
+</ul>
+<p>I found nothing confirming per-account notes or task lists in Adalysis or Opteo. Both lean towards alerts and ranked recommendations.</p>
+
+<h2>The patterns that repeat</h2>
+<h3>1. Notes belong to the thing the work is about</h3>
+<p>A matter, a client job, a reservation, a shift, a deal. None of these tools asks you to set up a project first. The record already exists because it’s the job itself, and notes and tasks attach to it. That’s why these tools beat a general notes app for their users: open the client and everything about them is there.</p>
+<h3>2. Notes and tasks are separate types on the same record</h3>
+<p>HubSpot, Clio and TaxDome all keep notes and tasks apart, then show them together. A note records what someone knows. A task records what someone has to do, who it’s for and when. Shabba currently has one type with an optional panel. That’s a reasonable way to store it, but users read the screen, not the database.</p>
+<h3>3. The names come from the trade</h3>
+<p>Matter, job, trace, log book, 86’d. None of the trade tools uses “project” as its main word. Project management language belongs to general tools such as Jira and Asana. People who run Google Ads think in accounts, campaigns, changes and checks.</p>
+<h3>4. The software fills in the facts and people add the reasons</h3>
+<p>7shifts adds the night’s sales and labour to the manager’s note. Google Ads marks its own change history on the chart. Google Analytics adds system annotations. The person only writes what the software can’t know: “the client ran a TV ad that week”, “the fryer was down”.</p>
+<h3>5. Recurring work comes from templates</h3>
+<p>Karbon’s work templates, TaxDome’s job recurrences, Clio’s task lists with relative deadlines and Optmyzr’s Blueprints all do the same thing. A firm decides once how a type of work is done, and the software sets it out each time with dates.</p>
+<h3>6. Tasks come from where work arrives</h3>
+<p>Karbon turns an email into a task in its inbox. OPERA sends a trace to the department that has to act on it. Work rarely starts on the notes page. It starts in an inbox, an alert or a report, and the best tools let you make the task right there.</p>
+<h3>7. Finished work becomes something to show the client</h3>
+<p>AgencyAnalytics puts completed tasks into the monthly report. For an agency, a log of what was done is proof of the work, not just a memory aid.</p>
+<h3>8. Old items clear themselves away</h3>
+<p>OPERA deletes traces 30 days after checkout. Search Console deletes annotations after 500 days and caps them at 200 a property. Shabba’s bin already empties after 30 days. Anything new should have the same kind of limit.</p>
+
+<h2>Should it be renamed?</h2>
+<p>I considered four options.</p>
+<ul>
+<li><strong>Keep “Notes”, and add “Tasks” inside it. My recommendation.</strong> Notes is what people expect to find in a drawer. Tasks is the plainest word for “someone has to do this by Friday”, and it matches HubSpot, Clio, TaxDome and AgencyAnalytics. The header badge already counts due items, so the badge could read “3 due” on the Notes button without anything else changing.</li>
+<li><strong>“Projects”.</strong> I’d avoid it. It promises boards, stages and Gantt charts, invites comparison with Jira and Asana, and isn’t a word Google Ads people use for their work. Shabba’s strength is that it knows the accounts, and “Projects” pushes it towards being a general tool that doesn’t.</li>
+<li><strong>“Log” or “Account log”.</strong> A good name, but for a later feature: the per-account timeline described below. It doesn’t suit a drawer where you jot something down.</li>
+<li><strong>Something new, such as “Workbook” or “Desk”.</strong> These sound friendly but don’t tell anyone what they’ll find. Every trade tool above uses an ordinary, specific word.</li>
+</ul>
+<p>The one rename I would make is small. “Project panel” becomes the task part of a note: a “Make it a task” switch, and a “New task” button that opens with the due date and assignee ready to fill in.</p>
+
+<h2>Should notes and project management be split?</h2>
+<p><strong>Split the types, not the product.</strong></p>
+<p>As a separate product, notes and tasks would compete with Notion, Asana and Jira and lose. What makes Shabba’s notes worth using is that they sit on the account, the page and the shot, and that the chat can read and write them. A standalone version would throw away the one thing the general tools can’t match. That’s also the lesson from every trade tool here: they win because the notes live on the record.</p>
+<p>Inside Shabba, though, separating them on screen would help. A Tasks view would list tasks grouped by due date, by assignee or by account, with a quick way to tick one off. The Notes view stays as it is. A note can be turned into a task and back, because the fields are already there. Little has to change in storage, since tasks are notes with the panel switched on. Most of the work is in the screens.</p>
+
+<h2>Suggestions for Shabba, in order</h2>
+<h3>1. Show tasks as tasks</h3>
+<p><em>Borrowed from HubSpot, Clio and TaxDome.</em> Add a Tasks view, a “New task” button and a short form: what, when, who, which account. Keep the Due and “Assigned to me” views, but move them under Tasks, where people will look for them. This is the smallest change and makes everything after it clearer.</p>
+<h3>2. Notes on charts</h3>
+<p><em>Borrowed from Google Ads, Google Analytics, Search Console and AgencyAnalytics.</em> Shabba has trend shots with charts at account, campaign, keyword, search term and product level. A note with a date, or a date range, would show as a marker on the matching chart: “price rise on the 4th”, “client paused the sale”. Shabba’s own change history can add markers automatically, the way Google Ads does.</p>
+<p>This is the pattern that best fits Google Ads work, where the constant question is “what happened here?”. Since Google Analytics and Search Console now keep their own annotations, it would be worth checking whether Shabba can show those alongside its own on the same chart. That depends on what each Google API offers and needs checking before it’s promised.</p>
+<h3>3. Make a task from anything Shabba shows</h3>
+<p><em>Borrowed from OPERA’s traces and Karbon’s Triage.</em> Right-click a search term, an alert, a queued change or a review request and choose “Make a task”. The task keeps a link back to what it came from, so the person picking it up lands on the right row with the right date range. This is where Shabba can do something a general notes app can’t, because it knows what the row is.</p>
+<h3>4. Recurring checklists linked to schedules</h3>
+<p><em>Borrowed from Karbon, TaxDome, Clio and Optmyzr’s Blueprints.</em> Let a team save a checklist such as “weekly account check” or “taking over an account” and apply it to an account. Steps can have relative dates (“day 1: run the Settings audit; day 7: review search terms; day 30: compare with the first week”). Where a step matches a shot, it can link to that shot. Where Shabba already runs that shot on a schedule, the task can turn up with the latest result attached, so ticking it off means looking at something already prepared.</p>
+<h3>5. An account log</h3>
+<p><em>Borrowed from the 7shifts log book and HubSpot’s timeline.</em> One timeline per account, in date order: changes made, alerts fired, shots run, notes written and tasks finished. Shabba fills in the facts. People add the reasons. When someone takes over an account, or a client asks what happened in March, this is the page they open. It reads data Shabba already stores, so it needs no extra Google Ads requests.</p>
+<h3>6. Later: email to task, and finished tasks in client reports</h3>
+<p><em>Borrowed from Karbon and AgencyAnalytics.</em> Gmail is already connected in Shabba, so a client’s email could become a task on their account. That needs care about what is stored and who on the team can see it. Separately, finished tasks for an account could go into a client report or the weekly summary email as “what we did this week”. That’s cheap once tasks exist and gives agencies something to show for their work.</p>
+<h3>What I’d leave out</h3>
+<ul>
+<li><strong>Time tracking and billing,</strong> as in Clio and Productive. Agencies that need it already have a tool, and it would pull Shabba away from Google Ads.</li>
+<li><strong>Boards, sprints and Gantt charts.</strong> These are the general tools’ territory. A simple grouped list covers how people manage accounts.</li>
+<li><strong>Heavy client portals,</strong> as in TaxDome. A good report covers most of what a client needs to see.</li>
+</ul>
+
+<h2>How it fits the engineering rules</h2>
+<ul>
+<li><strong>Storage:</strong> tasks, chart notes and checklists are small, need joins and search, and belong to users. Postgres, as notes are now. The account log reads tables that already exist rather than copying data.</li>
+<li><strong>Google Ads requests:</strong> none of the suggestions needs new Google Ads requests. Chart markers from change history and the account log use stored data. Scheduled shots run as they do now.</li>
+<li><strong>Bounded growth:</strong> follow the bin’s lead and give old items a limit, as OPERA and Search Console do. For example, archive finished tasks after a set time and cap chart notes per account.</li>
+<li><strong>Observability:</strong> the existing note logs (ids and counts, never note text) extend to tasks, chart notes and checklists.</li>
+</ul>
+
+<h2>How to check this before building much</h2>
+<ol>
+<li>Look at how often the project panel is used today. If people already set due dates and assignees, the Tasks view is overdue. If they don’t, ask why before building more.</li>
+<li>Ask five Google Ads users where they keep account notes and to-dos now: a spreadsheet, Asana, Notion, Google Ads itself, or nowhere. The answer tells you what Shabba is replacing.</li>
+<li>Mock up chart notes on one trend shot and show it. If people immediately want to add one, that’s the strongest sign.</li>
+</ol>
+
+<h2>How sure am I</h2>
+<p>About 80% on the main recommendation: keep Notes, show Tasks, don’t split it into a separate product. The pattern of notes and tasks hanging off the trade’s own record is consistent across every tool I looked at. What’s less certain: most sources are vendor pages and review sites, not hands-on use, so some details may be out of date or vary by plan. I haven’t checked what Shabba’s users actually do with the project panel today. And whether Shabba can show Google Analytics and Search Console annotations on its own charts depends on API details I haven’t verified.</p>
+
+<h2>Sources</h2>
+<ul class="sources">
+<li>Karbon: <a href="https://karbonhq.com/features/email-management/">email management and Triage</a> · <a href="https://www.capterra.com/p/156181/Karbon/reviews/">Capterra reviews</a> · <a href="https://www.g2.com/products/karbon-2019-08-27/reviews">G2 reviews</a></li>
+<li>TaxDome: <a href="https://help.taxdome.com/article/98-taxdome-dictionary">TaxDome dictionary (account notes, tasks, job recurrences)</a> · <a href="https://www.capterra.com/compare/186749-186837/TaxDome-vs-Financial-Cents">Capterra: TaxDome vs Financial Cents</a></li>
+<li>Clio: <a href="https://www.clio.com/features/task-management/">task management</a> · <a href="https://www.clio.com/en-gb/features/matter-management/">matter management</a></li>
+<li>OPERA Cloud: <a href="https://docs.oracle.com/en/industries/hospitality/opera-cloud/26.2/ocsuh/t_managing_reservations_adding_traces_to_reservations.htm">managing reservation traces</a> · <a href="https://docs.oracle.com/cd/E53533_01/opera_5_05_00_core_help/reservation_traces_param.htm">reservation traces setting</a> · <a href="https://docs.oracle.com/en/industries/hospitality/opera-cloud/26.2/ocsuh/t_using_pre_arrivals.htm">pre-arrivals</a></li>
+<li>ALICE: <a href="https://actabl.com/?p=8">Actabl operations management</a> · <a href="https://www.mews.com/en/products/marketplace/alice-app">ALICE in the Mews marketplace</a></li>
+<li>7shifts: <a href="https://kb.7shifts.com/hc/en-us/articles/4417520176531">Manager Log Book help article</a> · <a href="https://7shifts.com/manager-log-book">Manager Log Book</a> · Fourth: <a href="https://fourth.com/solution/workforce-management-software/restaurant-manager-logbook">Restaurant Manager LogBook</a> · Toast: <a href="https://pos.toasttab.com/blog/on-the-line/restaurant-managers-daily-log-book">ways to use a manager’s daily log book</a></li>
+<li>HubSpot: <a href="https://knowledge.hubspot.com/records/manually-log-activities-on-records">log activities on records</a> · <a href="https://knowledge.hubspot.com/records/associate-activities-with-records">associate activities with records</a></li>
+<li>Google Ads: <a href="https://support.google.com/google-ads/answer/9733082">change history chart annotations</a> · <a href="https://searchengineland.com/new-chart-annotations-make-google-ads-change-history-reports-much-easier-to-navigate-329136">Search Engine Land coverage</a></li>
+<li>Google Analytics 4: <a href="https://ppc.land/google-analytics-introduces-annotations-feature-to-enhance-data-context/">PPC Land on GA4 annotations</a> · <a href="https://www.lovesdata.com/blog/google-analytics-annotations/">Loves Data guide</a></li>
+<li>Search Console: <a href="https://www.searchenginejournal.com/google-search-console-adds-custom-annotations-to-reports/561274/">Search Engine Journal on custom annotations</a> · <a href="https://ppc.land/google-search-console-adds-custom-annotations-for-performance-tracking/">PPC Land coverage</a></li>
+<li>AgencyAnalytics: <a href="https://agencyanalytics.com/features/tasks">tasks</a> · <a href="https://help.agencyanalytics.com/en/articles/8900355-create-and-manage-tasks">create and manage tasks</a> · <a href="https://agencyanalytics.com/feature/annotations-and-goals">annotations and goals</a></li>
+<li>Optmyzr: <a href="https://www.optmyzr.com/blog/blogcategories/workflows">workflows and Blueprints</a> · Adalysis: <a href="https://adalysis.com/adalysis-vs-optmyzr/">Adalysis vs Optmyzr</a></li>
+<li>Productive: <a href="https://productive.io/industries/agency-management-software/">agency management software</a></li>
+</ul>
+</main>
+</body>
+</html>
