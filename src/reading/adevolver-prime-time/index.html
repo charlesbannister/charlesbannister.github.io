@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#1c1b18">
+  <meta name="description" content="A product-readiness review of AdEvolver V2 covering reports, safe changes, alerts, onboarding, email, agency workflows and meaningful progress.">
+  <title>What AdEvolver needs before prime time</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --paper: #1c1b18;
+      --text: #d6cfbf;
+      --heading: #f0e7d3;
+      --muted: #b7ab96;
+      --link: #e0b582;
+      --rule: #494339;
+      color: var(--text);
+      background: var(--paper);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font: clamp(1.08rem, 1rem + .32vw, 1.24rem)/1.72 Georgia, "Times New Roman", serif;
+      overflow-wrap: break-word;
+    }
+    main {
+      max-width: 35em;
+      margin-inline: auto;
+      padding: clamp(2.5rem, 7vw, 6rem) 0 6rem;
+      width: calc(100% - 2.5rem);
+    }
+    h1, h2, h3, h4, h5 { color: var(--heading); line-height: 1.2; text-wrap: balance; }
+    h1 {
+      margin: 0;
+      max-width: 18ch;
+      font-size: clamp(2.55rem, 7vw, 4.15rem);
+      font-weight: 400;
+      letter-spacing: -.04em;
+    }
+    h1 + p { color: var(--muted); font-size: .9em; margin: 1.2rem 0 0; }
+    h2 {
+      border-top: 1px solid var(--rule);
+      padding-top: 1.05em;
+      margin: 2.15em 0 .65em;
+      font-size: clamp(1.8rem, 4.4vw, 2.5rem);
+      font-weight: 400;
+      letter-spacing: -.025em;
+    }
+    h3 { margin: 1.75em 0 .65em; font-size: 1.33em; }
+    h4 { margin: 1.7em 0 .5em; font-size: 1.18em; }
+    h5 { margin: 1.5em 0 .4em; font-size: 1em; }
+    p { margin: 0 0 1em; }
+    strong { color: var(--heading); }
+    a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: .18em; }
+    a:hover { text-decoration-thickness: 2px; }
+    a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+    blockquote {
+      margin: 1.5em 0;
+      padding: .15em 0 .15em 1em;
+      border-left: 2px solid var(--link);
+      color: var(--heading);
+      font-style: italic;
+    }
+    blockquote p:last-child, li p:last-child { margin-bottom: 0; }
+    ol, ul { padding-inline-start: 1.5em; }
+    li { margin-block: .45em; padding-inline-start: .15em; }
+    ::selection { background: #d3b895; color: #201e1a; }
+    @page { size: letter; margin: .72in .85in; }
+    @media print {
+      :root {
+        color-scheme: light;
+        --paper: white;
+        --text: #222;
+        --heading: #111;
+        --muted: #444;
+        --link: #222;
+        --rule: #aaa;
+      }
+      body { font-size: 11pt; line-height: 1.42; }
+      main { width: auto; max-width: none; padding: 0; }
+      h1 { font-size: 27pt; max-width: none; }
+      h2 { font-size: 19pt; }
+      h1, h2, h3, h4, h5 { break-after: avoid; }
+      blockquote { break-inside: avoid; }
+      p, li { orphans: 3; widows: 3; }
+      .new-page { break-before: page; }
+    }
+
+    h1 { max-width: 17ch; }
+    header .eyebrow { font: .76em/1.5 system-ui, sans-serif; color: var(--muted); margin-bottom: 1.5em; }
+    header .lede { font-size: 1.12em; line-height: 1.55; margin-top: 1.1em; color: var(--heading); }
+    .contents { border-block: 1px solid var(--rule); margin: 1.7em 0 2.1em; padding: 1em 0; font: .78em/2 system-ui, sans-serif; color: var(--muted); }
+    .contents a { display: inline-block; }
+    .basis { color: var(--muted); font-size: .9em; }
+    section { scroll-margin-top: 1.5rem; }
+    section:first-of-type h2 { border-top: 0; padding-top: 0; margin-top: 1.3em; }
+    .sequence > li, section > ol > li, section > ul > li { margin-block: .85em; }
+    blockquote { font-style: normal; }
+    .closing { margin: 1.75em 0; padding: 1.25em 0; border-block: 1px solid var(--rule); }
+    @media print { .contents { display: none; } header .eyebrow { margin-bottom: .7em; } }
+  </style>
+</head>
+<body><main>
+<header>
+<p class="eyebrow">Product review · November 21, 2026</p>
+<h1>What AdEvolver needs before prime time</h1>
+<p class="lede">An agency can already find a problem, investigate it and prepare a change in V2. Before inviting a wider audience, I’d make sure the numbers hold up, the right account gets changed, and a quiet inbox actually means someone checked.</p>
+</header>
+<nav class="contents" aria-label="In this review">
+<a href="#decision">Launch decision</a> · <a href="#trust">Reports, changes &amp; alerts</a> · <a href="#first">First session</a> · <a href="#daily">Daily workflow</a> · <a href="#mail">Email</a> · <a href="#team">Team &amp; billing</a> · <a href="#design">Design &amp; accessibility</a> · <a href="#progress">Delight</a> · <a href="#proof">Pilot &amp; launch criteria</a>
+</nav>
+<section id="decision"><h2>What I’d launch, and when</h2>
+<p><strong>Keep V2 in a guided Google Ads pilot for now.</strong> Give a manager one account, a read-only dashboard, a built-in report and one alert they can test against history. Enable client-facing exports, live changes, team invitations and paid checkout as each passes the checks below. That lets people use the parts that already help them without relying on a number or confirmation we can’t yet stand behind.</p>
+<p>The strongest evidence came from a small experiment. We gave the custom report engine a UK account with £100 of spend and a US account with US$100. Each had three clicks and zero conversions. The result had six clicks, spend of <strong>200</strong> with no currency, and a cost per acquisition (CPA) of <strong>200</strong>. Imagine an account manager pasting that into a client’s Monday update. I’d fix that ahead of any new report, email skin or scoring system.</p>
+<p><strong>Keep what already works.</strong> Overseer can prepare the dashboard automatically. Reports can retain the last result while a refresh runs and label sample data. Budget Commander has a guard against acting on stale or sample spend. Alerts have evidence and per-event links. Notes, account managers, per-account Preview, and the change history give us the parts for a complete working day. Most of the work below joins those parts together.</p>
+<p class="basis"><strong>What we checked.</strong> This review covers the current V2 working copy, its local interface, selected email templates, a synthetic reporting run, and earlier desktop and phone checks. The public V2 service was reachable and reported an earlier revision than the working copy. Findings describe the candidate. Real mailbox rendering remains unverified. The billing and ad-change acceptance scenarios below use controlled test accounts. We did not charge a customer or change a live ad. Examples below use fictional accounts and figures.</p></section>
+
+<section id="trust"><h2>Three ways AdEvolver has to earn trust</h2>
+<h3>1. Make the same figure defensible everywhere</h3>
+<p>In custom reports, the engine combines figures across accounts and the presentation drops the currency label for mixed currencies. Removing the symbol leaves an apparently valid total. Show GBP and USD in separate groups on the summary, chart, table and export. Keep counts such as clicks additive. Recalculate rates from their underlying counts within comparable groups. Display “— · no conversions” for undefined CPA and distinguish a missing input from a measured zero. The portfolio view in Chat already groups money by currency.</p>
+<p>Put the account, reporting period, comparison period, currency and last usable data date beside the answer. An agency should be able to explain whether a forecast uses a complete day, which accounts contributed, and why a comparison is unavailable. If one selected account fails, show the names included and the name still missing. Carry that context into the exported file.</p>
+<p><strong>Pass when</strong> the UK/US example gives six clicks, separate spend totals and an unavailable CPA. Repeat with one missing currency, one unavailable account, a date comparison and a filtered export. A reviewer should be able to reproduce every headline from the included rows.</p>
+
+<h3>2. Make Review and Apply refer to the same work</h3>
+<p>The Changes page can show one account’s rows. Review on one row opens the workspace-wide queue. The drawer shows the account count, but holding Apply can send eligible changes for several accounts. Someone who starts with one campaign has a good reason to expect that campaign to be the limit of the action.</p>
+<p>Open on the selected row or account. Put account name, campaign, previous value, proposed value, and Preview or Live next to the final button. Name the action precisely, for example <em>Apply 2 changes to Northstar</em>. Give “Review all accounts” a separate entry. After submission, keep each row with its own outcome. Explain what undo will do and offer it only where supported. Distinguish “sent”, “confirmed”, “failed” and “waiting for confirmation”.</p>
+<p><strong>Pass when</strong> a manager reviews one change with another account’s work queued, can predict exactly what will happen, and sees only the selected action applied. In a test workspace, run a mixed Preview/live batch, refuse one item, retry it, refresh the page, and reconcile the outcomes. The successful item must execute exactly once.</p>
+
+<h3>3. Show what was checked before saying all clear</h3>
+<p>The alert inbox can say “You’re all caught up” when a rule exists but has never completed a check, when all rules are off, or when coverage was partial. There’s a second issue for busy teams. The inbox considers only a recent combined window of open and historical events, so older open work can fall outside the displayed list and count.</p>
+<p>Reserve the all-clear state for completed checks with known coverage. Give “First check due tomorrow at 8”, “Monitoring paused”, “Checked 8 of 10 accounts” and “No findings in the last complete check” distinct messages. Keep a previous finding open while its account is unreadable. Show the last successful check and next expected check in the account’s time zone. Retrieve an open issue and its email link independently of how many resolved items followed it.</p>
+<p><strong>Pass when</strong> a new rule, a paused rule, a partial check, a late check and a fully checked quiet account produce five distinguishable answers. Seed an old open issue and more than 500 newer historical events. Its count, link and evidence should still agree.</p></section>
+
+<section id="first"><h2>Get a new user to one useful answer</h2>
+<p>Signing in with Google, connecting a Google Ads identity, enabling account sync and having usable dashboard data are four different moments. AdEvolver already tracks readiness per account and can open one while other accounts are processing. Today the account-row celebration can say “Synced” as soon as the request is accepted. Save “Dashboard ready” for the first usable result.</p>
+<ol>
+<li><strong>Entry.</strong> Explain what the current Google step enables. On return to the app, show which workspace and Ads account were selected. Give a member who can’t connect an account the name or role of the person who can.</li>
+<li><strong>First sync.</strong> Keep the row visible. Say “Sync started for Northstar” and show which data is ready, when the app last checked, and what can be opened now. Let the person leave and resume from the same account. After a delay, offer reconnect, retry or support according to the actual cause.</li>
+<li><strong>First result.</strong> Start with one answer about the selected account, such as spend against budget or the campaign behind a change in cost. Offer “See the rows” and “Watch this with an alert”. While data arrives, an explicitly labelled example can teach the interaction. Return to the same account on exiting it.</li>
+<li><strong>Next visit.</strong> Take the manager back to that finding, saved report or first completed check. A workspace with no spend can still succeed by explaining the date range, confirming what was checked and showing when to come back.</li>
+</ol>
+<p><strong>Watch someone do it.</strong> Give a new manager an empty workspace and ask, “How much did this account spend, and through what date?” Start the clock at sign-in. Record active setup time separately from the wait for data. Repeat with a disconnected identity, two accounts finishing in a different order, and a teammate who can see only one account. A successful setup ends when the person can answer the question.</p></section>
+
+<section id="daily"><h2>Make Monday morning one continuous job</h2>
+<p>Open Overseer on the manager’s saved accounts. Lead with the few findings that need a decision, their coverage, and what changed since the last visit. A quiet day deserves one line with the accounts checked and the last check time. A partial day deserves the names of the accounts still waiting. Preserve the full dashboard for the detail work.</p>
+<p>For example, Northstar’s spend is pacing above its monthly budget. Open the finding in Budget Commander on Northstar, for the same month. Show the configured budget, spend through the last complete day, forecast and assumption, next automation check, and whether action is available. The manager can review a change, mark the pace as expected for a sale, or leave a dated note for the account owner. Returning to Overseer should restore the filter, row and date range.</p>
+<p><strong>Reports and AI.</strong> Let an account manager start with a built-in report, inspect the source rows, then save a variation. In Chat and the builders, repeat the selected accounts, date range, metric definition and comparison before saving a rule or preparing a change. Show which figures support an explanation and which conclusion is an inference. Keep the manual route prominent when AI is unavailable for the selected accounts. In Incognito, say what saving the finished report or rule preserves before the user saves it.</p>
+<p><strong>Handoffs.</strong> Use the existing manager assignment, Notes and reminders. A finding should support “Hand to account manager”, a due date, a short reason and a return link to the evidence. Today the rule creator ordinarily receives the alert. Show who owns the next decision, including what happens if the creator leaves. Distinguish reading a notification, acknowledging a finding, and confirming the underlying issue has cleared. A shared client summary should name the account and period and be reproducible by a colleague with access.</p>
+<p><strong>Keep the first release narrow.</strong> A short “Since your last visit” section could reuse the checks AdEvolver already runs. Start with deduplicated account findings and links back to their evidence. Broader news, additional ad platforms, and a separate feed can follow once managers return for that daily review.</p></section>
+
+<section id="mail"><h2>Make email useful before anyone opens the app</h2>
+<p>We rendered an actual V2 alert email for two fictional accounts, each with a campaign named Brand. The two visible lines were identical. Their links led to different events. An agency manager reading on a phone would have to open both to learn which client needed attention. V2 already produces HTML and plain text and links directly to the event and rule. Keep that plumbing and redesign the information the recipient sees first.</p>
+<blockquote><p><strong>Northstar · Brand CPA reached £48</strong><br>Yesterday’s target was £32. Spend was £240 for five conversions. The previous seven complete days averaged £34 per conversion.</p><p><em>Review Northstar’s alert</em><br><small>Change when this alert emails me</small></p></blockquote>
+<p>This is proposed copy. The subject names the client and finding. The preview line can carry the date and reason to open. The body shows enough evidence to decide whether it can wait. A person who opens the link after sign-in should reach that exact account, date and finding. If the issue has since cleared, show the original observation and the new status together.</p>
+<h3>Give each type of mail one job</h3>
+<ul>
+<li><strong>Sign-in and recovery.</strong> Keep the code large, selectable and legible with images off. Preserve the existing expiry, same-browser guidance, resend and change-address options. Test an expired code, a delayed first email and a new code arriving on a second device.</li>
+<li><strong>Welcome and readiness.</strong> The welcome email can arrive after the first account-list download and say the trial starts today, even though the trial clock began at registration. Use the real end date. Link to the next unfinished step. If the first dashboard takes a while, a single optional ready email can bring the user back to it.</li>
+<li><strong>Team invitation.</strong> Name the inviter and workspace, describe the access being offered, and show how long the invitation lasts. Use one accept button. Handle expired, revoked and already-accepted links with a clear next step.</li>
+<li><strong>Alerts and budgets.</strong> Send urgent findings promptly within the rule’s delivery policy. Budget Commander already has an account-local morning digest. For agencies, try a grouped daily summary for ordinary findings, ordered by account and decision needed. Deduplicate repeated checks and show when an issue has been verified clear.</li>
+<li><strong>Billing.</strong> Show plan, exact amount, currency, interval, effective date and who can act. A sample render produced “6 monthsly”. Use “every six months” for that choice. Distinguish a plan scheduled for later, a successful payment and a failed payment. A receipt belongs to a confirmed payment.</li>
+</ul>
+<h3>Design it as a family and prove delivery end to end</h3>
+<p>Use a compact AdEvolver header, a single-column layout, a clear headline, readable numbers and one prominent action. Include descriptive text links and a plain-text equivalent. Keep core information in text when a logo is blocked. Build a fixture gallery with long account names, repeated campaign names, multiple currencies and unusually long explanations. Inspect actual test messages in Gmail, Outlook and Apple Mail on desktop and phone, in dark mode, with images blocked, and in plain text. Gmail documents which styles it supports. <a href="https://developers.google.com/workspace/gmail/design/css">Gmail’s CSS reference</a>.</p>
+<p>At rule setup, show who will receive which channel, how often, with what daily limit and time zone. Show what happens when Slack is unavailable and how account preferences affect email fallback. Offer “Send me a sample” with fictional data. Then verify a delayed message, a retry with exactly one copy, an opted-out account, a stale deep link and a change of account owner. Measure the recipient’s ability to answer “which account, why now, where do I go?” from their phone.</p></section>
+
+<section id="team"><h2>Get agency invitations and paid accounts over the line</h2>
+<p><strong>Team access belongs in the invitation.</strong> The current invitation form asks for an email address. Account selection is handled later. Give the inviter a role and account picker, then show the exact access the invitee will have before they accept. The current flow can show “Invite Sent!” when the mail attempt failed. Instead, record the invitation, show whether delivery was accepted or failed, and offer resend or revoke from the pending row.</p>
+<p><strong>Pass when</strong> an owner can invite a colleague for just one of two similar accounts, the colleague enters that account on first visit, and the owner can see pending, accepted and expired states. Repeat with an existing user, a failed delivery, a revoked invitation and a new manager taking responsibility for an existing rule.</p>
+<p><strong>Prove paid self-service as a separate release decision.</strong> In the reviewed flow the subscription email goes out before the billing record is committed. Payment subscription creation depends on deferred work, and V2’s regular schedule omits the Classic billing job. Establish which V2 process owns that transition and demonstrate it in payment-provider test mode. The billing page says cancellation stops future charges at period end, while its confirmation warns of permanent data deletion. “Close account” opens support. Give cancellation, retention and an account-closure request distinct wording that matches what actually happens.</p>
+<p><strong>Pass when</strong> a test customer joins a trial, selects a six-month plan, sees the first charge date, receives exactly one correct receipt, can find the invoice, and can cancel before renewal. Run a second customer through a declined payment, an actionable notice to the payer, recovery and restored access. Confirm what a regular member can see and whom they can contact. Reconcile the customer screen, email, invoice and provider state.</p></section>
+
+<section id="design"><h2>Make dense work usable on a phone and with a keyboard</h2>
+<p>An agency manager should be able to open an alert on a phone between meetings, identify the account, inspect its evidence and leave it for the right person. Spreadsheet-style analysis can use a wider canvas. Keep the account, date, mode and most important action in view on both. Make the active filter obvious when it changes a total or hides a row.</p>
+<p>In the local desktop check, Add/Remove Accounts had a page heading and a labelled account search. The Alerts inbox offered “Build an alert”, “Your rules”, “Inbox”, “Resolve”, “Snooze” and “Mark as OK”, but showed no level-one, -two or -three heading. Give it a clear page title and headings for the open work. Then have a screen-reader user follow an email into that inbox and jump straight to the relevant finding.</p>
+<p>On desktop, tablet and phone, we also saw a returning workspace report synced accounts while showing an empty Active list under its saved team filter. The phone repeated “Select team members” twice. Clearing the filter depended on a small ×, while “Connect Google account” was prominent. That makes an existing customer look like a new one. Put “No active accounts match this team filter” in the empty list with a full-size “Show all active accounts” button. Pass when one tap restores the existing accounts and preserves the option to reapply the filter.</p>
+<p><strong>Start the visual pass with one decision screen.</strong> On Budget Commander, give actual spend, target and forecast a shared scale and consistent units. Label forecast as an estimate and draw it differently from observed spend. Keep the observation date next to the chart. Move configuration and change history behind clearly named controls. Reuse the same hierarchy on alert details: finding first, evidence underneath, then one primary action. Test light and dark themes with someone explaining the chart aloud.</p>
+<ul>
+<li><strong>Design the exceptional states.</strong> Give empty, filtered out, first run pending, permission needed, disconnected, partial failure and genuinely clear different explanations and actions. Keep the last good result visible with its date during a refresh. Preserve filters, scroll and draft input across a recoverable failure.</li>
+<li><strong>Test complete tasks with assistive technology.</strong> Start with a keyboard, then repeat with a screen reader. Open the account picker, change a date, read a chart’s equivalent figures, acknowledge an alert and return to the starting row. Announce saving, completion and errors without taking focus. Give chart trends and status colours a text equivalent. <a href="https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html">W3C guidance on status messages</a>.</li>
+<li><strong>Check controls where people actually tap.</strong> Try a 320-pixel viewport and enlarged text, a long account name, the phone keyboard open and a floating help button over the last row. Keep horizontal movement inside tables that need it. Give neighbouring controls enough space to avoid a costly mis-tap. <a href="https://www.w3.org/WAI/WCAG22/Understanding/reflow.html">W3C guidance on reflow</a> · <a href="https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html">Target size and spacing</a>.</li>
+<li><strong>Help where work stops.</strong> Reuse the existing support form and offer a short, editable summary of the screen, last successful check and failed action. Let the user choose what to share. If a scheduled report is late, show the last usable result and a way back to that specific report after support replies.</li>
+</ul>
+<p>Earlier local checks covered both themes and widths from 320 to 1920 pixels. That is a useful baseline. The acceptance test is a person completing the task at those sizes, including the awkward states.</p></section>
+
+<section id="progress"><h2>Make progress feel good because it means something</h2>
+<p>The sync animation grew out of a specific frustration. People switched an account on and saw its row disappear. The new interaction highlights it and shows where it went. Use that idea wherever a manager finishes a piece of work. Keep the affected row in place long enough to read what happened. Give the person control over moving to the next item.</p>
+<p><strong>During a session</strong>, start from real work already done. For eight findings, show “3 reviewed · 2 snoozed · 3 to review”. When a manager marks one as expected, update the row and count together, offer Undo, and keep keyboard focus on an identifiable item. For a submitted change, confirm the queue accepted it and reserve the completion tick for the platform’s confirmation.</p>
+<p><strong>On the next visit</strong>, show what changed in the background. “Two landing pages passed the recheck. One still needs review.” Let the user reopen the evidence and resume on the outstanding item. On a clean day, “12 destinations checked this morning. All responded” is a satisfying result if all twelve were actually checked.</p>
+<p><strong>Across a week</strong>, offer a short account history of useful outcomes. Count a finding once, record whether a person reviewed it or a later check verified the fix, and keep snoozed work in its own count. An agency can use that as a client update. Awarding points for applying changes would reward the wrong behaviour on a healthy account. Leave streaks and leaderboards out. Keep motion brief, include a stable text result, and give motion-sensitive users an equally legible finish.</p></section>
+
+<section id="proof"><h2>How I’d decide it’s ready</h2>
+<p>These are proposed release criteria. The numbers below are targets for the pilot. We don’t yet have measurements of how unfamiliar users perform.</p>
+<ol class="sequence">
+<li><strong>First, fix the three trust failures.</strong> Reporting owns the mixed-currency and zero-conversion fixtures. Changes owns scope and per-item outcomes. Alerts owns monitoring coverage, open counts and deep links. Put the same synthetic examples through the interface, emails and exports that customers will see. Keep broad release gated on a clean rerun of all three.</li>
+<li><strong>Next, run an observed first week.</strong> Product and design recruit five unfamiliar PPC managers, including a solo operator and a multi-client team. Use test accounts. Ask each to connect or accept an invitation, find yesterday’s spend, explain a finding, prepare a change in Preview and find the outcome next visit. Let them try unaided before offering help. Capture where they hesitate, the words they use, and how they recover.</li>
+<li><strong>Before self-service, cover the life cycle.</strong> The team responsible for email and accounts runs a real test mailbox matrix, a scoped team invite and the paid test-mode journey. Have someone open the email signed out on a phone and return to the intended finding. Make support reachable when the connected identity or workspace is wrong.</li>
+<li><strong>Then widen access and add delight.</strong> Start with Google Ads and the proven journeys. Add the daily recap and one truthful completion moment to the most-used review list. Let usage and interviews decide which report, digest or additional platform earns the next investment.</li>
+</ol>
+<h3>A small scorecard for the pilot</h3>
+<ul>
+<li><strong>First value.</strong> Aim for at least four of five managers to reach and explain a real account result unaided. Record median and slowest active setup time, plus the wait from sync request to first usable data. Count eligible new workspaces once.</li>
+<li><strong>Decision safety.</strong> Require all five to correctly name the account, scope and Preview/live consequence before confirming. Require zero wrong-account actions, duplicate executions and invalid monetary totals in the scenario tests. One failure reopens that gate.</li>
+<li><strong>Inbox comprehension.</strong> At least four of five should identify the client, reason and next action from the message alone. Every test deep link must arrive at the intended event or an intelligible resolved/unavailable state after sign-in.</li>
+<li><strong>Return value.</strong> Observe the following week. Count pilot workspaces that return to finish a review or inspect a verified outcome. Ask each manager, “What did AdEvolver help you decide this week?” Record a concrete example or the reason they couldn’t give one.</li>
+</ul>
+<p>Record when someone selects an account, when the first data is ready, when they view it, when they review a finding, and when a change or recheck is confirmed. Those timings will show where work stalls. Use anonymous or internal identifiers and timings. Keep prompts, client names and email bodies out of the measurement. In a five-person pilot, show the individual failures alongside the counts so a good average can’t conceal a serious mistake.</p>
+<p class="closing">After the three trust checks pass, put a manager through the Monday workflow from email to evidence to outcome. If they can tell a client what happened and show the proof, AdEvolver has earned a wider rollout.</p></section>
+<a href="../">Back to the reading list</a>
+</main></body>
+</html>
