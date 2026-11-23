@@ -6,7 +6,7 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="referrer" content="no-referrer">
   <meta name="theme-color" content="#1c1b18">
-  <meta name="description" content="Where AdEvolver V2 stands on November 23, 2026, the emails it sends, what still has to happen before beta testers are invited, and a recommended order.">
+  <meta name="description" content="Where AdEvolver V2 stands on the afternoon of November 23, 2026, what changed since the morning review, and what still has to happen before beta testers are invited.">
   <title>AdEvolver V2: what's left before beta</title>
   <style>
     :root {
@@ -94,124 +94,123 @@
 </head>
 <body><main>
 <header>
-<p class="eyebrow">Status review · November 23, 2026</p>
+<p class="eyebrow">Status review · updated November 23, 2026, 3:30 PM CST</p>
 <h1>AdEvolver V2: what's left before beta</h1>
-<p class="lede">V2 is live on its own server and its tools work on real Google Ads data. It is not ready to hand to beta testers yet. Five things stand in the way: most copied users can't receive email, a large batch of finished work isn't released, Classic and V2 will both act on the same accounts, nobody outside the team has been through it end to end, and Google Ads changes are switched off. My estimate is two to three days of work, most of it checking rather than building.</p>
+<p class="lede">A lot moved today. The big batch of finished work is released, admins can now edit every V2 email, the Classic early-access banner and the V2 welcome are live (the banner is still switched off), and the outage alarm turns out to email support already. Four things still stand between V2 and its first beta team: most copied users can't receive email, nothing yet stops Classic alerting a team that has moved to V2, nobody outside the team has been through it end to end, and V2's code exists only on your Mac, whose disk is 97% full. My estimate is now one and a half to two days, most of it the Classic alert switch and checking.</p>
 </header>
 <nav class="contents" aria-label="In this review">
-<a href="#recommendation">Recommendation</a> · <a href="#now">Where V2 is now</a> · <a href="#email">Emails</a> · <a href="#features">Features</a> · <a href="#operations">Running it</a> · <a href="#before">Before beta</a> · <a href="#during">During beta</a> · <a href="#decisions">Decisions</a> · <a href="#unknowns">What wasn't checked</a>
+<a href="#changed">What changed today</a> · <a href="#recommendation">Recommendation</a> · <a href="#now">Where V2 is now</a> · <a href="#email">Emails</a> · <a href="#features">Features</a> · <a href="#operations">Running it</a> · <a href="#before">Before beta</a> · <a href="#during">During beta</a> · <a href="#decisions">Decisions</a> · <a href="#unknowns">What wasn't checked</a>
 </nav>
+
+<section id="changed">
+<h2>What changed since this morning</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>This morning's item</th><th>Now</th></tr></thead>
+<tbody>
+<tr><td>About 110 changed files not released</td><td><span class="tag ok">Done</span> Released at 09:30 with bot protection, workspace polish, the chat starter and help changes. A second release at 09:35 added the email editor. 2,816 Python and 2,696 front-end tests passed on the exact release.</td></tr>
+<tr><td>Outage alarm goes nowhere</td><td><span class="tag ok">Done (my mistake)</span> An independent monitor has emailed support@adevolver.com since November 21. It is armed and its alarm reads OK. This morning's review missed it.</td></tr>
+<tr><td>Emails still use Classic wording</td><td><span class="tag warn">Partly</span> Admins can now preview, edit and restore the wording of 19 emails on production. A further 19 (support forwards, operator digests, legacy budget emails and two beta emails) are editable in the local build, not yet released. Several subjects still read like Classic's. See the <a href="../adevolver-v2-emails/">email reading copy</a>.</td></tr>
+<tr><td>Classic and V2 both alert the same accounts</td><td><span class="tag warn">Planned, not built</span> Classic now has a beta banner and a notice explaining that Classic alerts pause on V2, and V2 has a welcome and a "back to Classic" email in draft. But nothing yet pauses Classic alerts for a team. The banner and both emails are held until that switch exists.</td></tr>
+<tr><td>Copied users can't receive email</td><td><span class="tag stop">Unchanged</span> Still only 31 of 167 verified as of the last count.</td></tr>
+<tr><td>Google reconnect untested</td><td><span class="tag stop">Unchanged</span> No record of a reconnect on V2 by anyone but you.</td></tr>
+<tr><td>Tonight's data run</td><td><span class="tag warn">Pending</span> It hasn't run yet. The ad-group report and the six Guard checks fixed today still need it.</td></tr>
+<tr><td>Mac disk, data-platform commits, restore rehearsal</td><td><span class="tag stop">Unchanged</span> Disk 97% full (16 GB free). The same four data-platform commits are still not on GitHub. No restore rehearsed.</td></tr>
+</tbody>
+</table></div>
+<p><strong>New finding:</strong> V2 has no GitHub repository. Its only copies are your Mac and the images on the server. With the disk nearly full, that is the biggest single risk in this list, and the cheapest to fix: create a private repository and push.</p>
+</section>
 
 <section id="recommendation">
 <h2>Recommendation</h2>
-<p>Run a small, invite-only beta first, and keep it read-only for the first week.</p>
+<p>Unchanged: run a small, invite-only beta first, and keep it read-only for the first week.</p>
 <ul>
-<li><strong>Who:</strong> five to ten existing paying agency teams from the users already copied across. They manage several accounts, which is where Overseer, Budget Commander and Guard matter most.</li>
-<li><strong>How they get in:</strong> public sign-up stays paused. Each beta team's V2 access is switched on by hand, and they sign in with their Classic password.</li>
+<li><strong>Who:</strong> five to ten existing paying agency teams from the users already copied across.</li>
+<li><strong>How they get in:</strong> public sign-up stays paused. You switch each beta team's V2 access on, then show them the Classic banner. The banner's Continue link already carries them through sign-in to the V2 welcome.</li>
 <li><strong>What they can do:</strong> everything except send changes to Google Ads. After a clean first week, switch changes on one account at a time.</li>
-<li><strong>Price:</strong> free during the beta. Stripe stays in test mode, so no one is charged by V2 while Classic still bills them.</li>
-<li><strong>One app in charge per account:</strong> tell beta users plainly that Classic keeps running alongside V2, and make sure only one app sends them alerts and runs budget automation for any account.</li>
+<li><strong>Price:</strong> free during the beta. Stripe stays in test mode.</li>
+<li><strong>One app in charge per team:</strong> a team on V2 gets V2's alerts only; Classic's pause until they go back. This is now the main thing to build.</li>
 </ul>
-<p>The list of what has to happen first is in <a href="#before">Before beta</a>. The open choices are in <a href="#decisions">Decisions</a>.</p>
 </section>
 
 <section id="now">
 <h2>Where V2 is now</h2>
 <ul>
-<li><strong>Live at v2.adevolver.com</strong> on its own server, database, Google credential store and change sender. The latest release went out this morning.</li>
-<li><strong>Users copied from Classic:</strong> 167 users (129 on trial, 20 paying, 15 team members, 3 admins) and 1,529 accounts. This was a one-time copy at 02:51 UTC on November 23. Anything changed in Classic after that (new accounts, settings, team members) is not in V2.</li>
-<li><strong>Google sign-ins:</strong> 48 were copied. 27 had a working token and now work in V2. The other 21 users will need to reconnect Google Ads before their data loads.</li>
-<li><strong>Data:</strong> the nightly download now serves both apps and downloads each Google Ads account once. The daily account store had been failing silently since November 19. It is fixed, backfilled and now has failure alarms.</li>
-<li><strong>Tested on production with one real account:</strong> 25 of 27 tools ran. The other two need chat input or a linked Search Console property, so they didn't fail. Overseer now makes 7 Google requests instead of about 190 and loads in about 2 seconds. Page speed takes 37 seconds instead of 80. Reports, Budget Commander and AI chat worked. A change round trip worked: one negative keyword added, confirmed in Google Ads, then removed.</li>
-<li><strong>Who can get in:</strong> sign-ups are paused on both apps. Each team's V2 access is closed by default. Only your own agency team is open.</li>
-<li><strong>Safety settings:</strong> email is live. Slack is off. Stripe is in test mode. Google Ads writes are allowed for one test account only, and the change-approval switch is off, so no user can send a change.</li>
+<li><strong>Live at v2.adevolver.com</strong>, release <code>9fe2438</code>, health check answering. Classic is live at <code>d35cf22</code> with the beta banner switched off.</li>
+<li><strong>Users copied from Classic:</strong> 167 users and 1,529 accounts, a one-time copy at 02:51 UTC on November 23. Anything changed in Classic since is not in V2.</li>
+<li><strong>Google sign-ins:</strong> 27 of 48 copied sign-ins work in V2. The other 21 users must reconnect Google Ads. Today's release also makes V2 drop a cached Google token that Google refuses and retry once.</li>
+<li><strong>Tested on production with one real account:</strong> 25 of 27 tools ran (the other two need chat input or Search Console). A change round trip worked.</li>
+<li><strong>Who can get in:</strong> sign-ups paused on both apps. Each team's V2 access is closed by default; only your own team is open.</li>
+<li><strong>Safety settings:</strong> email live, Slack off, Stripe in test mode, Google Ads writes allowed for one test account, change approvals off.</li>
+<li><strong>Welcome video:</strong> the V2 welcome shows "walkthrough coming soon" until you record it and set the link.</li>
 </ul>
 </section>
 
 <section id="email">
 <h2>Emails</h2>
-<p><strong>Sending itself is in good shape.</strong> Amazon SES has production access with a 50,000-a-day limit. The adevolver.com domain passes DKIM, has its own bounce domain and publishes a DMARC policy. Everything V2 sends goes through one sender, which honours bounce and complaint suppression.</p>
-<p><strong>The problem is who can receive it.</strong> Most notification emails only go to people with a verified email address. Only 31 of the 167 copied users are verified. The other 136 would get no alert, Guard, Feed, dashboard-ready or Budget Commander email, and couldn't accept a team invitation. New sign-ups are marked verified the moment they register, so this only affects the copied users, but they are exactly the beta cohort.</p>
-
+<p><strong>Sending is in good shape.</strong> Amazon SES has production access (50,000 a day), adevolver.com passes DKIM and publishes DMARC, and every V2 email goes through one sender that honours bounces and complaints.</p>
+<p><strong>The problem is still who can receive it.</strong> Alert, Guard, Feed, dashboard-ready and Budget Commander emails, and accepting a team invitation, all need a verified address. Only 31 of the 167 copied users have one. Signing in with an emailed code doesn't count as verifying, although it proves the same thing. Changing that would quietly fix most of the gap for anyone who signs in by code.</p>
 <div class="table-wrap"><table>
-<thead><tr><th>Email</th><th>When it is sent</th><th>Ready for beta?</th></tr></thead>
+<thead><tr><th>Email</th><th>Status for beta</th></tr></thead>
 <tbody>
-<tr><td>Sign-in code</td><td>Email-first sign-in. Code lasts 10 minutes.</td><td><span class="tag ok">Ready</span></td></tr>
-<tr><td>Password reset</td><td>From the sign-in page. Link lasts 60 minutes.</td><td><span class="tag ok">Ready</span></td></tr>
-<tr><td>Verify your email</td><td>On request. It does not block sign-in.</td><td><span class="tag warn">Needed for copied users</span></td></tr>
-<tr><td>Team invitation, invite accepted, access removed</td><td>When an owner invites, a member joins, or a member is removed.</td><td><span class="tag warn">Invitee must be verified</span></td></tr>
-<tr><td>Trial welcome</td><td>After the first sync. Skipped while the team's V2 access is closed.</td><td><span class="tag warn">Classic wording; trial timing to check</span></td></tr>
-<tr><td>Dashboard ready</td><td>Once, when the first dashboard has live results.</td><td><span class="tag warn">Verified users only</span></td></tr>
-<tr><td>Alert and Guard findings</td><td>Critical findings at once. Others at once or in an 08:00 daily summary. Respects each account's email opt-out.</td><td><span class="tag warn">Verified users only; duplicates Classic alerts</span></td></tr>
-<tr><td>Feed items</td><td>Breach findings and other Feed items, with a link to the item.</td><td><span class="tag warn">Verified users only</span></td></tr>
-<tr><td>Budget Commander</td><td>Digest and threshold emails. New set-ups are bell-only by default.</td><td><span class="tag warn">Verified users only</span></td></tr>
-<tr><td>Invoice paid, payment failed, plan activated or changed</td><td>From Stripe events and the billing job.</td><td><span class="tag stop">Not exercised: Stripe is in test mode</span></td></tr>
-<tr><td>Support and feedback forms</td><td>To support@adevolver.com, with an automatic reply to the sender.</td><td><span class="tag ok">Ready</span></td></tr>
-<tr><td>Operator notices</td><td>Incidents, billing, credentials and so on, folded into digests to support@. At most 50 a day plus one "limit reached" email.</td><td><span class="tag ok">Ready</span></td></tr>
-<tr><td>Outage alarm</td><td>From AWS when the app is down.</td><td><span class="tag stop">Goes nowhere: Slack only, and Slack is off</span></td></tr>
+<tr><td>Sign-in code, password reset, verify email</td><td><span class="tag ok">Ready</span> Reset and verify subjects still read "Reset Password Notification" and "Verify Email Address".</td></tr>
+<tr><td>Team invitation, accepted, access removed</td><td><span class="tag warn">Invitee must be verified</span></td></tr>
+<tr><td>Trial welcome</td><td><span class="tag warn">Check wording</span> Skipped while a team's V2 access is closed.</td></tr>
+<tr><td>V2 beta welcome, back to Classic</td><td><span class="tag stop">Drafts</span> Both promise that Classic alerts pause or resume. They stay unsent until that is true.</td></tr>
+<tr><td>Alerts, daily summary, Feed, dashboard ready, Budget Commander</td><td><span class="tag warn">Verified users only</span> Classic would also alert the same people today.</td></tr>
+<tr><td>Billing (four emails)</td><td><span class="tag warn">Not exercised</span> Stripe in test mode.</td></tr>
+<tr><td>Support and feedback</td><td><span class="tag ok">Ready</span></td></tr>
+<tr><td>Operator digests and daily-limit notice</td><td><span class="tag ok">Ready</span></td></tr>
+<tr><td>Outage alarm and recovery</td><td><span class="tag ok">Ready</span> Independent monitor, emails support@.</td></tr>
+<tr><td>Legacy budget emails (ten)</td><td><span class="tag ok">Not sent</span> The legacy Budget Commander schedule is off in V2.</td></tr>
 </tbody>
 </table></div>
-
-<h3>What to fix in email</h3>
-<ol>
-<li><strong>Verify the copied users.</strong> Send each beta user a verification link with their invitation, and show a one-line banner in the app until they click it. The quicker alternative is to mark beta users verified by hand, since their address was already in use on Classic. I'd do the link: it also proves the address still works.</li>
-<li><strong>Stop double alerts.</strong> Classic's alert service still emails every Classic customer. A beta user would get Classic's alert and V2's Guard finding for the same problem. Either turn off Classic alerts for beta accounts, or tell beta users to expect both for now.</li>
-<li><strong>Read every email in a real inbox.</strong> Send each type to Gmail, Outlook and Apple Mail and read it. The sign-up and billing emails still use Classic's wording, and the November 21 review flagged the trial timing and six-month wording.</li>
-<li><strong>Give the outage alarm an email route.</strong> An SNS email subscription to support@adevolver.com is enough. Without it, if V2 goes down, nobody is told.</li>
-</ol>
+<p>The full wording of every email is in the <a href="../adevolver-v2-emails/">email reading copy</a>.</p>
 </section>
 
 <section id="features">
 <h2>Features</h2>
 <h3>Working on production</h3>
 <ul>
-<li>Overseer dashboard with date ranges, Manager column and team filter.</li>
-<li>19 built-in reports and the tools, 25 of 27 of which ran on production (the other two need chat input or Search Console).</li>
-<li>Budget Commander, including automations (bell-only by default).</li>
-<li>Guard: eleven checks per eligible account (spend, conversions, traffic, CPA, ROAS, budget pacing, destinations, unfamiliar editors, account status, users, billing holds, website). Six of them were fixed today and are waiting for a full night of data to confirm.</li>
-<li>AI chat, alerts and reports built from a plain-English description.</li>
-<li>Data Lake previews, fixed today to read the live store.</li>
-<li>Team levels (Owner, Admin, Editor, Analyst), Add/Remove Accounts, cookie banner, sign-in and holding page for closed teams.</li>
+<li>Overseer, 19 built-in reports, the tools, Budget Commander (bell-only by default), Guard's eleven checks, AI chat, Data Lake previews, team levels, cookie banner, sign-in and the holding page for closed teams.</li>
+<li>New today: the early-access welcome, the email editor in Admin, the workspace polish and the chat starter.</li>
 </ul>
-
 <h3>Switched off on purpose</h3>
-<p>Custom report builder, Search Console (waiting for Google's consent review), Slack, extra ad platforms, Clients, Notes and change approvals. None of these is needed for a first beta.</p>
-
+<p>Custom report builder, Search Console (waiting on Google), Slack, extra ad platforms, Clients, Notes and change approvals. None is needed for a first beta.</p>
 <h3>Known problems</h3>
 <ul>
-<li><strong>About 110 changed files are not committed or released.</strong> They include V2's bot protection for sign-up, workspace polish (sidebar, tools, help and feedback changes), the new AI chat starter and onboarding polish. Each was checked locally. They need a review, the full test run and a release, or a clear decision to hold parts back.</li>
-<li><strong>The ad-group report returned no rows.</strong> Tonight's download is the first that includes ad groups under paused campaigns, so this should clear. It needs checking tomorrow.</li>
-<li><strong>Google reconnect hasn't been tested from V2.</strong> V2 borrows Classic's Google sign-in client until the new Google Cloud project is approved. The 21 users without a working token have to reconnect, and nobody has done that end to end on v2.adevolver.com with an account other than yours. "Sign in with Google" isn't live yet.</li>
-<li><strong>Unfinished pieces in the code:</strong> landing page detail and conversion-rate views return no data, negative keyword lists aren't read from the data store yet, and one journey view stays in a "processing" state.</li>
-<li><strong>Three trust checks from the November 21 review:</strong> report totals across currencies, the Review button opening the change drawer for the whole workspace instead of one account, and alert empty states that should say whether checks actually ran. The local build had fixes for these. Confirm they are in what is deployed.</li>
-<li><strong>Small layout issues:</strong> the billing page shifts when its pricing request fails (only seen when an admin views as someone else), and the dark-mode background stops below the content.</li>
+<li><strong>No per-team Classic alert switch.</strong> Needed before the banner is switched on for anyone.</li>
+<li><strong>Local work not released:</strong> 22 files for the extra email editor entries. Tests passed locally (115). They need a commit and release.</li>
+<li><strong>Google reconnect</strong> on V2 still untested with a login other than yours. "Sign in with Google" isn't live yet.</li>
+<li><strong>Unfinished pieces:</strong> landing page detail and conversion-rate views return no data, negative keyword lists aren't read from the store yet, one journey view stays "processing".</li>
+<li><strong>Three trust checks</strong> from November 21 (report totals across currencies, the Review button's scope, alert empty states). Not rechecked today.</li>
 </ul>
 </section>
 
 <section id="operations">
 <h2>Running it</h2>
 <ul>
-<li><strong>Deploys run from your Mac</strong> because GitHub Actions billing is stuck. The Mac's disk filled up and broke two releases today. Free up space before the beta.</li>
-<li><strong>Four data-platform commits are deployed but not pushed</strong> to GitHub, because a pre-push check flooded its own output. Push them so the code on GitHub matches what is running.</li>
-<li><strong>Backups:</strong> the V2 database lives on one server, with daily disk snapshots kept for seven days. A restore has not been rehearsed. Do one dry run before real users depend on it.</li>
-<li><strong>Classic still reads the old daily store,</strong> which stopped updating on November 15. That affects Classic users today, not V2, but it needs your go-ahead to fix.</li>
+<li><strong>V2's code is only on your Mac.</strong> Create a private GitHub repository and push it.</li>
+<li><strong>Mac disk is 97% full</strong> (16 GB free). It broke two releases this morning. Deploys still run from the Mac because GitHub Actions billing is stuck.</li>
+<li><strong>Four data-platform commits</strong> from last night are deployed but not on GitHub.</li>
+<li><strong>Backups:</strong> daily snapshots kept for seven days; a restore hasn't been rehearsed.</li>
+<li><strong>Classic's daily store</strong> stopped updating on November 15. It affects Classic users, not V2, and needs your go-ahead.</li>
 </ul>
 </section>
 
 <section id="before">
 <h2>Before beta: the list</h2>
-<p>In order. Each step is small. The point is that a beta user's first morning goes right.</p>
 <ol>
-<li><strong>Check tonight's data run.</strong> Confirm the ad-group report fills and the six Guard checks fixed today produce results.</li>
-<li><strong>Release the local work.</strong> Review the roughly 110 changed files, run the full tests, release, and look at the result in the browser.</li>
-<li><strong>Fix email for copied users:</strong> verification link with the invite, plus an in-app banner.</li>
-<li><strong>Read every email in Gmail, Outlook and Apple Mail.</strong> Fix the Classic wording and trial copy.</li>
-<li><strong>Add the outage alarm's email route.</strong></li>
-<li><strong>Test a Google reconnect</strong> on v2.adevolver.com with a login other than yours.</li>
-<li><strong>Settle Classic overlap:</strong> decide, for each beta account, whether Classic alerts and Classic Budget Commander stay on. Keep V2 Budget Commander bell-only until that's settled.</li>
-<li><strong>Walk one real manager through it</strong> while you watch: invitation email, sign in, verify, dashboard, an alert email, open it, investigate. Fix what trips them up.</li>
-<li><strong>Housekeeping:</strong> free Mac disk space, push the data-platform commits, rehearse a database restore.</li>
-<li><strong>Open the beta teams</strong> one or two at a time, and watch the first night's emails and runs for each.</li>
+<li><strong>Push V2 to a private GitHub repository</strong> and free disk space on the Mac. Ten minutes, and it removes the worst risk.</li>
+<li><strong>Build the per-team Classic alert switch.</strong> Moving a team to V2 pauses its Classic alerts and Budget Commander and sends the V2 welcome; going back reverses both and sends the confirmation.</li>
+<li><strong>Fix email for copied users:</strong> count a code sign-in as verification, and send a verification link with each beta invitation.</li>
+<li><strong>Read every email.</strong> Use the <a href="../adevolver-v2-emails/">email reading copy</a>, change wording in the editor, then send each one to Gmail, Outlook and Apple Mail.</li>
+<li><strong>Release the local email editor entries.</strong></li>
+<li><strong>Check tonight's data run:</strong> the ad-group report and the six Guard checks.</li>
+<li><strong>Test a Google reconnect</strong> on V2 with a login other than yours.</li>
+<li><strong>Record the walkthrough</strong> and set its link, or leave "coming soon".</li>
+<li><strong>Walk one real manager through it</strong> while you watch: banner, sign in, welcome, dashboard, an alert email, investigate.</li>
+<li><strong>Housekeeping:</strong> push the data-platform commits, rehearse a database restore.</li>
+<li><strong>Open the beta teams</strong> one or two at a time and watch each team's first night.</li>
 </ol>
 </section>
 
@@ -220,8 +219,8 @@
 <ul>
 <li><strong>Week two: changes.</strong> Add beta accounts to the change allowlist one at a time and switch change approvals on for beta users only.</li>
 <li><strong>Billing.</strong> Run checkout, renewal, failed payment and cancellation end to end in Stripe test mode before V2 charges anyone.</li>
-<li><strong>Measure where people stall:</strong> time from sign-in to first dashboard, first alert opened, first finding reviewed. Ask each manager every week what V2 helped them decide.</li>
-<li><strong>Later switches:</strong> Search Console once Google approves, "Sign in with Google" once the new Cloud project is ready, then reopening public sign-up with the new bot protection.</li>
+<li><strong>Measure where people stall:</strong> sign-in to first dashboard, first alert opened, first finding reviewed.</li>
+<li><strong>Later:</strong> Search Console once Google approves, "Sign in with Google", then reopening public sign-up.</li>
 </ul>
 </section>
 
@@ -229,19 +228,19 @@
 <h2>Decisions for you</h2>
 <ol>
 <li><strong>Beta cohort:</strong> five to ten paying agency teams (recommended), or every copied user.</li>
-<li><strong>Changes in week one:</strong> off (recommended), or on for chosen accounts from day one.</li>
-<li><strong>Price:</strong> free during beta (recommended), or charge through V2 from the start.</li>
-<li><strong>Verifying copied users:</strong> verification link with the invite (recommended), or mark them verified by hand.</li>
-<li><strong>Classic alerts for beta accounts:</strong> turn them off, or let users get both for now.</li>
-<li><strong>Outage alarm:</strong> email to support@ (recommended), or turn Slack back on for operators only.</li>
-<li><strong>Classic daily store:</strong> switch Classic to the live store. This needs a Classic change, which the freeze otherwise rules out.</li>
+<li><strong>Changes in week one:</strong> off (recommended), or on for chosen accounts.</li>
+<li><strong>Price:</strong> free during beta (recommended), or charge through V2.</li>
+<li><strong>Verifying copied users:</strong> count a code sign-in plus a link with the invite (recommended), or mark beta users verified by hand.</li>
+<li><strong>Classic Budget Commander for beta teams:</strong> pause it with Classic alerts (recommended), or keep it running until V2's is trusted.</li>
+<li><strong>Classic daily store:</strong> switch Classic to the live store. This needs a Classic change.</li>
 </ol>
+<p class="basis">Settled since this morning: the outage alarm already emails support@.</p>
 </section>
 
 <section id="unknowns">
 <h2>What wasn't checked</h2>
-<p class="basis">This review used the V2 code, the project's run records from November 21 to 23 and live checks of the email sending set-up. It did not read the live V2 feature-flag settings (for example, whether the Feed is switched on in production), did not see tonight's data run, and did not send any test emails. Confidence in the overall picture is about 85%. The release list and the email verification gap are the parts I'm surest of.</p>
-<p class="closing">Get email working for the people you invite, release what's built, and watch one manager use it. Once that first morning goes cleanly, open it to the rest of the beta teams.</p>
+<p class="basis">This update used the V2 and Classic code, today's run records, the live health checks, the outage monitor's alarm and its armed state. It did not query the V2 database, so the verified count (31) is this morning's figure. It did not read live feature-flag values, did not see tonight's data run, did not recheck the three trust checks and did not send any test emails. Production email wording could differ from the defaults if someone has already saved changes in the editor. Confidence in the overall picture is about 85%.</p>
+<p class="closing">Back up the code, build the Classic alert switch, get email reaching the people you invite, and watch one manager use it. Then open it to the rest of the beta teams.</p>
 </section>
 <a href="../">Back to the reading list</a>
 </main></body>

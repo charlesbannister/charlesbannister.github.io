@@ -1,0 +1,755 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#1c1b18">
+  <meta name="description" content="The current wording of every transactional and automated email AdEvolver V2 sends, grouped by when it goes out, with what is live and what is still a draft.">
+  <title>AdEvolver V2: every email it sends</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --paper: #1c1b18;
+      --text: #d6cfbf;
+      --heading: #f0e7d3;
+      --muted: #b7ab96;
+      --link: #e0b582;
+      --rule: #494339;
+      --cell: #24221e;
+      color: var(--text);
+      background: var(--paper);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      font: clamp(1.08rem, 1rem + .32vw, 1.24rem)/1.72 Georgia, "Times New Roman", serif;
+      overflow-wrap: break-word;
+    }
+    main {
+      max-width: 35em;
+      margin-inline: auto;
+      padding: clamp(2.5rem, 7vw, 6rem) 0 6rem;
+      width: calc(100% - 2.5rem);
+    }
+    h1, h2, h3, h4 { color: var(--heading); line-height: 1.2; text-wrap: balance; }
+    h1 {
+      margin: 0;
+      max-width: 17ch;
+      font-size: clamp(2.55rem, 7vw, 4.15rem);
+      font-weight: 400;
+      letter-spacing: -.04em;
+    }
+    h2 {
+      border-top: 1px solid var(--rule);
+      padding-top: 1.05em;
+      margin: 2.15em 0 .65em;
+      font-size: clamp(1.8rem, 4.4vw, 2.5rem);
+      font-weight: 400;
+      letter-spacing: -.025em;
+    }
+    h3 { margin: 1.75em 0 .65em; font-size: 1.33em; }
+    p { margin: 0 0 1em; }
+    strong { color: var(--heading); }
+    a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: .18em; }
+    a:hover { text-decoration-thickness: 2px; }
+    a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+    ol, ul { padding-inline-start: 1.5em; }
+    li { margin-block: .55em; padding-inline-start: .15em; }
+    ::selection { background: #d3b895; color: #201e1a; }
+    header .eyebrow { font: .76em/1.5 system-ui, sans-serif; color: var(--muted); margin-bottom: 1.5em; }
+    header .lede { font-size: 1.12em; line-height: 1.55; margin-top: 1.1em; color: var(--heading); }
+    .contents { border-block: 1px solid var(--rule); margin: 1.7em 0 2.1em; padding: 1em 0; font: .78em/2 system-ui, sans-serif; color: var(--muted); }
+    .contents a { display: inline-block; }
+    section { scroll-margin-top: 1.5rem; }
+    section:first-of-type h2 { border-top: 0; padding-top: 0; margin-top: 1.3em; }
+    .basis { color: var(--muted); font-size: .9em; }
+    .table-wrap { overflow-x: auto; margin: 1.2em 0 1.6em; -webkit-overflow-scrolling: touch; }
+    table { border-collapse: collapse; width: 100%; min-width: 30em; font: .8em/1.5 system-ui, sans-serif; }
+    th, td { text-align: left; vertical-align: top; padding: .6em .7em; border-bottom: 1px solid var(--rule); }
+    th { color: var(--heading); font-weight: 600; background: var(--cell); }
+    td:first-child { color: var(--heading); }
+    .tag { display: inline-block; font: 600 .72em/1.4 system-ui, sans-serif; letter-spacing: .03em; text-transform: uppercase; padding: .1em .45em; border-radius: .25em; border: 1px solid currentColor; white-space: nowrap; }
+    .ok { color: #9fc79a; }
+    .warn { color: #e0b582; }
+    .stop { color: #e79a8e; }
+    .closing { margin: 1.75em 0; padding: 1.25em 0; border-block: 1px solid var(--rule); }
+    @page { size: letter; margin: .72in .85in; }
+    @media print {
+      :root { color-scheme: light; --paper: white; --text: #222; --heading: #111; --muted: #444; --link: #222; --rule: #aaa; --cell: #eee; }
+      body { font-size: 11pt; line-height: 1.42; }
+      main { width: auto; max-width: none; padding: 0; }
+      h1 { font-size: 27pt; max-width: none; }
+      h2 { font-size: 19pt; }
+      h1, h2, h3 { break-after: avoid; }
+      tr, li { break-inside: avoid; }
+      .contents { display: none; }
+      .ok, .warn, .stop { color: #222; }
+      .table-wrap { overflow: visible; }
+      table { min-width: 0; }
+    }
+    .email { margin: 1.6em 0 2.2em; }
+    .email h3 { margin-bottom: .3em; }
+    .meta { font: .78em/1.55 system-ui, sans-serif; color: var(--muted); margin: 0 0 .7em; }
+    .meta .tag { white-space: normal; }
+    .subject { font: .86em/1.5 system-ui, sans-serif; color: var(--heading); margin: 0 0 .6em; }
+    .body { white-space: pre-wrap; font: .82em/1.6 ui-monospace, Menlo, monospace; background: var(--cell); border: 1px solid var(--rule); border-radius: .4em; padding: .9em 1em; margin: 0; overflow-wrap: anywhere; }
+    @media print { .body { background: none; } }
+  </style>
+</head>
+<body><main>
+<header>
+<p class="eyebrow">Email copy · November 23, 2026, 3:30 PM CST</p>
+<h1>AdEvolver V2: every email it sends</h1>
+<p class="lede">The current wording of all 40 automated and transactional emails in V2, as plain text, filled with sample details (Northstar, Alex, example links). Each one says whether it is sent today and whether its wording can be changed in Admin → Automated emails.</p>
+</header>
+<nav class="contents" aria-label="Email groups"><a href="#sign-in-and-security">Sign-in and security</a> · <a href="#team-access">Team access</a> · <a href="#getting-started">Getting started</a> · <a href="#early-access">Early access</a> · <a href="#billing">Billing</a> · <a href="#support">Support</a> · <a href="#notifications">Notifications</a> · <a href="#legacy-budget-automation">Legacy budget automation</a> · <a href="#operations">Operations</a> · <a href="#outage-monitor-outside-the-app">Outage monitor (outside the app)</a></nav>
+<section id="notes">
+<h2>Before you read</h2>
+<ul>
+<li><strong>Where to change wording:</strong> <a href="https://v2.adevolver.com/admin/automated-emails">Admin → Automated emails</a>. 19 emails are editable on production now. The other 19 app emails are editable in the local build and go live with the next release.</li>
+<li><strong>The wording shown is the default.</strong> If anyone has already saved changes on production, those win. Two emails (support received, daily alert summary) have small wording changes in the local build; the local version is shown.</li>
+<li><strong>Some lines only appear in certain situations,</strong> for example the "Slack is not available" paragraph, which only shows for people who had chosen Slack.</li>
+<li><strong>Not included:</strong> Stripe's own receipts and card emails, and Classic's emails.</li>
+</ul>
+<h3>Things that stood out</h3>
+<ul>
+<li>Four subjects still read like the old Laravel app: "Reset Password Notification", "Verify Email Address", "Your AdEvolver Invoice", "AdEvolver account access invitation accepted". "Access revoked" is blunter than the heading inside it ("Workspace access removed").</li>
+<li>The immediate alert says "1 more findings".</li>
+<li>The legacy budget emails show money as "£100.0" while the newer ones use "GBP 5,000". The restart emails end with "Thanks for choosing AdEvolver."</li>
+<li>The trial welcome is thin: a trial end date and "see the latest result", with nothing on what to try first.</li>
+<li>Both beta emails promise that Classic alerts pause or resume. That needs the per-team switch before either can go out.</li>
+</ul>
+</section>
+<section id="sign-in-and-security">
+<h2>Sign-in and security</h2>
+<div class="email" id="login_code">
+<h3>Email sign-in code</h3>
+<p class="meta"><span class="tag ok">Sent · editable on production</span> When someone requests a code to sign in by email.</p>
+<p class="subject"><strong>Subject:</strong> Your AdEvolver sign-in code</p>
+<pre class="body">Your AdEvolver sign-in code
+
+12345678
+
+Enter this code in the browser where you started.
+
+It expires in 10 minutes. If you didn&#x27;t request it, ignore this email.</pre>
+</div>
+<div class="email" id="verify_email_code">
+<h3>Verify an email with a code</h3>
+<p class="meta"><span class="tag ok">Sent · editable on production</span> When someone needs to prove they own the email address on their Google sign-in.</p>
+<p class="subject"><strong>Subject:</strong> Verify your email address for AdEvolver</p>
+<pre class="body">Verify your email address for AdEvolver
+
+12345678
+
+Enter this code in the browser where you started.
+
+It expires in 10 minutes. If you didn&#x27;t request it, ignore this email.</pre>
+</div>
+<div class="email" id="verify_email_link">
+<h3>Verify an email with a link</h3>
+<p class="meta"><span class="tag ok">Sent · editable on production</span> When the email verification flow requests a signed confirmation link.</p>
+<p class="subject"><strong>Subject:</strong> Verify Email Address</p>
+<pre class="body">Verify your email address
+
+Click the button below to verify your email address.
+
+Verify Email Address: https://example.test/verify-email/sample</pre>
+</div>
+<div class="email" id="password_reset">
+<h3>Password reset</h3>
+<p class="meta"><span class="tag ok">Sent · editable on production</span> When someone asks to reset the password for their account.</p>
+<p class="subject"><strong>Subject:</strong> Reset Password Notification</p>
+<pre class="body">Reset your AdEvolver password
+
+You are receiving this email because we received a password reset request for your account.
+
+This password reset link will expire in 60 minutes.
+
+If you did not request a password reset, no further action is required.
+
+Reset Password: https://example.test/password/reset/sample</pre>
+</div>
+</section>
+<section id="team-access">
+<h2>Team access</h2>
+<div class="email" id="team_invite">
+<h3>Team invitation</h3>
+<p class="meta"><span class="tag ok">Sent · editable on production</span> When a workspace admin sends or resends an invitation.</p>
+<p class="subject"><strong>Subject:</strong> Invitation to Northstar’s workspace</p>
+<pre class="body">Invitation to Northstar’s workspace
+
+Morgan Lee invited alex@example.test to Northstar’s workspace in AdEvolver.
+
+Level: Member. Account access: Selected accounts.
+
+Accept by December 1, 2026 (UTC) using the sign-in for alex@example.test.
+
+Accept invitation: https://example.test/invite/sample</pre>
+</div>
+<div class="email" id="team_invite_copy">
+<h3>Team invitation sender copy</h3>
+<p class="meta"><span class="tag ok">Sent · editable on production</span> Sent to the admin after the invitation is delivered to the invitee.</p>
+<p class="subject"><strong>Subject:</strong> Invitation to Northstar’s workspace (sender copy)</p>
+<pre class="body">Invitation to Northstar’s workspace (sender copy)
+
+Morgan Lee invited alex@example.test to Northstar’s workspace in AdEvolver.
+
+Level: Member. Account access: Selected accounts.
+
+Accept by December 1, 2026 (UTC) using the sign-in for alex@example.test.
+
+Accept invitation: https://example.test/invite/sample</pre>
+</div>
+<div class="email" id="team_access_removed">
+<h3>Workspace access removed</h3>
+<p class="meta"><span class="tag ok">Sent · editable on production</span> When a workspace admin removes a member&#x27;s access.</p>
+<p class="subject"><strong>Subject:</strong> AdEvolver account access revoked</p>
+<pre class="body">Workspace access removed
+
+Your team admin has revoked your access to their AdEvolver account.
+
+Contact the workspace owner if you still need access.</pre>
+</div>
+<div class="email" id="team_invite_accepted">
+<h3>Team invitation accepted</h3>
+<p class="meta"><span class="tag ok">Sent · editable on production</span> Sent to workspace admins when an invited teammate joins.</p>
+<p class="subject"><strong>Subject:</strong> AdEvolver account access invitation accepted</p>
+<pre class="body">Team invitation accepted
+
+Alex Smith (alex@example.test) accepted your invitation to access AdEvolver.
+
+Level: Member. Account access: Selected accounts.
+
+Open Team to manage their workspace access.
+
+Open the Team page: https://example.test/user/team</pre>
+</div>
+</section>
+<section id="getting-started">
+<h2>Getting started</h2>
+<div class="email" id="trial_welcome">
+<h3>Trial welcome</h3>
+<p class="meta"><span class="tag ok">Sent · editable on production</span> When the first Google Ads account download succeeds on an enabled workspace.</p>
+<p class="subject"><strong>Subject:</strong> Welcome to AdEvolver</p>
+<pre class="body">Welcome to AdEvolver
+
+Hi Alex,
+
+Your trial ends on December 1, 2026.
+
+Open Northstar to see the latest result and check which data is ready.
+
+Open your dashboard: https://example.test/user/dashboard</pre>
+</div>
+</section>
+<section id="early-access">
+<h2>Early access</h2>
+<div class="email" id="v2_beta_welcome">
+<h3>V2 beta welcome</h3>
+<p class="meta"><span class="tag stop">Draft · not sent</span> Draft for after the workspace moves to V2 and alert delivery switches over. Automatic delivery is pending.</p>
+<p class="subject"><strong>Subject:</strong> Welcome to the AdEvolver V2 beta</p>
+<pre class="body">Welcome to AdEvolver V2
+
+Your workspace is now on the AdEvolver V2 beta. Your Classic alerts and notifications are paused while your workspace is on V2, and your Classic settings are saved.
+
+Breach detection can flag changes such as ad links switching to an unfamiliar domain or a new Google Ads admin. Critical alerts can flag problems such as conversions stopping while ads still get clicks. You can customise the checks or create alerts for your own conditions and schedules.
+
+You can switch back at any time. In V2, choose Back to Classic. Your Classic alerts will resume using your saved settings, and V2 alert delivery will pause. We’ll email you to confirm the switch.
+
+V2 is in early beta. If something looks wrong or you have feedback, email support@adevolver.com.
+
+Open AdEvolver V2: https://example.test/user/v2/early-access</pre>
+</div>
+<div class="email" id="v2_beta_return_to_classic">
+<h3>Return to Classic confirmation</h3>
+<p class="meta"><span class="tag stop">Draft · not sent</span> Draft for after the workspace returns to Classic and alert delivery resumes there. Automatic delivery is pending.</p>
+<p class="subject"><strong>Subject:</strong> You’re back on AdEvolver Classic</p>
+<pre class="body">Welcome back to Classic
+
+Your workspace has switched back to AdEvolver Classic. Your Classic alerts and notifications have resumed using your saved settings, and V2 alert delivery is paused.
+
+You can review your alert settings in Classic whenever you like. If something seems off with your alerts, email support@adevolver.com.
+
+Open AdEvolver Classic: https://example.test/</pre>
+</div>
+</section>
+<section id="billing">
+<h2>Billing</h2>
+<div class="email" id="subscription_scheduled">
+<h3>Subscription scheduled</h3>
+<p class="meta"><span class="tag ok">Sent · editable on production</span> When a workspace owner schedules a new subscription.</p>
+<p class="subject"><strong>Subject:</strong> Your AdEvolver subscription is scheduled</p>
+<pre class="body">Your AdEvolver subscription is scheduled
+
+Hi Alex,
+
+Your subscription is USD 49.00, billed monthly.
+
+This billing period begins on December 1, 2026 (UTC).
+
+A receipt will follow when payment succeeds. The workspace owner can manage the payment method or cancel future renewals.
+
+Manage billing: https://example.test/user/billing</pre>
+</div>
+<div class="email" id="subscription_updated">
+<h3>Subscription updated</h3>
+<p class="meta"><span class="tag ok">Sent · editable on production</span> When a workspace owner changes their subscription.</p>
+<p class="subject"><strong>Subject:</strong> Your AdEvolver subscription has been updated</p>
+<pre class="body">Your AdEvolver subscription has been updated
+
+Hi Alex,
+
+Your subscription is USD 49.00, billed monthly.
+
+This billing period begins on December 1, 2026 (UTC).
+
+A receipt will follow when payment succeeds. The workspace owner can manage the payment method or cancel future renewals.
+
+Manage billing: https://example.test/user/billing</pre>
+</div>
+<div class="email" id="invoice_paid">
+<h3>Invoice paid</h3>
+<p class="meta"><span class="tag ok">Sent · editable on production</span> When Stripe confirms payment. Invoice copy recipients also receive it.</p>
+<p class="subject"><strong>Subject:</strong> Your AdEvolver Invoice</p>
+<pre class="body">Payment received
+
+Amount paid: USD 49.00
+
+Customer email: alex@example.test
+
+View and download your invoice: https://example.test/invoice/sample
+
+Billing and invoices: https://example.test/user/billing</pre>
+</div>
+<div class="email" id="payment_failed">
+<h3>Payment declined</h3>
+<p class="meta"><span class="tag ok">Sent · editable on production</span> When a scheduled subscription payment fails.</p>
+<p class="subject"><strong>Subject:</strong> Your AdEvolver payment needs attention</p>
+<pre class="body">Your AdEvolver payment needs attention
+
+The payment of USD 49.00 was declined.
+
+The workspace owner can update the payment method in Billing and invoices.
+
+The next attempt is scheduled for December 1, 2026 (UTC).
+
+Update payment method: https://example.test/user/billing</pre>
+</div>
+</section>
+<section id="support">
+<h2>Support</h2>
+<div class="email" id="support_received">
+<h3>Support message received</h3>
+<p class="meta"><span class="tag warn">Sent · editable on production · wording below changed locally</span> When a signed-in user sends a support message with their name and email.</p>
+<p class="subject"><strong>Subject:</strong> We have received your AdEvolver support message</p>
+<pre class="body">We have received your AdEvolver support message
+
+Hi Alex,
+
+Thanks for getting in touch. Charles has received your message. We aim to respond within 24 hours (business days).
+
+Your message
+
+How do I change the dashboard date range?
+
+Sent by Alex (alex@example.test · user id sample-user). Reply requested.</pre>
+</div>
+<div class="email" id="feedback_anonymous">
+<h3>Anonymous feedback</h3>
+<p class="meta"><span class="tag warn">Sent · editor entry not yet released</span> Sent to the support team when someone submits feedback anonymously.</p>
+<p class="subject"><strong>Subject:</strong> Anonymous AdEvolver feedback</p>
+<pre class="body">Anonymous AdEvolver feedback
+
+New feedback, sent anonymously. It carries no name or email, so it cannot be answered.
+
+What do you find most useful?
+
+Seeing alerts and budget changes in one place.
+
+What would you like to see improved?
+
+Add another date range to the dashboard.
+
+Any other comments?
+
+The setup guide helped.</pre>
+</div>
+<div class="email" id="feedback_identified">
+<h3>Feedback with sender details</h3>
+<p class="meta"><span class="tag warn">Sent · editor entry not yet released</span> Sent to the support team when users include their details with their feedback.</p>
+<p class="subject"><strong>Subject:</strong> AdEvolver feedback from Alex</p>
+<pre class="body">AdEvolver feedback from Alex
+
+New feedback from Alex (alex@example.test · user id sample-user). Reply requested.
+
+What do you find most useful?
+
+Seeing alerts and budget changes in one place.
+
+What would you like to see improved?
+
+Add another date range to the dashboard.
+
+Any other comments?
+
+The setup guide helped.
+
+Reply to this email to respond directly to Alex.</pre>
+</div>
+<div class="email" id="support_anonymous">
+<h3>Anonymous support message</h3>
+<p class="meta"><span class="tag warn">Sent · editor entry not yet released</span> Sent to the support team when someone submits a support message anonymously.</p>
+<p class="subject"><strong>Subject:</strong> Anonymous AdEvolver support message</p>
+<pre class="body">Anonymous AdEvolver support message
+
+A support message was sent anonymously. It carries no name or email, so it cannot be answered.
+
+Message
+
+How do I change the dashboard date range?</pre>
+</div>
+<div class="email" id="support_public">
+<h3>Support message from a visitor</h3>
+<p class="meta"><span class="tag warn">Sent · editor entry not yet released</span> Sent to the support team when a visitor includes their details on a public form.</p>
+<p class="subject"><strong>Subject:</strong> AdEvolver support message from Alex (not signed in)</p>
+<pre class="body">AdEvolver support message from Alex (not signed in)
+
+A support message from a visitor who is not signed in (registration page). The name and email below were typed in and are unverified.
+
+Message
+
+How do I change the dashboard date range?
+
+Sent by Alex (alex@example.test). Reply requested.</pre>
+</div>
+</section>
+<section id="notifications">
+<h2>Notifications</h2>
+<div class="email" id="v2_immediate_alert">
+<h3>Immediate alert</h3>
+<p class="meta"><span class="tag ok">Sent · editable on production</span> When an alert rule, Guard check, or Breach detection emails a finding immediately.</p>
+<p class="subject"><strong>Subject:</strong> Northstar · High CPA (11 new)</p>
+<pre class="body">Northstar · High CPA (11 new)
+
+Northstar · Brand Search · Warning · 23 Nov 2026. CPA rose to GBP 48.
+
+1 more findings are in your alerts inbox.
+
+Slack is not available in AdEvolver. You received email instead. Your Slack choice is saved.
+
+Open the alerts inbox: https://adevolver.example/user/v2/alerts/inbox
+
+Review Northstar · Brand Search: https://adevolver.example/user/v2/alerts/inbox?event=sample
+
+Change or pause this alert: https://adevolver.example/user/v2/alerts/rules?highlight=sample</pre>
+</div>
+<div class="email" id="v2_sample_alert">
+<h3>Sample alert email</h3>
+<p class="meta"><span class="tag warn">Sent on request · editor entry not yet released</span> When someone chooses to send a sample email from the alert builder.</p>
+<p class="subject"><strong>Subject:</strong> Sample · Northstar · Brand CPA reached GBP 48</p>
+<pre class="body">Sample · Northstar · Brand CPA reached GBP 48
+
+Fictional example. Yesterday’s target was GBP 32. Spend was GBP 240 for five conversions.
+
+Real alert emails open the exact finding and include links to change the rule.
+
+Open your alerts inbox: https://adevolver.example/user/v2/alerts/inbox</pre>
+</div>
+<div class="email" id="v2_daily_alert_summary">
+<h3>Daily alert summary</h3>
+<p class="meta"><span class="tag warn">Sent · editable on production · wording below changed locally</span> At 8:00 a.m. in the recipient’s time zone when there are findings from alerts set to daily email.</p>
+<p class="subject"><strong>Subject:</strong> AdEvolver daily summary · 34 findings</p>
+<pre class="body">AdEvolver daily summary · 34 findings
+
+Northstar
+
+Needs review · Northstar · Brand Search · Warning · 23 Nov 2026. CPA rose to GBP 48.
+
+4 further findings are available in the alerts inbox.
+
+Review your alerts: https://adevolver.example/user/v2/alerts/inbox
+
+Review Northstar · High CPA: https://adevolver.example/user/v2/alerts/inbox?event=sample</pre>
+</div>
+<div class="email" id="v2_budget_alert">
+<h3>Budget Commander alert</h3>
+<p class="meta"><span class="tag ok">Sent · editable on production</span> When the Budget Commander email schedule delivers findings for an account.</p>
+<p class="subject"><strong>Subject:</strong> Budget Commander · Northstar</p>
+<pre class="body">Budget Commander · Northstar
+
+Checked 23 Nov 2026 at 08:00 CST
+
+Northstar is projected to spend GBP 5,120 against its GBP 5,000 monthly budget.
+
+These alerts are set to post to Slack. Slack is not available in AdEvolver at the moment, so they come to you by email instead. Your Slack choice is kept for when it returns.
+
+Open this account in Budget Commander: https://adevolver.example/user/v2/budget-commander?account=sample
+
+Change its alerts, schedule or who is told: https://adevolver.example/user/v2/budget-commander?account=sample&amp;page=automations</pre>
+</div>
+<div class="email" id="v2_feed_finding">
+<h3>Feed finding</h3>
+<p class="meta"><span class="tag ok">Sent · editable on production</span> When an Alerts &amp; Opportunities check adds a Feed finding and email is enabled for that check.</p>
+<p class="subject"><strong>Subject:</strong> AdEvolver Feed · Brand Search CPA rose</p>
+<pre class="body">AdEvolver Feed · Brand Search CPA rose
+
+Northstar · Brand Search · Warning · 23 Nov 2026. CPA rose to GBP 48.
+
+Open in the Feed: https://adevolver.example/user/v2/feed?item=sample</pre>
+</div>
+<div class="email" id="v2_dashboard_ready">
+<h3>First dashboard ready</h3>
+<p class="meta"><span class="tag ok">Sent · editable on production</span> Once the first dashboard has live results, if the viewer requested an email while waiting.</p>
+<p class="subject"><strong>Subject:</strong> Your first AdEvolver dashboard is ready</p>
+<pre class="body">Your first AdEvolver dashboard is ready
+
+The first live results for Northstar are ready to view.
+
+You asked for this one-time email while your dashboard was loading.
+
+Open my dashboard: https://adevolver.example/user/accountsdashboard/sample/account_health?account_id=sample</pre>
+</div>
+</section>
+<section id="legacy-budget-automation">
+<h2>Legacy budget automation</h2>
+<div class="email" id="budget_threshold_100">
+<h3>Monthly budget exceeded</h3>
+<p class="meta"><span class="tag ok">Not sent · legacy schedule off in V2</span> When the legacy Budget Commander job emails the 100% monthly budget threshold.</p>
+<p class="subject"><strong>Subject:</strong> Account &#x27;Northstar&#x27; (123-456-7890) has gone over budget</p>
+<pre class="body">Account &#x27;Northstar&#x27; (123-456-7890) has gone over budget
+
+Hi Dana Owner,
+
+Account &#x27;Northstar&#x27; (123-456-7890) has gone over budget
+
+Budget: £100.0
+
+Spend: £105.0
+
+View in AdEvolver: https://adevolver.example/user/budgetcommander/sample</pre>
+</div>
+<div class="email" id="budget_threshold_90">
+<h3>90% of budget spent</h3>
+<p class="meta"><span class="tag ok">Not sent · legacy schedule off in V2</span> When the legacy Budget Commander job emails the 90% monthly budget threshold.</p>
+<p class="subject"><strong>Subject:</strong> Account &#x27;Northstar&#x27; (123-456-7890) has spent over 90% of its budget</p>
+<pre class="body">Account &#x27;Northstar&#x27; (123-456-7890) has spent over 90% of its budget
+
+Hi Dana Owner,
+
+Account &#x27;Northstar&#x27; (123-456-7890) has spent over 90% of its budget
+
+Budget: £100.0
+
+Spend: £92.0
+
+View in AdEvolver: https://adevolver.example/user/budgetcommander/sample</pre>
+</div>
+<div class="email" id="budget_threshold_75">
+<h3>75% of budget spent</h3>
+<p class="meta"><span class="tag ok">Not sent · legacy schedule off in V2</span> When the legacy Budget Commander job emails the 75% monthly budget threshold.</p>
+<p class="subject"><strong>Subject:</strong> Account &#x27;Northstar&#x27; (123-456-7890) has spent over 75% of its budget</p>
+<pre class="body">Account &#x27;Northstar&#x27; (123-456-7890) has spent over 75% of its budget
+
+Hi Dana Owner,
+
+Account &#x27;Northstar&#x27; (123-456-7890) has spent over 75% of its budget
+
+Budget: £100.0
+
+Spend: £78.0
+
+View in AdEvolver: https://adevolver.example/user/budgetcommander/sample</pre>
+</div>
+<div class="email" id="budget_threshold_50">
+<h3>50% of budget spent</h3>
+<p class="meta"><span class="tag ok">Not sent · legacy schedule off in V2</span> When the legacy Budget Commander job emails the 50% monthly budget threshold.</p>
+<p class="subject"><strong>Subject:</strong> Account &#x27;Northstar&#x27; (123-456-7890) has spent over 50% of its budget</p>
+<pre class="body">Account &#x27;Northstar&#x27; (123-456-7890) has spent over 50% of its budget
+
+Hi Dana Owner,
+
+Account &#x27;Northstar&#x27; (123-456-7890) has spent over 50% of its budget
+
+Budget: £100.0
+
+Spend: £55.0
+
+View in AdEvolver: https://adevolver.example/user/budgetcommander/sample</pre>
+</div>
+<div class="email" id="budget_month_pause_submitted">
+<h3>Monthly campaign pause submitted</h3>
+<p class="meta"><span class="tag ok">Not sent · legacy schedule off in V2</span> When the legacy Budget Commander job emails a monthly campaign pause submission.</p>
+<p class="subject"><strong>Subject:</strong> Northstar · Campaign pause submitted</p>
+<pre class="body">Northstar · Campaign pause submitted
+
+Hi Dana,
+
+Northstar (123-456-7890) is over its monthly budget.
+
+Submitted to Google Ads. Open Changes to check the outcome.
+
+Budget: £100.0
+
+Spend: £105.0
+
+View in AdEvolver: https://adevolver.example/user/budgetcommander/sample</pre>
+</div>
+<div class="email" id="budget_month_pause_preview">
+<h3>Monthly campaign pause preview</h3>
+<p class="meta"><span class="tag ok">Not sent · legacy schedule off in V2</span> When the legacy Budget Commander job emails a monthly campaign pause preview.</p>
+<p class="subject"><strong>Subject:</strong> Northstar · Campaign pause preview</p>
+<pre class="body">Northstar · Campaign pause preview
+
+Hi Dana,
+
+Northstar (123-456-7890) is over its monthly budget.
+
+Preview recorded. The campaigns keep their current settings.
+
+Budget: £100.0
+
+Spend: £105.0
+
+View in AdEvolver: https://adevolver.example/user/budgetcommander/sample</pre>
+</div>
+<div class="email" id="budget_month_restart_submitted">
+<h3>Monthly campaign restart submitted</h3>
+<p class="meta"><span class="tag ok">Not sent · legacy schedule off in V2</span> When the legacy Budget Commander job emails a monthly campaign restart submission.</p>
+<p class="subject"><strong>Subject:</strong> Northstar · Campaign restart submitted</p>
+<pre class="body">Northstar · Campaign restart submitted
+
+Hi Dana,
+
+Northstar (123-456-7890) is back under its monthly budget.
+
+Submitted to Google Ads. Open Changes to check the outcome.
+
+Budget: £100.0
+
+Spend: £85.0
+
+Thanks for choosing AdEvolver.
+
+View in AdEvolver: https://adevolver.example/user/budgetcommander/sample</pre>
+</div>
+<div class="email" id="budget_month_restart_preview">
+<h3>Monthly campaign restart preview</h3>
+<p class="meta"><span class="tag ok">Not sent · legacy schedule off in V2</span> When the legacy Budget Commander job emails a monthly campaign restart preview.</p>
+<p class="subject"><strong>Subject:</strong> Northstar · Campaign restart preview</p>
+<pre class="body">Northstar · Campaign restart preview
+
+Hi Dana,
+
+Northstar (123-456-7890) is back under its monthly budget.
+
+Preview recorded. The campaigns keep their current settings.
+
+Budget: £100.0
+
+Spend: £85.0
+
+Thanks for choosing AdEvolver.
+
+View in AdEvolver: https://adevolver.example/user/budgetcommander/sample</pre>
+</div>
+<div class="email" id="budget_defender_submitted">
+<h3>Budget Defender pause submitted</h3>
+<p class="meta"><span class="tag ok">Not sent · legacy schedule off in V2</span> When the legacy Budget Defender job emails a daily campaign pause submission.</p>
+<p class="subject"><strong>Subject:</strong> Northstar · Daily campaign pause submitted</p>
+<pre class="body">Northstar · Daily campaign pause submitted
+
+Hi Dana,
+
+Budget Defender was triggered for Northstar (123-456-7890).
+
+Submitted to Google Ads. Open Changes to check the outcome.
+
+Today&#x27;s spend: £21.50
+
+Today&#x27;s budget: £20.0
+
+We will automatically re-enable the campaigns in the morning.
+
+Review Account Budget: https://adevolver.example/user/budgetcommander/sample</pre>
+</div>
+<div class="email" id="budget_defender_preview">
+<h3>Budget Defender pause preview</h3>
+<p class="meta"><span class="tag ok">Not sent · legacy schedule off in V2</span> When the legacy Budget Defender job emails a daily campaign pause preview.</p>
+<p class="subject"><strong>Subject:</strong> Northstar · Daily campaign pause preview</p>
+<pre class="body">Northstar · Daily campaign pause preview
+
+Hi Dana,
+
+Budget Defender was triggered for Northstar (123-456-7890).
+
+Preview recorded. The campaigns keep their current settings.
+
+Today&#x27;s spend: £21.50
+
+Today&#x27;s budget: £20.0
+
+We will automatically re-enable the campaigns in the morning.
+
+Review Account Budget: https://adevolver.example/user/budgetcommander/sample</pre>
+</div>
+</section>
+<section id="operations">
+<h2>Operations</h2>
+<div class="email" id="ops_digest">
+<h3>Operator digest</h3>
+<p class="meta"><span class="tag warn">Sent · editor entry not yet released</span> When new or recurring operator notices are ready to be sent to the support inbox.</p>
+<p class="subject"><strong>Subject:</strong> [AdEvolver ops] 2 notices: Credentials 1, Budget automation 1</p>
+<pre class="body">Credentials (1)
+- Google Ads needs reconnection (08:15 UTC)
+    Reconnect the account to resume syncs.
+    Open: https://adevolver.example/admin/observability
+
+Budget automation (1)
+- Budget change queued (08:18 UTC)
+
+Email 3 of 48 today (UTC day). Record: https://adevolver.example/admin/observability/mail?day=2026-11-23</pre>
+</div>
+<div class="email" id="ops_daily_limit">
+<h3>Operator email daily limit</h3>
+<p class="meta"><span class="tag warn">Sent · editor entry not yet released</span> When the app uses its daily operator digest allowance and starts holding notices for the record.</p>
+<p class="subject"><strong>Subject:</strong> [AdEvolver ops] Daily limit reached: app digests paused until tomorrow</p>
+<pre class="body">All 48 app digest slots for 2026-11-23 (UTC day) have been used. The app will send further digests after 2026-11-24 00:00 UTC. Two separate slots are reserved for the independent outage alarm and recovery.
+
+Held back so far: 7
+Credentials: 4
+Budget automation: 3
+
+Everything held back, including notices that arrive later today, is counted on the running record: https://adevolver.example/admin/observability/mail?day=2026-11-23</pre>
+</div>
+</section>
+<section id="outage-monitor-outside-the-app">
+<h2>Outage monitor (outside the app)</h2>
+<div class="email" id="outage_alarm">
+<h3>Outage alarm</h3>
+<p class="meta"><span class="tag ok">Sent · wording in code, not the editor</span> When Route 53 can&#x27;t confirm V2 is healthy. At most one a day, to support@adevolver.com, from a monitor that runs independently of V2.</p>
+<p class="subject"><strong>Subject:</strong> AdEvolver V2 · public readiness failed</p>
+<pre class="body">Route 53 cannot confirm the V2 website, database, dispatcher and runner are healthy.
+
+State changed at 2026-11-23T08:15+00:00.
+Incident: https://v2.adevolver.com/admin/observability/incidents/&lt;id&gt;
+The dashboard is available when V2 is reachable.</pre>
+</div>
+<div class="email" id="outage_recovered">
+<h3>Outage recovered</h3>
+<p class="meta"><span class="tag ok">Sent · wording in code, not the editor</span> When the alarm clears. At most one a day.</p>
+<p class="subject"><strong>Subject:</strong> AdEvolver V2 · public readiness recovered</p>
+<pre class="body">Route 53 can reach V2 and its required monitoring processes again.
+
+State changed at 2026-11-23T08:21+00:00.
+Incident: https://v2.adevolver.com/admin/observability/incidents/&lt;id&gt;
+The dashboard is available when V2 is reachable.</pre>
+</div>
+</section>
+<p class="closing">Related: <a href="../adevolver-v2-beta-readiness/">AdEvolver V2: what's left before beta</a>.</p>
+<a href="../">Back to the reading list</a>
+</main></body>
+</html>
