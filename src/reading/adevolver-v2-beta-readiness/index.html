@@ -6,7 +6,7 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="referrer" content="no-referrer">
   <meta name="theme-color" content="#1c1b18">
-  <meta name="description" content="Where AdEvolver V2 stands on the afternoon of November 23, 2026, what changed since the morning review, and what still has to happen before beta testers are invited.">
+  <meta name="description" content="Where AdEvolver V2 stands on the morning of November 24, 2026, what changed since the November 23 afternoon review, and what still has to happen before beta testers are invited.">
   <title>AdEvolver V2: what's left before beta</title>
   <style>
     :root {
@@ -94,30 +94,33 @@
 </head>
 <body><main>
 <header>
-<p class="eyebrow">Status review · updated November 23, 2026, 3:30 PM CST</p>
+<p class="eyebrow">Status review · updated November 24, 2026, 11:25 AM CST</p>
 <h1>AdEvolver V2: what's left before beta</h1>
-<p class="lede">A lot moved today. The big batch of finished work is released, admins can now edit every V2 email, the Classic early-access banner and the V2 welcome are live (the banner is still switched off), and the outage alarm turns out to email support already. Four things still stand between V2 and its first beta team: most copied users can't receive email, nothing yet stops Classic alerting a team that has moved to V2, nobody outside the team has been through it end to end, and V2's code exists only on your Mac, whose disk is 97% full. My estimate is now one and a half to two days, most of it the Classic alert switch and checking.</p>
+<p class="lede">Since yesterday afternoon a full review was done and its fixes committed: security, AI cost limits, reliability, backups and speed. None of it is on production yet. Production is still the 23 November release <code>9fe2438</code>, and the extra email editor entries are still uncommitted. The same four things stand between V2 and its first beta team: most copied users can't receive email, nothing yet stops Classic alerting a team that has moved to V2, nobody outside the team has been through it end to end, and V2's code exists only on your Mac. That last one got worse: the disk is now full, with 2 GB free. My estimate is still one and a half to two days, plus a release of last night's work.</p>
 </header>
 <nav class="contents" aria-label="In this review">
-<a href="#changed">What changed today</a> · <a href="#recommendation">Recommendation</a> · <a href="#now">Where V2 is now</a> · <a href="#email">Emails</a> · <a href="#features">Features</a> · <a href="#operations">Running it</a> · <a href="#before">Before beta</a> · <a href="#during">During beta</a> · <a href="#decisions">Decisions</a> · <a href="#unknowns">What wasn't checked</a>
+<a href="#changed">What changed</a> · <a href="#recommendation">Recommendation</a> · <a href="#now">Where V2 is now</a> · <a href="#email">Emails</a> · <a href="#features">Features</a> · <a href="#operations">Running it</a> · <a href="#before">Before beta</a> · <a href="#during">During beta</a> · <a href="#decisions">Decisions</a> · <a href="#unknowns">What wasn't checked</a>
 </nav>
 
 <section id="changed">
-<h2>What changed since this morning</h2>
+<h2>What changed since yesterday afternoon</h2>
 <div class="table-wrap"><table>
-<thead><tr><th>This morning's item</th><th>Now</th></tr></thead>
+<thead><tr><th>Yesterday's item</th><th>Now (November 24, morning)</th></tr></thead>
 <tbody>
-<tr><td>About 110 changed files not released</td><td><span class="tag ok">Done</span> Released at 09:30 with bot protection, workspace polish, the chat starter and help changes. A second release at 09:35 added the email editor. 2,816 Python and 2,696 front-end tests passed on the exact release.</td></tr>
+<tr><td>Full review findings (new)</td><td><span class="tag warn">Committed, not released</span> Two commits on the evening of November 23 fix the full review's findings: no writes while viewing as a customer, a password-guess limit per account, a monthly AI allowance per team ($25 default) and 200 chat turns per user a day, chat on its own worker, SES bounce feedback, a nightly clean-up of old data, a nightly database dump to S3 (once its bucket exists), memory caps, a smaller front-end bundle and an admin Beta health page. That is 102 files on top of production. They need a release.</td></tr>
+<tr><td>About 110 changed files not released</td><td><span class="tag ok">Done (23 Nov)</span> Released at 09:30 with bot protection, workspace polish, the chat starter and help changes. A second release at 09:35 added the email editor. 2,816 Python and 2,696 front-end tests passed on the exact release.</td></tr>
 <tr><td>Outage alarm goes nowhere</td><td><span class="tag ok">Done (my mistake)</span> An independent monitor has emailed support@adevolver.com since November 21. It is armed and its alarm reads OK. This morning's review missed it.</td></tr>
-<tr><td>Emails still use Classic wording</td><td><span class="tag warn">Partly</span> Admins can now preview, edit and restore the wording of 19 emails on production. A further 19 (support forwards, operator digests, legacy budget emails and two beta emails) are editable in the local build, not yet released. Several subjects still read like Classic's. See the <a href="../adevolver-v2-emails/">email reading copy</a>.</td></tr>
-<tr><td>Classic and V2 both alert the same accounts</td><td><span class="tag warn">Planned, not built</span> Classic now has a beta banner and a notice explaining that Classic alerts pause on V2, and V2 has a welcome and a "back to Classic" email in draft. But nothing yet pauses Classic alerts for a team. The banner and both emails are held until that switch exists.</td></tr>
-<tr><td>Copied users can't receive email</td><td><span class="tag stop">Unchanged</span> Still only 31 of 167 verified as of the last count.</td></tr>
+<tr><td>Emails still use Classic wording</td><td><span class="tag warn">Partly, unchanged</span> Admins can preview, edit and restore the wording of 19 emails on production. A further 19 (support forwards, operator digests, legacy budget emails and two beta emails) are editable only in the local build: 21 files, still not committed. Their tests pass (111 this morning). Several subjects still read like Classic's. See the <a href="../adevolver-v2-emails/">email reading copy</a>.</td></tr>
+<tr><td>Classic and V2 both alert the same accounts</td><td><span class="tag stop">Still not built</span> Classic now has a beta banner and a notice explaining that Classic alerts pause on V2, and V2 has a welcome and a "back to Classic" email in draft. But nothing yet pauses Classic alerts for a team. The banner and both emails are held until that switch exists.</td></tr>
+<tr><td>Copied users can't receive email</td><td><span class="tag warn">Small step, not released</span> Last night's commit makes accepting an emailed invitation verify the invitee. A code sign-in still doesn't count. The last count was 31 of 167 verified.</td></tr>
 <tr><td>Google reconnect untested</td><td><span class="tag stop">Unchanged</span> No record of a reconnect on V2 by anyone but you.</td></tr>
-<tr><td>Tonight's data run</td><td><span class="tag warn">Pending</span> It hasn't run yet. The ad-group report and the six Guard checks fixed today still need it.</td></tr>
-<tr><td>Mac disk, data-platform commits, restore rehearsal</td><td><span class="tag stop">Unchanged</span> Disk 97% full (16 GB free). The same four data-platform commits are still not on GitHub. No restore rehearsed.</td></tr>
+<tr><td>Last night's data run</td><td><span class="tag ok">No failures logged</span> The alert checks that failed three times on the night of November 22 logged no failures overnight. The ad-group report and the six Guard checks themselves weren't opened.</td></tr>
+<tr><td>V2 has no GitHub repository</td><td><span class="tag stop">Unchanged</span> Still only on your Mac and the server's images.</td></tr>
+<tr><td>Mac disk, data-platform commits, restore rehearsal</td><td><span class="tag stop">Worse</span> Disk now full (2 GB free, down from 16 GB). The same four data-platform commits are still not on GitHub. No restore rehearsed.</td></tr>
 </tbody>
 </table></div>
-<p><strong>New finding:</strong> V2 has no GitHub repository. Its only copies are your Mac and the images on the server. With the disk nearly full, that is the biggest single risk in this list, and the cheapest to fix: create a private repository and push.</p>
+<p><strong>Still the biggest risk:</strong> V2's code, including last night's unreleased work, exists only on a Mac with a full disk. A private GitHub repository and a push fixes it in minutes. Free disk space before the next release too: a full disk broke two releases on November 23.</p>
+<p class="basis">Also seen: the internal observability health check has answered 503 about 14,800 times since November 21. It looks like a probe pointing at a closed endpoint rather than an outage; the public health check is fine. One public readiness check failed once at 3:39 PM on November 23, during the release window.</p>
 </section>
 
 <section id="recommendation">
@@ -135,7 +138,7 @@
 <section id="now">
 <h2>Where V2 is now</h2>
 <ul>
-<li><strong>Live at v2.adevolver.com</strong>, release <code>9fe2438</code>, health check answering. Classic is live at <code>d35cf22</code> with the beta banner switched off.</li>
+<li><strong>Live at v2.adevolver.com</strong>, release <code>9fe2438</code> (checked November 24), health check answering. Two newer commits are waiting. Classic is live at <code>d35cf22</code> with the beta banner switched off.</li>
 <li><strong>Users copied from Classic:</strong> 167 users and 1,529 accounts, a one-time copy at 02:51 UTC on November 23. Anything changed in Classic since is not in V2.</li>
 <li><strong>Google sign-ins:</strong> 27 of 48 copied sign-ins work in V2. The other 21 users must reconnect Google Ads. Today's release also makes V2 drop a cached Google token that Google refuses and retry once.</li>
 <li><strong>Tested on production with one real account:</strong> 25 of 27 tools ran (the other two need chat input or Search Console). A change round trip worked.</li>
@@ -172,17 +175,17 @@
 <h3>Working on production</h3>
 <ul>
 <li>Overseer, 19 built-in reports, the tools, Budget Commander (bell-only by default), Guard's eleven checks, AI chat, Data Lake previews, team levels, cookie banner, sign-in and the holding page for closed teams.</li>
-<li>New today: the early-access welcome, the email editor in Admin, the workspace polish and the chat starter.</li>
+<li>New on November 23: the early-access welcome, the email editor in Admin, the workspace polish and the chat starter.</li>
 </ul>
 <h3>Switched off on purpose</h3>
 <p>Custom report builder, Search Console (waiting on Google), Slack, extra ad platforms, Clients, Notes and change approvals. None is needed for a first beta.</p>
 <h3>Known problems</h3>
 <ul>
 <li><strong>No per-team Classic alert switch.</strong> Needed before the banner is switched on for anyone.</li>
-<li><strong>Local work not released:</strong> 22 files for the extra email editor entries. Tests passed locally (115). They need a commit and release.</li>
+<li><strong>Work not released:</strong> two commits from the full review (102 files) and 21 uncommitted files for the extra email editor entries. Tests for the email work pass locally (111). Both need a release.</li>
 <li><strong>Google reconnect</strong> on V2 still untested with a login other than yours. "Sign in with Google" isn't live yet.</li>
 <li><strong>Unfinished pieces:</strong> landing page detail and conversion-rate views return no data, negative keyword lists aren't read from the store yet, one journey view stays "processing".</li>
-<li><strong>Three trust checks</strong> from November 21 (report totals across currencies, the Review button's scope, alert empty states). Not rechecked today.</li>
+<li><strong>Three trust checks</strong> from November 21 (report totals across currencies, the Review button's scope, alert empty states). Not rechecked since. Last night's commit makes the row Review button open the queue on that account.</li>
 </ul>
 </section>
 
@@ -190,9 +193,9 @@
 <h2>Running it</h2>
 <ul>
 <li><strong>V2's code is only on your Mac.</strong> Create a private GitHub repository and push it.</li>
-<li><strong>Mac disk is 97% full</strong> (16 GB free). It broke two releases this morning. Deploys still run from the Mac because GitHub Actions billing is stuck.</li>
+<li><strong>Mac disk is full</strong> (2 GB free). It broke two releases on November 23 and will likely break the next. Deploys still run from the Mac because GitHub Actions billing is stuck.</li>
 <li><strong>Four data-platform commits</strong> from last night are deployed but not on GitHub.</li>
-<li><strong>Backups:</strong> daily snapshots kept for seven days; a restore hasn't been rehearsed.</li>
+<li><strong>Backups:</strong> daily snapshots kept for seven days; a restore hasn't been rehearsed. Last night's commit adds a nightly database dump to S3, active once the dev-ops stack provides a bucket.</li>
 <li><strong>Classic's daily store</strong> stopped updating on November 15. It affects Classic users, not V2, and needs your go-ahead.</li>
 </ul>
 </section>
@@ -201,11 +204,11 @@
 <h2>Before beta: the list</h2>
 <ol>
 <li><strong>Push V2 to a private GitHub repository</strong> and free disk space on the Mac. Ten minutes, and it removes the worst risk.</li>
+<li><strong>Release last night's review fixes</strong> with the email editor entries (commit those first).</li>
 <li><strong>Build the per-team Classic alert switch.</strong> Moving a team to V2 pauses its Classic alerts and Budget Commander and sends the V2 welcome; going back reverses both and sends the confirmation.</li>
-<li><strong>Fix email for copied users:</strong> count a code sign-in as verification, and send a verification link with each beta invitation.</li>
+<li><strong>Fix email for copied users:</strong> count a code sign-in as verification, and send a verification link with each beta invitation. Accepting an invitation already verifies (unreleased).</li>
 <li><strong>Read every email.</strong> Use the <a href="../adevolver-v2-emails/">email reading copy</a>, change wording in the editor, then send each one to Gmail, Outlook and Apple Mail.</li>
-<li><strong>Release the local email editor entries.</strong></li>
-<li><strong>Check tonight's data run:</strong> the ad-group report and the six Guard checks.</li>
+<li><strong>Open the ad-group report and the six Guard checks</strong> to confirm last night's data run produced them.</li>
 <li><strong>Test a Google reconnect</strong> on V2 with a login other than yours.</li>
 <li><strong>Record the walkthrough</strong> and set its link, or leave "coming soon".</li>
 <li><strong>Walk one real manager through it</strong> while you watch: banner, sign in, welcome, dashboard, an alert email, investigate.</li>
@@ -234,12 +237,12 @@
 <li><strong>Classic Budget Commander for beta teams:</strong> pause it with Classic alerts (recommended), or keep it running until V2's is trusted.</li>
 <li><strong>Classic daily store:</strong> switch Classic to the live store. This needs a Classic change.</li>
 </ol>
-<p class="basis">Settled since this morning: the outage alarm already emails support@.</p>
+<p class="basis">Settled on November 23: the outage alarm already emails support@.</p>
 </section>
 
 <section id="unknowns">
 <h2>What wasn't checked</h2>
-<p class="basis">This update used the V2 and Classic code, today's run records, the live health checks, the outage monitor's alarm and its armed state. It did not query the V2 database, so the verified count (31) is this morning's figure. It did not read live feature-flag values, did not see tonight's data run, did not recheck the three trust checks and did not send any test emails. Production email wording could differ from the defaults if someone has already saved changes in the editor. Confidence in the overall picture is about 85%.</p>
+<p class="basis">The November 24 update used the V2 and Classic code and Git history, the live release header, production's open incidents, the Mac's disk and the local email tests. It did not query the V2 database, so the verified count (31) is still the November 23 morning figure. It did not open the ad-group report or Guard results, read live feature-flag values, recheck the outage monitor or Classic's live release, recheck the three trust checks or send any test emails. Production email wording could differ from the defaults if someone has already saved changes in the editor. Confidence in the overall picture is about 85%.</p>
 <p class="closing">Back up the code, build the Classic alert switch, get email reaching the people you invite, and watch one manager use it. Then open it to the rest of the beta teams.</p>
 </section>
 <a href="../">Back to the reading list</a>
