@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#1c1b18">
+  <title>Julie Remote: how it works</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --paper: #1c1b18;
+      --text: #d6cfbf;
+      --heading: #f0e7d3;
+      --muted: #b7ab96;
+      --link: #e0b582;
+      --rule: #494339;
+      color: var(--text);
+      background: var(--paper);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font: clamp(1.08rem, 1rem + .32vw, 1.24rem)/1.72 Georgia, "Times New Roman", serif;
+      overflow-wrap: break-word;
+    }
+    main {
+      max-width: 35em;
+      margin-inline: auto;
+      padding: clamp(2.5rem, 7vw, 6rem) 0 6rem;
+      width: calc(100% - 2.5rem);
+    }
+    h1, h2, h3, h4, h5 { color: var(--heading); line-height: 1.2; text-wrap: balance; }
+    h1 {
+      margin: 0;
+      max-width: 18ch;
+      font-size: clamp(2.55rem, 7vw, 4.15rem);
+      font-weight: 400;
+      letter-spacing: -.04em;
+    }
+    h1 + p { color: var(--muted); font-size: .9em; margin: 1.2rem 0 0; }
+    h2 {
+      border-top: 1px solid var(--rule);
+      padding-top: 1.05em;
+      margin: 2.15em 0 .65em;
+      font-size: clamp(1.8rem, 4.4vw, 2.5rem);
+      font-weight: 400;
+      letter-spacing: -.025em;
+    }
+    h3 { margin: 1.75em 0 .65em; font-size: 1.33em; }
+    h4 { margin: 1.7em 0 .5em; font-size: 1.18em; }
+    h5 { margin: 1.5em 0 .4em; font-size: 1em; }
+    p { margin: 0 0 1em; }
+    strong { color: var(--heading); }
+    a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: .18em; }
+    a:hover { text-decoration-thickness: 2px; }
+    a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+    blockquote {
+      margin: 1.5em 0;
+      padding: .15em 0 .15em 1em;
+      border-left: 2px solid var(--link);
+      color: var(--heading);
+      font-style: italic;
+    }
+    blockquote p:last-child, li p:last-child { margin-bottom: 0; }
+    ol, ul { padding-inline-start: 1.5em; }
+    li { margin-block: .45em; padding-inline-start: .15em; }
+    ::selection { background: #d3b895; color: #201e1a; }
+    @page { size: letter; margin: .72in .85in; }
+    @media print {
+      :root {
+        color-scheme: light;
+        --paper: white;
+        --text: #222;
+        --heading: #111;
+        --muted: #444;
+        --link: #222;
+        --rule: #aaa;
+      }
+      body { font-size: 11pt; line-height: 1.42; }
+      main { width: auto; max-width: none; padding: 0; }
+      h1 { font-size: 27pt; max-width: none; }
+      h2 { font-size: 19pt; }
+      h1, h2, h3, h4, h5 { break-after: avoid; }
+      blockquote { break-inside: avoid; }
+      p, li { orphans: 3; widows: 3; }
+      .new-page { break-before: page; }
+    }
+  </style>
+</head>
+<body>
+<main>
+<h1>Julie Remote: how it works</h1>
+<p>A plain-English guide. Written 25 November 2026.</p>
+
+<h2>What it is</h2>
+<p>Julie Remote lets you work with Julie (Claude Code plus all your Julie rules) from anywhere: your phone, this Mac, or any browser. The work itself never runs on the Mac. It runs on one of two other computers:</p>
+<ul>
+<li><strong>The Windows laptop</strong> at home. It is used first whenever it is switched on.</li>
+<li><strong>A server on Amazon Web Services (AWS)</strong>. It is used when the laptop is off. It switches itself on when there is work (about a minute) and off again after 30 quiet minutes, so you only pay while it is busy.</li>
+</ul>
+<p>Because the work runs elsewhere, you can close the MacBook, lose your internet connection, or put your phone away, and Julie keeps going. When you come back, the whole conversation is waiting for you in every place.</p>
+
+<h2>The three ways in</h2>
+<h3>1. The website (phone or computer)</h3>
+<p>Open <strong>julie.shabba.io</strong> and sign in. On your phone, use "Add to Home Screen" so it behaves like an app.</p>
+<ul>
+<li>The home screen shows your <strong>starred</strong> projects at the top, then <strong>every project</strong>, most recent first. Anything untouched for 30 days is tucked away behind a "Show older" row. Tap the star to pin a project.</li>
+<li>Tap a project to see its chats, or press <strong>+ New</strong>.</li>
+<li>Tap the <strong>microphone</strong>, speak, and tap again to stop. Your words appear in the box (transcribed by OpenAI) ready to edit and send.</li>
+<li>The two dots at the top show whether the laptop and the server are on. You can start or stop the server by hand there too.</li>
+</ul>
+<h3>2. The Mac terminal</h3>
+<p>Your usual shortcuts now talk to Julie Remote instead of running on the Mac: <code>j</code>, <code>adevolver</code>, <code>aedataclaude</code>, <code>k</code>, <code>ko</code>, <code>shabba</code>, <code>ddl</code>, <code>pixel</code>, <code>trivia</code>.</p>
+<ul>
+<li>Type a message, watch the work happen, type the next one. An empty line leaves; the work carries on.</li>
+<li>Add <code>-c</code> to continue your latest chat in that project, including one you started on your phone.</li>
+<li>Add <code>--aws</code> or <code>--laptop</code> to choose the machine.</li>
+<li>The old local versions still exist as <code>j-local</code>, <code>k-local</code> and so on, for when you want the full Claude Code screen on the Mac.</li>
+<li><code>jr</code> on its own lists the extra commands (list chats, follow one live, stop one).</li>
+</ul>
+<h3>3. Anywhere else</h3>
+<p>Any browser on any device works the same as the phone.</p>
+
+<h2>How it works underneath</h2>
+<p>There are four small parts:</p>
+<ol>
+<li><strong>A front door on AWS.</strong> A tiny program that only runs when someone uses it. It serves the website, checks your password, and keeps a list of chats and messages in a small database.</li>
+<li><strong>A worker on each machine.</strong> Every few seconds the laptop and the server ask the front door "is there anything for me?". If there is, they run it with Claude Code and send each step back as it happens. Because the machines ask rather than wait to be called, nothing at home has to be opened up to the internet, and the laptop works from any network.</li>
+<li><strong>Choosing a machine.</strong> A new chat goes to the laptop if it has checked in within the last 45 seconds; otherwise to the server, which the front door switches on. A chat stays on the machine it started on, because Claude keeps that conversation's memory on that machine.</li>
+<li><strong>GitHub as the shared filing cabinet.</strong> Every machine keeps its copies in step with GitHub (see the next section).</li>
+</ol>
+<p>Claude runs on your Claude subscription on both machines (the laptop through its normal login, the server through a long-life subscription token), not on paid API credits.</p>
+
+<h2>Keeping everything in step</h2>
+<ul>
+<li><strong>Plans, notes and status pages</strong> (the "homes") are saved and sent to GitHub automatically after every Julie turn on the laptop or server, and every five minutes. The Mac already does this every ten minutes. A secret scan runs first, so passwords and keys are not sent.</li>
+<li><strong>Code</strong> is never saved automatically behind your back. Instead, Julie is told: when you change code, commit it and push it before you finish. If she is on a branch that deploys (main, staging, production), she puts the work on a separate <code>julie/…</code> branch and tells you.</li>
+<li><strong>Before every turn</strong> the machine downloads the latest Julie rules, notes and the project's code.</li>
+<li><strong>Every few minutes</strong> each machine, including this Mac (new, every ten minutes), quietly brings its code copies up to date, but only when that copy has no unsaved changes. It never merges or overwrites work.</li>
+</ul>
+<p>In practice: work started anywhere shows up everywhere within a few minutes. The one thing to remember is that a code change on the Mac only reaches the other machines once you (or Julie) commit and push it.</p>
+
+<h2>What you need to know to use it well</h2>
+<ul>
+<li><strong>Leave the laptop plugged in.</strong> It is set never to sleep on mains power, even with the lid shut. On battery it may sleep, and work then moves to the server.</li>
+<li><strong>One chat, one machine.</strong> If a chat is waiting for an offline laptop, press "Run on AWS instead". It starts a fresh conversation there, so add a line of context.</li>
+<li><strong>Julie works unattended.</strong> She does not stop to ask permission for each step, just as with your local shortcuts. Your safety rules still apply (no releases, production changes or secret files without your say-so).</li>
+<li><strong>Projects:</strong> every repository on your GitHub account is available. The first use of one downloads it, which can take a minute for big ones. Folders that exist only on this Mac are not available remotely until they are put on GitHub.</li>
+<li><strong>Cost:</strong> the website and database cost pennies. The server costs about 7 US cents an hour while switched on, plus about $5 a month for its disk. Dictation costs about half a cent per minute of speech from your OpenAI balance.</li>
+<li><strong>Your password</strong> is in the email you were sent. Signing in keeps you logged in for 30 days on that device.</li>
+</ul>
+
+<h2>Sources and similar projects</h2>
+<p>Other people solve the same problem in three main ways. I looked at these and chose the third, because it needs no tunnels, no accounts with extra services, and works when the Mac is off:</p>
+<ul>
+<li><strong>A web interface on the machine itself, reached through a tunnel</strong>, for example <a href="https://github.com/siteboon/claudecodeui">CloudCLI / Claude Code UI</a> with a tunnel service as described by <a href="https://pinggy.io/blog/remotely_manage_claude_code_from_phone/">Pinggy</a>, or Tailscale plus SSH and tmux.</li>
+<li><strong>Anthropic's own Remote Control</strong> (<code>claude remote-control</code>), which links a running session to the Claude app on your phone: see <a href="https://www.datacamp.com/tutorial/claude-code-remote-control">DataCamp's walkthrough</a> and <a href="https://www.builder.io/blog/claude-code-mobile-phone">Builder.io on Claude Code from a phone</a>. It needs the session to have been started on a computer first.</li>
+<li><strong>Running Claude Code "headless"</strong> and building your own front end around it. This is what Julie Remote does, following Anthropic's documentation on <a href="https://code.claude.com/docs/en/headless">headless mode and streamed output</a> and on <a href="https://code.claude.com/docs/en/authentication">signing in with a long-life subscription token</a>.</li>
+</ul>
+<p>The phone-app layout (starred items, then recent ones) copies the Claude app. Dictation uses OpenAI's transcription service.</p>
+
+<h2>What we could improve next</h2>
+<ul>
+<li><strong>Notifications:</strong> a phone notification (or Slack message) when Julie finishes or needs you.</li>
+<li><strong>Move a chat between machines with its memory</strong>, by copying the conversation file across, instead of starting fresh.</li>
+<li><strong>Attach files and screenshots</strong> from the phone to a message.</li>
+<li><strong>Live previews:</strong> a link to see a web app Julie is building, running on the laptop or server, from your phone.</li>
+<li><strong>Answer Julie's questions with buttons</strong> rather than typing.</li>
+<li><strong>Stronger sign-in:</strong> a passkey or Google sign-in instead of a password.</li>
+<li><strong>Put the remaining Mac-only folders on GitHub</strong> (Smith, Shabba Connect, find-a-job and others) so they work remotely too.</li>
+<li><strong>Use Anthropic's Remote Control alongside this</strong>, so the official Claude app can also join a running session.</li>
+<li><strong>A small cost and usage view</strong> showing server hours and dictation minutes.</li>
+</ul>
+</main>
+</body>
+</html>
