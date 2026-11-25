@@ -1,0 +1,792 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#1c1b18">
+  <meta name="description" content="Ten new AdEvolver feed items, good news and bad: what each one checks, the exact maths, the card and drawer wording, and why advertisers should care.">
+  <title>AdEvolver feed: ten new items, good news and bad</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --paper: #1c1b18;
+      --text: #d6cfbf;
+      --heading: #f0e7d3;
+      --muted: #b7ab96;
+      --link: #e0b582;
+      --rule: #494339;
+      --cell: #24221e;
+      color: var(--text);
+      background: var(--paper);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      font: clamp(1.08rem, 1rem + .32vw, 1.24rem)/1.72 Georgia, "Times New Roman", serif;
+      overflow-wrap: break-word;
+    }
+    main {
+      max-width: 35em;
+      margin-inline: auto;
+      padding: clamp(2.5rem, 7vw, 6rem) 0 6rem;
+      width: calc(100% - 2.5rem);
+    }
+    h1, h2, h3, h4 { color: var(--heading); line-height: 1.2; text-wrap: balance; }
+    h1 {
+      margin: 0;
+      max-width: 17ch;
+      font-size: clamp(2.55rem, 7vw, 4.15rem);
+      font-weight: 400;
+      letter-spacing: -.04em;
+    }
+    h2 {
+      border-top: 1px solid var(--rule);
+      padding-top: 1.05em;
+      margin: 2.15em 0 .65em;
+      font-size: clamp(1.8rem, 4.4vw, 2.5rem);
+      font-weight: 400;
+      letter-spacing: -.025em;
+    }
+    h3 { margin: 1.75em 0 .65em; font-size: 1.2em; }
+    h4 { margin: 1.4em 0 .4em; font: 600 .78em/1.4 system-ui, sans-serif; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+    p { margin: 0 0 1em; }
+    strong { color: var(--heading); }
+    a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: .18em; }
+    a:hover { text-decoration-thickness: 2px; }
+    a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+    ol, ul { padding-inline-start: 1.5em; }
+    li { margin-block: .55em; padding-inline-start: .15em; }
+    ::selection { background: #d3b895; color: #201e1a; }
+    header .eyebrow { font: .76em/1.5 system-ui, sans-serif; color: var(--muted); margin-bottom: 1.5em; }
+    header .lede { font-size: 1.12em; line-height: 1.55; margin-top: 1.1em; color: var(--heading); }
+    .contents { border-block: 1px solid var(--rule); margin: 1.7em 0 2.1em; padding: 1em 0; font: .78em/2 system-ui, sans-serif; color: var(--muted); }
+    .contents a { display: inline-block; }
+    section { scroll-margin-top: 1.5rem; }
+    section:first-of-type h2 { border-top: 0; padding-top: 0; margin-top: 1.3em; }
+    .table-wrap { overflow-x: auto; margin: 1.2em 0 1.6em; -webkit-overflow-scrolling: touch; }
+    table { border-collapse: collapse; width: 100%; min-width: 30em; font: .8em/1.5 system-ui, sans-serif; }
+    th, td { text-align: left; vertical-align: top; padding: .6em .7em; border-bottom: 1px solid var(--rule); }
+    th { color: var(--heading); font-weight: 600; background: var(--cell); }
+    td:first-child { color: var(--heading); }
+    .tag { display: inline-block; font: 600 .72em/1.4 system-ui, sans-serif; letter-spacing: .03em; text-transform: uppercase; padding: .1em .45em; border-radius: .25em; border: 1px solid currentColor; white-space: nowrap; margin-right: .3em; }
+    .ok { color: #9fc79a; }
+    .warn { color: #e0b582; }
+    .stop { color: #e79a8e; }
+    .info { color: #9fb8d6; }
+    .meta { font: .78em/1.8 system-ui, sans-serif; color: var(--muted); margin: 0 0 1em; }
+    .card, .drawer { background: var(--cell); border: 1px solid var(--rule); border-radius: .45em; padding: .9em 1.05em; margin: .6em 0 1.3em; font: .84em/1.55 system-ui, sans-serif; }
+    .card .t { color: var(--heading); font-weight: 600; margin: 0 0 .25em; }
+    .card .s { margin: 0; }
+    .drawer p, .drawer li { margin-block: .35em; }
+    .drawer .h { font-weight: 600; color: var(--heading); margin: .9em 0 .2em; }
+    .drawer .h:first-child { margin-top: 0; }
+    .drawer ul { margin: .2em 0 .4em; }
+    .maths { font: .8em/1.6 ui-monospace, Menlo, monospace; background: var(--cell); border: 1px solid var(--rule); border-radius: .4em; padding: .85em 1em; margin: .5em 0 1.3em; white-space: pre; overflow-x: auto; overflow-wrap: normal; -webkit-overflow-scrolling: touch; }
+    @media (max-width: 34rem) { .maths { font-size: .7em; } }
+    @media print { .maths { white-space: pre-wrap; overflow: visible; } }
+    .pitch { border-left: 3px solid var(--link); padding-left: 1em; margin: 1em 0 1.4em; color: var(--heading); font-style: italic; }
+    .item { margin-top: 3em; }
+    .closing { margin: 1.75em 0; padding: 1.25em 0; border-block: 1px solid var(--rule); }
+    @page { size: letter; margin: .72in .85in; }
+    @media print {
+      :root { color-scheme: light; --paper: white; --text: #222; --heading: #111; --muted: #444; --link: #222; --rule: #aaa; --cell: #f2f2f2; }
+      body { font-size: 11pt; line-height: 1.42; }
+      main { width: auto; max-width: none; padding: 0; }
+      h1 { font-size: 27pt; max-width: none; }
+      h2 { font-size: 19pt; }
+      h1, h2, h3 { break-after: avoid; }
+      tr, li, .card, .drawer, .maths { break-inside: avoid; }
+      .contents { display: none; }
+      .ok, .warn, .stop, .info { color: #222; }
+      .table-wrap { overflow: visible; }
+      table { min-width: 0; }
+    }
+  </style>
+</head>
+<body><main>
+<header>
+<p class="eyebrow">AdEvolver product design · November 24, 2026, 6:00 PM CST</p>
+<h1>AdEvolver feed: ten new items, good news and bad</h1>
+<p class="lede">Ten feed items to add to AdEvolver V2, worked out in full: what each one looks at, the exact maths, what it allows for, the wording on the card and in the drawer, and why an advertiser should care. Five are good news, which the feed does not have at all today.</p>
+</header>
+
+<nav class="contents" aria-label="Sections"><a href="#summary">Summary</a> · <a href="#today">What the feed does today</a> · <a href="#rules">Rules every item follows</a> · <a href="#yoy">1 Up on last year</a> · <a href="#record">2 Best week on record</a> · <a href="#cpa-why">3 Why CPA moved</a> · <a href="#capped-winner">4 Beating target, held back by budget</a> · <a href="#counting">5 Conversion counting changed</a> · <a href="#readback">6 How a change worked out</a> · <a href="#target">7 Target out of reach</a> · <a href="#brand">8 Where the growth came from</a> · <a href="#waste">9 Less spend on searches that don't convert</a> · <a href="#rank">10 Losing visibility to competitors</a> · <a href="#build">Before building</a> · <a href="#sources">Sources</a></nav>
+
+<section id="summary">
+<h2>Summary</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>#</th><th>Item</th><th>Kind</th><th>Engine</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Up on last year</td><td><span class="tag ok">Good news</span></td><td>Code; AI writes one sentence</td><td>New</td></tr>
+<tr><td>2</td><td>Best week on record</td><td><span class="tag ok">Good news</span></td><td>Code</td><td>New</td></tr>
+<tr><td>3</td><td>Why CPA moved: clicks or conversions?</td><td><span class="tag warn">Warning</span></td><td>Code; AI writes one sentence</td><td>Extends today's "CPA jumped" and "ROAS fell"</td></tr>
+<tr><td>4</td><td>Beating its target, held back by budget</td><td><span class="tag ok">Good news</span> <span class="tag info">Opportunity</span></td><td>Code</td><td>Replaces the budget half of "Underspending campaign"</td></tr>
+<tr><td>5</td><td>Conversion counting changed</td><td><span class="tag stop">Critical</span></td><td>Code</td><td>New; sits beside "Conversions stopped"</td></tr>
+<tr><td>6</td><td>How a change worked out</td><td><span class="tag ok">Good news</span> or <span class="tag warn">Warning</span></td><td>Code; AI writes one sentence</td><td>New; uses the drawer's "Changes around that time"</td></tr>
+<tr><td>7</td><td>Target out of reach</td><td><span class="tag warn">Warning</span></td><td>Code</td><td>New</td></tr>
+<tr><td>8</td><td>Where the growth came from: brand or new customers</td><td><span class="tag info">Info</span></td><td>AI suggests brand words once; code does the sums</td><td>New; travels with items 1 and 2</td></tr>
+<tr><td>9</td><td>Less spend on searches that don't convert</td><td><span class="tag ok">Good news</span></td><td>Code</td><td>New; the progress side of today's search term alerts</td></tr>
+<tr><td>10</td><td>Losing visibility to competitors</td><td><span class="tag warn">Warning</span></td><td>Code</td><td>New</td></tr>
+</tbody></table></div>
+<ul>
+<li><strong>Good news gets its own kind,</strong> "Good news", in a green tint. It is not an Opportunity, because nothing needs doing. It never pins, never sends its own email, and appears in the morning summary and the Monday email instead. At most one good-news card per account per day, so it stays worth reading.</li>
+<li><strong>Code works out every figure.</strong> AI writes at most one sentence, from a fixed list of facts, the way the feed's explanations already work. If the AI call fails, the card falls back to fixed wording.</li>
+<li><strong>Three things need fixing first</strong> (see <a href="#build">Before building</a>): the daily store appears to save each day's conversions only once, the night after, so late conversions are never picked up; year-on-year needs about 13 months of history; and item 5 needs conversions split by conversion action.</li>
+</ul>
+</section>
+
+<section id="today">
+<h2>What the feed does today</h2>
+<p>The V2 feed collects items from two engines every 15 minutes. The V2 checker runs 13 starter alerts and the Guard checks over the daily data store. The older "Alerts &amp; Opportunities" catalogue runs about 50 checks with live Google Ads queries. The feed sorts them into "Needs you first" (breach and critical) and "Needs you today", with quiet one-line updates underneath.</p>
+<p>The numeric checks are already careful. Each compares the latest period with up to 8 earlier periods ending on the same weekday, needs at least 3 of them, and only fires when a one-sided Student-t test puts the change outside 99% of normal variation. Conversion gaps use a negative-binomial test. Partial days are never judged.</p>
+<p>What is missing:</p>
+<ul>
+<li><strong>No good news at all.</strong> The only positive items are opportunities: a converting search term that isn't a keyword, an underspending campaign, a strong placement. Nothing says "this went well".</li>
+<li><strong>No "why".</strong> "CPA jumped 40%" says what moved but not whether clicks got dearer or fewer clicks converted. Those two causes need different fixes.</li>
+<li><strong>No follow-up on changes.</strong> The drawer lists "Changes around that time", but nothing comes back two weeks later to say how a change worked out.</li>
+<li><strong>No year-on-year.</strong> The checker reads 123 days of history, so seasonal comparisons are impossible.</li>
+</ul>
+<p>Earlier decisions that still stand: Mark as OK lasts 90 days and reopens if the figure moves at least half as far again; snooze is 7 days by default; breach items pin; no Slack for the feed; industry news was dropped for version 1; AI writes words, never figures.</p>
+</section>
+
+<section id="rules">
+<h2>Rules every item follows</h2>
+<h3>Settled days only</h3>
+<p>Conversions keep arriving for days after the click. Google's own help says recent CPA can look high and recent ROAS low while those clicks are still inside the conversion window. So every item judges only <strong>settled days</strong>: days at least <em>L</em> days old, where <em>L</em> is the account's conversion delay.</p>
+<div class="maths">L = the number of days after which a day's conversion count stops growing by more than 2%,
+    measured from the account's own history once the store re-reads recent days (see Before building).
+Until it can be measured: L = 7. Never more than 30.
+Example: today is November 24 and L = 7, so the last settled day is November 16.
+Newer days show on charts as "Still coming in" and are never used to decide anything.</div>
+
+<h3>Last year means 52 weeks ago</h3>
+<p>A comparison with last year shifts the window back 364 days, not one calendar year, so Mondays line up with Mondays. November 16, 2026 compares with November 17, 2025. Holidays that move (Thanksgiving, Easter) are named in the drawer when either window contains one, using the holiday list the checker already receives but does not yet read.</p>
+
+<h3>Is it real? The tests</h3>
+<ul>
+<li><strong>Against recent weeks:</strong> the existing 99% Student-t gate over up to 8 earlier same-weekday periods.</li>
+<li><strong>Against last year (one earlier period only):</strong> for counts over equal-length windows, an exact binomial test. If the two windows have <em>a</em> and <em>b</em> conversions, and nothing changed, <em>a</em> would behave like a draw from Binomial(<em>a</em>+<em>b</em>, 0.5). The item fires only when the one-sided p-value is under 0.01.</li>
+<li><strong>For rates</strong> (conversion rate, click-through rate): a two-proportion z-test, also at 99%.</li>
+</ul>
+
+<h3>Splitting a change into its causes</h3>
+<p>Several items say how much of a change came from each part. The maths is exact, not an estimate. CPA is cost per click divided by conversion rate, so the ratio of new CPA to old CPA is the CPC ratio divided by the conversion-rate ratio. Taking logs turns that into a sum, and each part's share is its log over the total log:</p>
+<div class="maths">CPA = CPC ÷ CVR
+CPA_new / CPA_old = (CPC_new / CPC_old) ÷ (CVR_new / CVR_old)
+share from clicks costing more     = ln(CPC ratio) ÷ ln(CPA ratio)
+share from conversion rate falling = −ln(CVR ratio) ÷ ln(CPA ratio)
+The two shares always add up to 100%.
+Only show shares when both parts push the same way. If one part pushes against the other,
+say so in words instead ("clicks cost 20% more, but a higher conversion rate made up part of it").
+The same split works for conversions = clicks × CVR, and for conversion value = conversions × value per conversion.</div>
+
+<h3>Wording</h3>
+<ul>
+<li>Changes in a rate are a percentage of the starting value, never points. One decimal under 10% ("−6.3%"), whole numbers from 10% up ("+37%"). ROAS is a percentage (3.0 shows as 300%).</li>
+<li>No "I" for the app. Good news is factual, with no praise ("Great job!") and no exclamation marks.</li>
+<li>AdEvolver may give tips. Tips sit apart from the figures, start "Tip:", "Usually…" or "Worth checking…", and say when the data is too thin.</li>
+<li>Every drawer ends with "What was checked", including what was ruled out.</li>
+<li>Money uses the account's currency. The examples below use dollars and a made-up account.</li>
+</ul>
+
+<h3>Drawer layout</h3>
+<p>The drawer is the sidebar that opens from a card. Each item uses the headings already built in <code>FeedDrawer.vue</code> ("What moved", "Key figures", "What was checked", "What to check next"), plus one new fold, <strong>"Why this is worth knowing"</strong>, which holds the short explanation of why the item exists.</p>
+</section>
+
+<!-- ITEM 1 -->
+<section id="yoy" class="item">
+<h2>1. Up on last year</h2>
+<p class="meta"><span class="tag ok">Good news</span> Code finds it; AI writes one sentence · Runs weekly, Monday, after the nightly refresh · Account level, then each campaign with enough volume</p>
+
+<h4>What it looks at</h4>
+<p>The last 28 settled days against the same 28 days 52 weeks earlier: conversions, conversion value, clicks, cost, conversion rate and CPA, for the account and for each campaign. With L = 7 on November 24, that is October 20 to November 16, 2026, against October 21 to November 17, 2025.</p>
+
+<h4>When it shows</h4>
+<ul>
+<li>Conversions (or conversion value, for accounts that bid on value) are up at least 20%, <em>and</em></li>
+<li>the binomial test puts the rise beyond chance (p &lt; 0.01), <em>and</em></li>
+<li>both windows have at least 30 conversions, <em>and</em></li>
+<li>CPA has not risen more than conversions have. Buying 30% more conversions at 50% higher CPA is not good news; that goes to item 3.</li>
+<li>Not shown while item 5 (counting changed) is open for the account, because a counting change can fake growth.</li>
+<li>Campaign versions need 30 conversions in both windows and are shown only when the account-level card is not, or as rows inside it.</li>
+</ul>
+
+<h4>The maths, with an example</h4>
+<div class="maths">            Now (Oct 20–Nov 16, 2026)   Last year (Oct 21–Nov 17, 2025)
+Clicks      4,180                       3,560        +17%
+Conversions 312                         228          +37%
+Conv. rate  7.46%                       6.40%        +17%
+Cost        $18,400                     $15,900      +16%
+CPA         $58.97                      $69.74       −15%
+
+Binomial test: P(X ≥ 312 | n = 540, p = 0.5) = 0.00017 → fires.
+Split of the conversion rise: ln(4,180/3,560) ÷ ln(312/228) = 51% from more clicks,
+                              ln(1.165) ÷ ln(1.368)          = 49% from a higher conversion rate.</div>
+
+<h4>What it allows for</h4>
+<ul>
+<li>Late conversions: settled days only, on both sides.</li>
+<li>Moving holidays: named in "What was checked" when one falls in either window.</li>
+<li>Growth bought with spend: the CPA guard above, and the drawer always shows cost next to conversions.</li>
+<li>Brand demand: item 8's brand split appears inside this drawer when search term data covers enough of the conversions.</li>
+<li>A new conversion action that didn't exist last year: compared on the conversion actions present in both windows (needs the per-action data in Before building); otherwise the drawer says the totals include new actions.</li>
+</ul>
+
+<h4>Card</h4>
+<div class="card"><p class="t">Conversions up 37% on the same 4 weeks last year</p><p class="s">312 conversions against 228, at a 15% lower CPA. About half came from more clicks, half from a better conversion rate.</p></div>
+
+<h4>Drawer</h4>
+<div class="drawer">
+<p class="h">What moved</p>
+<p>Chart: weekly conversions for the last 13 weeks, with last year's matching weeks as a faint second line. Hover shows both weeks' dates and figures, and the change.</p>
+<p class="h">Key figures</p>
+<ul><li>Conversions 312 (last year 228, +37%)</li><li>CPA $58.97 (last year $69.74, −15%)</li><li>Clicks 4,180 (+17%) · Conversion rate 7.46% (+17%) · Cost $18,400 (+16%)</li></ul>
+<p class="h">Where it came from</p>
+<p>About half the rise came from more clicks and half from a higher share of clicks converting. Search campaign "Implants – Exact" accounts for 41 of the 84 extra conversions.</p>
+<p class="h">What was checked</p>
+<ul><li>October 20 to November 16, 2026, against October 21 to November 17, 2025 (52 weeks earlier, so weekdays match).</li><li>Days after November 16 are left out because conversions for them are still coming in.</li><li>The rise is well beyond normal variation (less than a 1 in 1,000 chance of happening by luck).</li><li>Conversion counting: no changes found to conversion actions in either window.</li><li>No moving holidays in either window.</li></ul>
+<p class="h">What to check next</p>
+<p>Tip: worth checking that the business saw the same rise in leads or sales. If it did, this is a fair figure to share with the team or client.</p>
+<p class="h">Why this is worth knowing</p>
+<p>Week to week, an account mostly looks flat or noisy. A year-on-year view lines up the same season, so it shows real progress, and the split says whether that progress came from more traffic or from better traffic.</p>
+</div>
+
+<h4>Why people should care</h4>
+<p class="pitch">"Is the account actually better than last year?" is the question every owner and client asks. AdEvolver answers it automatically, with the season matched, late conversions left out, and the reason for the change spelled out.</p>
+<p>For agencies this is the opening line of a client call, ready on Monday morning. For in-house teams it is proof that the work is paying off, with numbers a finance team can check.</p>
+</section>
+
+<!-- ITEM 2 -->
+<section id="record" class="item">
+<h2>2. Best week on record</h2>
+<p class="meta"><span class="tag ok">Good news</span> Code only · Runs Monday for the week just settled · Account level</p>
+
+<h4>What it looks at</h4>
+<p>Weekly totals (Monday to Sunday, in the account's time zone) of conversions and conversion value, across all the history AdEvolver holds, plus best month by the same rule.</p>
+
+<h4>When it shows</h4>
+<ul>
+<li>The newest fully settled week has the highest conversions (or value) of any week in the history, <em>and</em></li>
+<li>there are at least 26 settled weeks of history to compare with, <em>and</em></li>
+<li>the week has at least 20 conversions, <em>and</em></li>
+<li>CPA for the week is no more than 10% above the 12-week median CPA (a record bought at any price is not shown), <em>and</em></li>
+<li>item 5 (counting changed) is not open.</li>
+<li>Best month: the same rule on calendar months, needing 12 months of history, shown once on the first Monday after the month settles.</li>
+</ul>
+<p>"Settled week" means every day in the week is at least L days old. With L = 7, the week of November 9–15 is checked on Monday, November 23.</p>
+
+<h4>The maths, with an example</h4>
+<div class="maths">Week of November 2–8, 2026: 96 conversions
+Previous best in the 61 settled weeks before it: 88 (week of March 16–22, 2026)
+Change: 96 ÷ 88 − 1 = +9.1%
+CPA that week $61.20 against a 12-week median of $63.80 → passes the CPA guard.</div>
+<p>No significance test: a record is a fact, not an estimate. The guards stop small or expensive records from showing.</p>
+
+<h4>What it allows for</h4>
+<ul>
+<li>"On record" means "in the history AdEvolver holds". The card names the start date, so nobody claims an all-time record that only goes back 14 months.</li>
+<li>A record can be lost if Google later removes conversions (for example, spam leads). If a later re-read drops the week below the old best, the card is updated to say so, quietly.</li>
+<li>Only one record card a week. If both conversions and value set records, both figures go on the same card.</li>
+</ul>
+
+<h4>Card</h4>
+<div class="card"><p class="t">Most conversions in a week since tracking began in September 2025</p><p class="s">96 conversions in the week of November 2. The previous best was 88, in March.</p></div>
+
+<h4>Drawer</h4>
+<div class="drawer">
+<p class="h">What moved</p>
+<p>Chart: every settled week as a bar, the record week highlighted, the previous best marked. Hover shows the week, conversions, cost and CPA.</p>
+<p class="h">Key figures</p>
+<ul><li>96 conversions (previous best 88, +9.1%)</li><li>CPA $61.20 (12-week median $63.80)</li><li>Weeks compared: 61 earlier weeks, from September 1, 2025</li></ul>
+<p class="h">What was checked</p>
+<ul><li>Only weeks where every day is at least 7 days old, so conversions have had time to arrive.</li><li>Weeks start on Monday in the account's time zone.</li><li>No changes to conversion counting were found during the week.</li></ul>
+<p class="h">Why this is worth knowing</p>
+<p>A record is the clearest sign that something is working. It also marks a week worth looking back at: what was running, what changed, and whether it can be repeated.</p>
+</div>
+
+<h4>Why people should care</h4>
+<p class="pitch">Most tools only speak up when something breaks. AdEvolver also tells you when you've just had your best week, and checks the record is real before it does.</p>
+</section>
+
+<!-- ITEM 3 -->
+<section id="cpa-why" class="item">
+<h2>3. Why CPA moved: clicks or conversions?</h2>
+<p class="meta"><span class="tag warn">Warning</span> Code finds and splits it; AI writes one sentence · Daily, after the nightly refresh · Campaign and account level</p>
+<p><strong>This extends existing items.</strong> Today's starters "CPA jumped" (CPA up 40% on the previous 7 days) and "ROAS fell" (down 30%) already fire. This item changes their windows to settled days and adds the split and the year-on-year line to their drawer, rather than adding a second card.</p>
+
+<h4>What it looks at</h4>
+<p>The last 28 settled days against the 28 before, and against the same 28 days last year when there is history. Cost, clicks, conversions, CPC, conversion rate and CPA. For value-based accounts, ROAS split into conversion value per conversion and CPA.</p>
+
+<h4>When it shows</h4>
+<ul>
+<li>CPA up at least 20% on the previous 28 days (or ROAS down at least 20%), <em>and</em></li>
+<li>outside 99% of normal variation (existing Student-t gate over earlier 28-day periods), <em>and</em></li>
+<li>at least 30 conversions in the earlier window. Below that the drawer says the data is too thin, and the item does not fire.</li>
+</ul>
+
+<h4>The maths, with an example</h4>
+<div class="maths">            Now (28 settled days)   Before (28 days earlier)   Change
+Cost        $12,600                 $11,200
+Clicks      2,800                   3,000
+Conversions 140                     160
+CPC         $4.50                   $3.73                      +21%
+Conv. rate  5.00%                   5.33%                      −6.3%
+CPA         $90.00                  $70.00                     +29%
+
+Check: (4.50 ÷ 3.733) ÷ (5.00 ÷ 5.333) = 1.205 ÷ 0.9375 = 1.286 → +29%.
+Share from dearer clicks:      ln(1.205) ÷ ln(1.286) = 74%
+Share from lower conv. rate:  −ln(0.9375) ÷ ln(1.286) = 26%</div>
+
+<h4>What it allows for</h4>
+<ul>
+<li><strong>Market or account.</strong> A practitioner rule of thumb from r/PPC (November 2026): CPCs up with a flat conversion rate points to the market; flat CPCs with a falling conversion rate points to the account, the landing page or tracking. The drawer states the split and adds this as a tip, not as a verdict.</li>
+<li><strong>Tracking first.</strong> A falling conversion rate can be a broken tag rather than worse traffic. If item 5 is open, or the conversion rate fell on one conversion action only, the drawer says so first.</li>
+<li><strong>Google's August 2026 bidding change.</strong> Since August 17–27, 2026, budget-limited Target CPA and Target ROAS campaigns bid closer to their target instead of beating it. For such campaigns, the drawer notes that a CPA rising towards the target can come from this change.</li>
+<li><strong>Last year.</strong> If last year's CPA rose by a similar amount over the same weeks, the drawer says so ("CPA rose 24% over the same weeks last year"), because that suggests a seasonal pattern.</li>
+<li><strong>Which campaign.</strong> The account card names the campaign that adds most to the extra cost per conversion, measured as each campaign's change in cost minus (its old CPA × its new conversions).</li>
+</ul>
+
+<h4>Card</h4>
+<div class="card"><p class="t">CPA up 29% in 4 weeks, mostly from clicks costing more</p><p class="s">$90.00 against $70.00. Clicks cost 21% more; the conversion rate fell 6.3%.</p></div>
+
+<h4>Drawer</h4>
+<div class="drawer">
+<p class="h">What moved</p>
+<p>Chart: CPC and conversion rate as two weekly lines over 13 weeks, each against its own scale. Hover shows both figures and the change from the week before.</p>
+<p class="h">Key figures</p>
+<ul><li>CPA $90.00 (was $70.00, +29%)</li><li>CPC $4.50 (was $3.73, +21%)</li><li>Conversion rate 5.00% (was 5.33%, −6.3%)</li><li>Same weeks last year: CPA rose 4.1%</li></ul>
+<p class="h">Where it came from</p>
+<p>About three-quarters of the rise came from clicks costing more, and a quarter from fewer clicks converting. "Emergency Dentist" accounts for most of the extra cost.</p>
+<p class="h">What was checked</p>
+<ul><li>28 settled days to November 16 against the 28 days before.</li><li>The rise is outside the variation seen in the earlier 28-day periods (99% test).</li><li>Conversion counting: no changes found.</li><li>Not a budget-limited Target CPA campaign, so Google's August bidding change does not apply.</li></ul>
+<p class="h">What to check next</p>
+<p>Tip: when clicks get dearer but the conversion rate holds, the cause is usually the auction: more competitors or higher bids. Auction insights in Google Ads shows who else is bidding. When the conversion rate falls instead, check the landing page and that conversions still record.</p>
+<p class="h">Why this is worth knowing</p>
+<p>A CPA rise has two very different causes. Dearer clicks need bid, keyword or competitor work. Fewer conversions per click need landing page, offer or tracking work. Knowing which saves a week of guessing.</p>
+</div>
+
+<h4>Why people should care</h4>
+<p class="pitch">Every tool can tell you CPA went up. AdEvolver tells you why: whether you're paying more for each click or getting less from each click, and how much of each.</p>
+<p>It also gives account managers the explanation clients want: "costs are up because the auction got more competitive, not because the account got worse", with the numbers behind it.</p>
+</section>
+
+<!-- ITEM 4 -->
+<section id="capped-winner" class="item">
+<h2>4. Beating its target, held back by budget</h2>
+<p class="meta"><span class="tag ok">Good news</span> <span class="tag info">Opportunity</span> Code only · Weekly · Search and Shopping campaigns</p>
+<p><strong>This edits an existing item.</strong> The Go catalogue's "Underspending campaign" (rule 16) and the V2 "Underspending budget" starter look at pacing. This item looks at the other side: campaigns that would spend more if they were allowed, and are doing well.</p>
+
+<h4>What it looks at</h4>
+<p>For the last 30 settled days: Search lost impression share (budget), impressions, conversions and CPA (or ROAS), the campaign's daily budget, and its bid strategy and target. Impression share is not in the daily store, so this runs one live Google Ads query per account a week for the campaigns concerned.</p>
+
+<h4>When it shows</h4>
+<ul>
+<li>Search lost impression share (budget) of at least 20% over the 30 days, <em>and</em></li>
+<li>CPA at least 10% below target (or ROAS at least 10% above target). For campaigns without a target, at least 10% better than the account's 90-day CPA, <em>and</em></li>
+<li>at least 30 conversions in the 30 days (Google cites 30 conversions, or 50 for Target ROAS, as enough to judge), <em>and</em></li>
+<li>no budget or target change in the last 14 days (a change needs a full conversion cycle before it can be judged).</li>
+</ul>
+
+<h4>The maths, with an example</h4>
+<div class="maths">Campaign "Implants – Exact", Target CPA $55, daily budget $150
+Last 30 settled days: 21,000 impressions, impression share 52%,
+lost impression share (budget) 38%, 64 conversions, CPA $42.00
+
+CPA against target: 42 ÷ 55 − 1 = −24%
+Impressions the campaign was eligible for: 21,000 ÷ 0.52 = 40,385
+Impressions not shown because of budget:   40,385 × 0.38 ≈ 15,300
+Suggested step: +15% → $172.50 a day</div>
+<p>The card does not promise extra conversions. Extra impressions are usually lower down the auction and may convert worse, and Google's bidding change (below) means more budget can lower efficiency too. The drawer shows the impressions figure and lets the user decide.</p>
+
+<h4>What it allows for</h4>
+<ul>
+<li><strong>Google's August 2026 change.</strong> Budget-limited Target CPA and Target ROAS campaigns now bid closer to their target rather than beating it, and Google recommends reviewing such campaigns, especially ones beating their targets. A campaign showing here may soon move towards its target on its own. The drawer says so.</li>
+<li><strong>Step size.</strong> Practitioner guidance in AdEvolver's knowledge base: raise budget in steps of about 10 to 20%, then wait for enough new conversions before the next change. The suggested change is +15% and goes through the change queue.</li>
+<li><strong>Shared budgets.</strong> If the campaign is on a shared budget, the suggestion names the shared budget and every campaign on it.</li>
+<li><strong>Month-end.</strong> If the account has a monthly budget in AdEvolver and is on pace to use it, the drawer shows the extra month spend at the new budget, so nobody overspends by accident.</li>
+</ul>
+
+<h4>Card</h4>
+<div class="card"><p class="t">"Implants – Exact" is 24% under its target CPA and missing 38% of searches because of budget</p><p class="s">64 conversions at $42.00 in 30 days, against a $55 target. About 15,300 impressions went unshown.</p></div>
+
+<h4>Drawer</h4>
+<div class="drawer">
+<p class="h">Key figures</p>
+<ul><li>CPA $42.00, target $55 (−24%)</li><li>Lost impression share (budget) 38% · Impression share 52%</li><li>64 conversions · Daily budget $150</li></ul>
+<p class="h">Suggested change</p>
+<p>Raise the daily budget from $150 to $172.50 (+15%). Adds about $675 over 30 days at full spend. <em>[Add to queue]</em></p>
+<p class="h">What was checked</p>
+<ul><li>30 settled days to November 16.</li><li>No budget or target change in the last 14 days.</li><li>Enough conversions to judge (64; Google suggests at least 30).</li><li>The campaign has its own budget, not a shared one.</li></ul>
+<p class="h">What to check next</p>
+<p>Tip: raise the budget or change the target, not both at once, and give it two to three weeks before judging. Since August 2026, Google bids budget-limited Target CPA campaigns closer to their target, so the CPA may rise towards $55 either way.</p>
+<p class="h">Why this is worth knowing</p>
+<p>This is the clearest kind of growth an account offers: a campaign that already meets the business's cost goal but is switched off for part of each day by its budget.</p>
+</div>
+
+<h4>Why people should care</h4>
+<p class="pitch">Your best campaign might be running out of money by lunchtime. AdEvolver spots campaigns that are beating their target but capped by budget, and queues the increase for you to approve.</p>
+</section>
+
+<!-- ITEM 5 -->
+<section id="counting" class="item">
+<h2>5. Conversion counting changed</h2>
+<p class="meta"><span class="tag stop">Critical</span> Code only · Daily · Per conversion action</p>
+<p>Today's "Conversions stopped" catches conversions going to zero. This catches the subtler faults: a tag firing twice, a conversion action being added to or removed from the goals, a value change, or one action going quiet while others carry on. These make results look better or worse when nothing real changed, and they mislead Smart Bidding.</p>
+
+<h4>What it looks at</h4>
+<p>Daily conversions and conversion value for each conversion action, clicks for the account, conversion goal settings (which actions count towards bidding), and the change history.</p>
+
+<h4>When it shows</h4>
+<p>Any one of these, judged on the last 7 settled days against the 28 before:</p>
+<ul>
+<li><strong>Jump:</strong> one action's conversions per click move by at least 50% and beyond 99% of normal variation, while account clicks stay within normal variation and the other actions don't move the same way.</li>
+<li><strong>Doubling:</strong> one action's conversions per click roughly doubles (between 1.8× and 2.2×) from one day to the next and stays there for 3 settled days. This is the usual sign of a tag firing twice.</li>
+<li><strong>Value per conversion:</strong> moves by at least 50% for one action with no matching change in orders. A changed static value, or a currency fault, does this.</li>
+<li><strong>Goal change:</strong> an action was made primary or secondary, or added to or removed from the account's goals, in the change history.</li>
+<li><strong>Quiet action:</strong> an action that recorded on at least 80% of days in the last 28 recorded nothing for a run of days that the existing negative-binomial test puts below a 1% chance.</li>
+</ul>
+
+<h4>The maths, with an example</h4>
+<div class="maths">Action "Purchase"   28 days before: 3.1 conversions per 100 clicks
+                    7 settled days from November 9: 6.4 per 100 clicks   (+106%)
+Account clicks      7-day daily average −2.0% against the 28 days before (within normal variation)
+Action "Add to cart" conversions per click +1.4% (unchanged)
+6.4 ÷ 3.1 = 2.06 → inside the "doubling" band, held for 7 days → fires as a possible double count.</div>
+
+<h4>What it allows for</h4>
+<ul>
+<li>A real improvement (a new offer, a faster site) usually lifts more than one action and moves gradually. A single action that steps up overnight is far more often a tracking change. The card says "possible" and shows the evidence.</li>
+<li>Promotions: if the user has marked a sale or promotion in AdEvolver's notes for those dates, the drawer shows it and the level drops to Warning.</li>
+<li>While this item is open, items 1, 2, 4 and 6 hold back for the account, because their good news may not be real.</li>
+<li>Google Tag Manager and the website are not visible to AdEvolver. The drawer says what to test by hand.</li>
+</ul>
+
+<h4>Card</h4>
+<div class="card"><p class="t">"Purchase" conversions doubled overnight on November 9 while clicks stayed flat</p><p class="s">6.4 per 100 clicks, against 3.1 before. This usually means a tag is counting each purchase twice.</p></div>
+
+<h4>Drawer</h4>
+<div class="drawer">
+<p class="h">What moved</p>
+<p>Chart: daily conversions per 100 clicks for each conversion action over 35 days, with November 9 marked. Hover shows each day's clicks and conversions per action.</p>
+<p class="h">Key figures</p>
+<ul><li>"Purchase": 6.4 per 100 clicks since November 9 (was 3.1, +106%)</li><li>Clicks: −2.0% (normal)</li><li>"Add to cart": +1.4% (normal)</li><li>"Purchase" is a primary action, so Smart Bidding is using the higher count.</li></ul>
+<p class="h">Changes around that time</p>
+<p>No changes to conversion actions in Google Ads. The change may have been made on the website or in Google Tag Manager.</p>
+<p class="h">What was checked</p>
+<ul><li>7 settled days from November 9 against the 28 days before.</li><li>Clicks, other conversion actions and conversion goal settings.</li><li>No promotion noted for these dates.</li></ul>
+<p class="h">What to check next</p>
+<p>Tip: place one real test order and see whether Google Ads records one conversion or two. Compare the orders the shop recorded since November 9 with what Google Ads reports. Good-news items for this account are held until this is cleared.</p>
+<p class="h">Why this is worth knowing</p>
+<p>Smart Bidding sets bids from these numbers. A double-counted purchase makes every click look twice as valuable, so bids rise and real cost per sale gets worse while reports look better.</p>
+</div>
+
+<h4>Why people should care</h4>
+<p class="pitch">The most expensive Google Ads problems look like good news. AdEvolver checks every conversion action every day, and tells you when the numbers changed but the business didn't.</p>
+</section>
+
+<!-- ITEM 6 -->
+<section id="readback" class="item">
+<h2>6. How a change worked out</h2>
+<p class="meta"><span class="tag ok">Good news</span> or <span class="tag warn">Warning</span> Code finds and measures it; AI writes one sentence · Daily, once per change · Campaign level</p>
+
+<h4>What it looks at</h4>
+<p>Changes in the account's change history that are big enough to judge: a new bid strategy, a target change of at least 10%, a budget change of at least 20%, a campaign turned on, or a change sent through AdEvolver's change queue. For each, the campaign's daily figures before and after, and the rest of the account over the same days as a comparison.</p>
+
+<h4>When it shows</h4>
+<ul>
+<li><strong>Before:</strong> up to 28 settled days before the change. <strong>Skip:</strong> 7 days after it for bid strategy and target changes (the learning period), none for budget changes. <strong>After:</strong> 14 settled days after the skip, up to 28.</li>
+<li>No other big change to the same campaign in the before or after window, so the result belongs to one change.</li>
+<li>At least 20 conversions in each window.</li>
+<li>The change in conversions per day or CPA, after allowing for the rest of the account, is beyond 99% of normal variation. If it is not, nothing fires and the change shows a quiet line: "Target CPA change on October 27: no clear effect yet."</li>
+<li>Good news when it went the way the change intended (lower target and lower CPA, or more budget and more conversions at a similar CPA). Warning when it went the other way.</li>
+</ul>
+
+<h4>The maths, with an example</h4>
+<div class="maths">"Emergency Dentist": Target CPA lowered from $60 to $50 on October 27, 2026
+Before  Oct 6–26 (21 days):            84 conversions, $5,040 cost → CPA $60.00, 4.00 a day
+Skip    Oct 27–Nov 2 (learning, 7 days)
+After   Nov 3–16 (14 settled days):     62 conversions, $3,100 cost → CPA $50.00, 4.43 a day
+
+Campaign: CPA −17%, conversions a day +11%
+Rest of account, same days: conversions a day 10.0 → 10.2 (+2.0%)
+Allowing for the rest of the account: 1.107 ÷ 1.020 − 1 = +8.5%</div>
+<p>Daily averages are used because the windows are different lengths. The comparison with the rest of the account removes seasonal and market movement that would have happened anyway.</p>
+
+<h4>What it allows for</h4>
+<ul>
+<li>The learning period is skipped, as Google suggests waiting before judging a bid strategy change.</li>
+<li>Two changes close together cannot be told apart, so the item stays quiet rather than give credit to the wrong one.</li>
+<li>Small campaigns: under 20 conversions a window, the drawer of the change (in the queue history) says "Not enough conversions to judge yet."</li>
+<li>Changes made by someone else (another user, a script, Google's auto-apply) are measured too and say who made them, which ties in with the breach checks on unfamiliar editors.</li>
+</ul>
+
+<h4>Card</h4>
+<div class="card"><p class="t">Lowering the Target CPA on "Emergency Dentist" brought CPA down 17%</p><p class="s">$50.00 against $60.00, with 11% more conversions a day. Changed by Sam on October 27.</p></div>
+
+<h4>Drawer</h4>
+<div class="drawer">
+<p class="h">What moved</p>
+<p>Chart: daily conversions and CPA from 21 days before to 14 days after the change, with the change date and the learning week shaded. Hover shows each day's figures.</p>
+<p class="h">Key figures</p>
+<ul><li>CPA $50.00 (was $60.00, −17%)</li><li>Conversions a day 4.43 (was 4.00, +11%)</li><li>Rest of the account over the same days: +2.0%</li><li>After allowing for the rest of the account: +8.5% conversions a day</li></ul>
+<p class="h">What was checked</p>
+<ul><li>21 settled days before October 27 against November 3–16. The first 7 days after the change were left out while the bid strategy adjusted.</li><li>No other big changes to this campaign in either window.</li><li>The difference is beyond 99% of normal variation.</li></ul>
+<p class="h">Why this is worth knowing</p>
+<p>Most changes in Google Ads are made and forgotten. Checking back two weeks later shows which changes helped, which to repeat on other campaigns, and which to undo.</p>
+</div>
+
+<h4>Why people should care</h4>
+<p class="pitch">You made the change. Did it work? Two weeks later, AdEvolver tells you, after allowing for the learning period, the season and everything else going on in the account.</p>
+<p>For agencies this is the proof of work that clients rarely see: each change, and what it did.</p>
+</section>
+
+<!-- ITEM 7 -->
+<section id="target" class="item">
+<h2>7. Target out of reach</h2>
+<p class="meta"><span class="tag warn">Warning</span> Code only · Daily · Campaigns on Target CPA or Target ROAS</p>
+
+<h4>What it looks at</h4>
+<p>The campaign's target (from its bid strategy or portfolio), its settled CPA or ROAS over 30 days, its daily spend against its budget, and when the target last changed.</p>
+
+<h4>When it shows</h4>
+<ul>
+<li>The target is at least 25% tighter than the settled 30-day result (CPA target below actual CPA, or ROAS target above actual ROAS), <em>and</em></li>
+<li>average daily spend over the last 14 days is down at least 30% on the 14 days before the target was last set (or on the 14 days before that, if it was set more than a month ago), <em>and</em></li>
+<li>the campaign is not limited by budget, ads are serving, and the conversion action is recording (these are checked first, as the cause would be different), <em>and</em></li>
+<li>the target was set at least 14 days ago.</li>
+</ul>
+
+<h4>The maths, with an example</h4>
+<div class="maths">"Whitening": Target CPA $40, set October 19
+Settled 30-day CPA: $58.00 → target is 40 ÷ 58 − 1 = −31% below what the campaign achieves
+Daily spend, last 14 days: $108 average; 14 days before the target was set: $186 → −42%
+Daily budget $200, not limited by budget; ads serving; conversions recording.</div>
+
+<h4>What it allows for</h4>
+<ul>
+<li>A tight target is sometimes deliberate (a business that only wants cheap leads). Mark as OK is the answer for those, and it lasts 90 days.</li>
+<li>The settled CPA uses days before the target change too, so it shows what the campaign achieves, not what it achieves while squeezed.</li>
+<li>Google's August 2026 change makes budget-limited campaigns bid closer to target. This item excludes budget-limited campaigns, so the two do not overlap.</li>
+</ul>
+
+<h4>Card</h4>
+<div class="card"><p class="t">"Whitening" spend down 42% since its Target CPA was set to $40</p><p class="s">The campaign's CPA over 30 days is $58.00, so the target is 31% below what it has been achieving.</p></div>
+
+<h4>Drawer</h4>
+<div class="drawer">
+<p class="h">What moved</p>
+<p>Chart: daily spend and the target line over 45 days, with October 19 marked.</p>
+<p class="h">Key figures</p>
+<ul><li>Target CPA $40 · 30-day CPA $58.00</li><li>Spend $108 a day (was $186, −42%) · Budget $200</li><li>Conversions a day 1.9 (was 3.2)</li></ul>
+<p class="h">Suggested change</p>
+<p>Raise the Target CPA to $50 (half way to the achieved CPA). <em>[Add to queue]</em></p>
+<p class="h">What was checked</p>
+<ul><li>The campaign is not limited by budget, its ads are approved and serving, and its conversion action recorded conversions every day.</li><li>The target has been in place for 36 days.</li></ul>
+<p class="h">What to check next</p>
+<p>Tip: compare the target with the most the business can pay for a customer, not only with past CPA. If $40 is the real limit, this campaign may simply have less volume at that price, and Mark as OK keeps this from coming back.</p>
+<p class="h">Why this is worth knowing</p>
+<p>A target set tighter than the campaign can reach doesn't make leads cheaper. It makes Google bid less, so the campaign quietly stops spending and stops bringing in leads.</p>
+</div>
+
+<h4>Why people should care</h4>
+<p class="pitch">A campaign that stops spending doesn't raise an error. AdEvolver notices when a target is quietly strangling a campaign, and shows how far apart the target and reality are.</p>
+</section>
+
+<!-- ITEM 8 -->
+<section id="brand" class="item">
+<h2>8. Where the growth came from: brand or new customers</h2>
+<p class="meta"><span class="tag info">Info</span> AI suggests brand words once, the user confirms; code does the sums · Runs with items 1 and 2, and monthly on its own</p>
+
+<h4>What it looks at</h4>
+<p>Search terms with their conversions, split into brand (the business's own name, products and misspellings) and non-brand, over the same windows item 1 uses. Performance Max search categories where available.</p>
+
+<h4>Setting up the brand words</h4>
+<p>The first time, AI reads the account name, final URL domains and the 200 search terms with the most clicks, and suggests a brand word list ("northstar", "north star", "northstr"). The user confirms or edits it in the account's settings. After that, the split is a plain text match, with no AI. The list is shown in "What was checked".</p>
+
+<h4>When it shows</h4>
+<ul>
+<li>As a section inside items 1 and 2, always, when search terms cover at least 50% of the conversions in both windows.</li>
+<li>As its own monthly card when brand's share of conversions has risen by at least 25% on the month before and the account has at least 50 conversions a month.</li>
+</ul>
+
+<h4>The maths, with an example</h4>
+<div class="maths">Conversions up 84 on last year (312 against 228, from item 1)
+Of the 84: brand +61 (73%), non-brand +23 (27%)
+Search terms cover 81% of conversions now and 78% last year.
+Each share = that part's change ÷ total change. Shares only shown when both parts rose;
+if one part fell, both changes are shown as numbers instead.</div>
+
+<h4>What it allows for</h4>
+<ul>
+<li>Google hides some search terms for privacy, and Performance Max reports search categories rather than terms. The drawer always says how much of the conversions the split covers.</li>
+<li>Brand growth is not bad news. It often follows offline marketing or word of mouth. But brand searchers would often have found the business anyway, so the split shows how much of the growth came from people who didn't already know the name.</li>
+<li>Practitioner guidance in AdEvolver's knowledge base: measure how much of Performance Max's return comes from brand searches before judging the campaign.</li>
+</ul>
+
+<h4>Card (monthly version)</h4>
+<div class="card"><p class="t">73% of this year's extra conversions came from people searching for your name</p><p class="s">Brand searches added 61 conversions on last year; other searches added 23.</p></div>
+
+<h4>Drawer</h4>
+<div class="drawer">
+<p class="h">Key figures</p>
+<ul><li>Brand: +61 conversions on last year</li><li>Non-brand: +23 conversions on last year</li><li>Search terms cover 81% of conversions (last year 78%)</li></ul>
+<p class="h">What was checked</p>
+<ul><li>Brand words: northstar, north star, northstr (edit in Account settings).</li><li>Search terms for October 20 to November 16, 2026, against the same weeks last year.</li></ul>
+<p class="h">What to check next</p>
+<p>Tip: if most of the growth is brand, it is worth checking that Performance Max and broad match aren't taking credit for searches the brand campaign would have won anyway.</p>
+<p class="h">Why this is worth knowing</p>
+<p>Growth from people who already know your name and growth from new customers are worth very different amounts. This shows which one you're getting.</p>
+</div>
+
+<h4>Why people should care</h4>
+<p class="pitch">Growth is great. Growth from new customers is better. AdEvolver shows you which one you're getting, so you're not paying Google for customers who were already looking for you.</p>
+</section>
+
+<!-- ITEM 9 -->
+<section id="waste" class="item">
+<h2>9. Less spend on searches that don't convert</h2>
+<p class="meta"><span class="tag ok">Good news</span> Code only · Monthly, and after 30 days from a batch of 20 or more negatives · Account level</p>
+<p>This is the progress side of today's search term alerts ("Costly non-converting term", "Wasteful queries"). Those say what to cut. This says what the cutting achieved, which the shared "Progress and momentum" standard asks for.</p>
+
+<h4>What it looks at</h4>
+<p>Search term cost and conversions over the last 28 settled days against the 28 days before the user's first negatives were added through AdEvolver (or 28 days a quarter ago, for accounts that didn't). Plus the count of negatives added through AdEvolver's change queue.</p>
+
+<h4>When it shows</h4>
+<ul>
+<li>The share of search term spend on terms with no conversions has fallen by at least 20% (relative), <em>and</em></li>
+<li>total conversions have not fallen by more than 5% (cutting spend that also cut conversions is not a win), <em>and</em></li>
+<li>search term spend is at least $1,000 in each window.</li>
+</ul>
+
+<h4>The maths, with an example</h4>
+<div class="maths">                         Before (28 days)   Now (28 settled days)
+Search term cost         $12,000            $12,550
+Cost on terms with 0 conversions  $2,100    $1,230
+Share with no conversions 17.5%             9.8%      → −44%
+
+The same thing as a ratio used by practitioners:
+cost per conversion across all terms ÷ cost per conversion on terms with a conversion
+= 1 ÷ (1 − share with no conversions) = 1.21 before, 1.11 now.
+(The two are the same measure, because terms with no conversions add cost but no conversions.)
+Negatives added through AdEvolver since September 14: 142</div>
+
+<h4>What it allows for</h4>
+<ul>
+<li>A term with no conversions in 28 days might convert later, especially for long sales cycles. Settled days only, and the share is a trend, not a list of failures.</li>
+<li>The card says "since", not "because". Other things change too, and the drawer lists other changes in the period.</li>
+<li>Hidden search terms: the drawer says what share of cost the visible terms cover.</li>
+</ul>
+
+<h4>Card</h4>
+<div class="card"><p class="t">Spend on searches with no conversions down 44% since September</p><p class="s">9.8% of search term spend, against 17.5%. 142 negatives added through AdEvolver in that time, with conversions steady.</p></div>
+
+<h4>Drawer</h4>
+<div class="drawer">
+<p class="h">What moved</p>
+<p>Chart: share of search term spend with no conversions, week by week, with the weeks negatives were added marked.</p>
+<p class="h">Key figures</p>
+<ul><li>No-conversion share 9.8% (was 17.5%, −44%)</li><li>Monthly cost on no-conversion terms $1,230 (was $2,100)</li><li>Conversions +1.3% · 142 negatives added</li></ul>
+<p class="h">What was checked</p>
+<ul><li>28 settled days to November 16 against August 17 to September 13.</li><li>Visible search terms cover 88% of cost.</li><li>Other changes in the period: 2 budget changes, 1 new ad group.</li></ul>
+<p class="h">Why this is worth knowing</p>
+<p>Negatives are thankless work: you never see the clicks you didn't pay for. This shows what the work added up to.</p>
+</div>
+
+<h4>Why people should care</h4>
+<p class="pitch">Every negative keyword you add saves money you never see. AdEvolver adds it up, so you can see what all that tidying achieved.</p>
+</section>
+
+<!-- ITEM 10 -->
+<section id="rank" class="item">
+<h2>10. Losing visibility to competitors</h2>
+<p class="meta"><span class="tag warn">Warning</span> Code only · Weekly · Search campaigns</p>
+
+<h4>What it looks at</h4>
+<p>Search impression share, lost impression share (rank) and lost impression share (budget) for the last 28 days against the 28 before, from one live Google Ads query per account a week (these fields are not in the daily store). Where the account's API access allows it, auction insights for the same windows, to name competitors whose overlap rose.</p>
+
+<h4>When it shows</h4>
+<ul>
+<li>Search impression share down at least 15% (relative), <em>and</em></li>
+<li>most of the drop is in lost impression share (rank), not budget, <em>and</em></li>
+<li>at least 5,000 eligible impressions in each window, <em>and</em></li>
+<li>beyond 99% of normal variation against earlier 28-day periods (needs 4 or more; the query reads 6 months).</li>
+</ul>
+
+<h4>The maths, with an example</h4>
+<div class="maths">"Implants – Broad"        Before    Now      Change
+Impression share          64%       51%      −20%
+Lost to rank              22%       35%      +59%
+Lost to budget            14%       14%      ±0%
+(Each column adds up to 100%: share + lost to rank + lost to budget.)
+All of the drop moved into "lost to rank". Average CPC +12%. Quality Score unchanged.</div>
+
+<h4>What it allows for</h4>
+<ul>
+<li>Google's guidance: lost impression share (budget) is loss from budget, lost impression share (rank) is loss from Ad Rank. The fix for rank loss is relevance or bids, not more budget, so this item keeps the two apart.</li>
+<li>If the advertiser lowered bids or a target in the period, the drawer says so first: the drop may be their own doing.</li>
+<li>Quality Score is shown as context only. Google says the displayed score is not an auction input.</li>
+<li>Auction insights are not always available through the API. Without them, the card does not name competitors.</li>
+</ul>
+
+<h4>Card</h4>
+<div class="card"><p class="t">"Implants – Broad" is showing for 20% fewer searches, lost to competitors' ad rank</p><p class="s">Impression share 51%, down from 64%. Budget isn't the cause: loss to budget held at 14%.</p></div>
+
+<h4>Drawer</h4>
+<div class="drawer">
+<p class="h">What moved</p>
+<p>Chart: weekly impression share, lost to rank and lost to budget as a stacked bar over 26 weeks.</p>
+<p class="h">Key figures</p>
+<ul><li>Impression share 51% (was 64%, −20%)</li><li>Lost to rank 35% (was 22%, +59%) · Lost to budget 14% (unchanged)</li><li>Average CPC +12% · Quality Score unchanged</li></ul>
+<p class="h">What was checked</p>
+<ul><li>28 days to November 16 against the 28 before. Impression share is not affected by conversion delay, so recent days are included.</li><li>No bid, target or budget changes to this campaign in the period.</li></ul>
+<p class="h">What to check next</p>
+<p>Tip: Auction insights in Google Ads shows which competitors appear more often. If a new competitor is bidding on the same searches, the choice is between paying more per click, improving ad relevance, or accepting less volume.</p>
+<p class="h">Why this is worth knowing</p>
+<p>Fewer impressions with the same budget usually means someone else is outbidding you. It shows up in impression share weeks before it shows up in leads.</p>
+</div>
+
+<h4>Why people should care</h4>
+<p class="pitch">When a competitor starts outbidding you, the first sign isn't fewer leads, it's fewer impressions. AdEvolver watches for it every week and tells you whether it's budget or competition.</p>
+</section>
+
+<section id="build">
+<h2>Before building</h2>
+<h3>Three data fixes</h3>
+<ol>
+<li><strong>Re-read recent days so late conversions are counted.</strong> The daily store's account and campaign performance entities appear to fetch each day once, the night after (<code>segments.date</code> = the snapshot date), and readers take the newest run per day. If so, the store never sees conversions that arrive later, so recent CPA in the store reads too high and ROAS too low, and the conversion delay L can't be measured. Fix: re-read the last 30 days of account and campaign performance each night in one ranged query per entity. That is two extra requests per account a night. This needs confirming in the worker code before building.</li>
+<li><strong>13 months of history.</strong> The checker reads 123 days. Items 1, 2 and 8 need at least 371 days (52 weeks plus the 28-day window plus L). The existing backfill Lambda can write 400 days of account and campaign performance and search terms per account, in 100-day chunks. Running it in production is release-gated.</li>
+<li><strong>Conversions by conversion action.</strong> Item 5 (and the "same actions in both years" check in item 1) needs daily conversions and value per conversion action. A new daily-store entity (<code>segments.conversion_action</code> on the customer resource) adds one request per account a night.</li>
+</ol>
+<h3>Where each item runs</h3>
+<ul>
+<li>Items 1, 2, 3, 5, 6, 7 and 9 run in the Go V2 alerts checker over the daily store, next to the existing starters, reusing its Student-t and negative-binomial code. The binomial and two-proportion tests are new, small functions.</li>
+<li>Items 4 and 10 need impression share, so they run as one live query per account a week, in the Go "Alerts &amp; Opportunities" service.</li>
+<li>Item 8's brand list suggestion uses the existing AI service once per account; the user confirms it.</li>
+<li>AI sentences use the existing explanation path: fixed facts in, one sentence out, no account names or URLs sent, fixed wording if it fails.</li>
+<li>All ten go behind one release flag, off by default, so they can be checked on real accounts as an admin first.</li>
+</ul>
+<h3>Choices made in this document</h3>
+<ul>
+<li>"Good news" is a new feed kind, separate from Opportunity and Info. It never pins or emails on its own; it feeds the morning summary and the Monday email, at most one card per account per day.</li>
+<li>Good news holds back while item 5 is open for the account.</li>
+<li>The new drawer fold is called "Why this is worth knowing".</li>
+<li>Thresholds above are starting defaults. Like every check, each one can be changed, turned off or given another level per account, with "Changed ↺" showing where it differs.</li>
+</ul>
+</section>
+
+<section id="sources">
+<h2>Sources</h2>
+<ul>
+<li><strong>Current feed and checks:</strong> AdEvolver V2 (<code>app/services/v2_alerts/starters.py</code>, <code>app/services/feed/</code>, <code>FeedDrawer.vue</code>) and the Go checker (<code>adevolver-data/v2-alerts</code>, <code>intelligence.go</code>, <code>guard.go</code>; <code>monitors/alerts-go</code>).</li>
+<li><strong>Earlier plans:</strong> Proactive AI feed (November 21–22), Alerts &amp; Opportunities v2 (November 16), Smarter Guard checks (November 22), Alerts inbox redesign mock-ups.</li>
+<li><strong>AdEvolver's Google Ads knowledge base</strong> (51 searches): Google's guidance on conversion delay making recent CPA look high, the 30-conversion (50 for Target ROAS) evaluation threshold, lost impression share (budget) against (rank), the August 17–27, 2026 change to budget-limited Target CPA and Target ROAS bidding, and Quality Score not being an auction input. Practitioner guidance on budget steps of 10 to 20%, brand share of Performance Max, conversion-value changes inflating ROAS, the search-term cost ratio, and same-weekday baselines set from the account's own history.</li>
+<li><strong>r/PPC</strong>, "CPL/CPA keeps getting worse" (November 16, 2026): comparing CPC and conversion rate year on year to tell the market from the account, and checking the CRM against Google Ads before blaming performance.</li>
+<li>The knowledge base has nothing on year-on-year comparisons, records or celebrating wins. The good-news thresholds (20% growth, 30 conversions, 26 weeks of history) are AdEvolver's own choices, not sourced guidance.</li>
+</ul>
+<p class="closing">All figures in the examples are made up, and each one was recalculated by script before publishing. Thresholds are starting points to tune once the items run on real accounts.</p>
+</section>
+</main></body>
+</html>
