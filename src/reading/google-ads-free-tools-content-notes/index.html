@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#1c1b18">
+  <meta name="description" content="Research notes for five Google Ads content pieces: settings audits, broken links, Quality Score, account breakdowns and landing page speed. Points to cover, myths, how to act, and how to build your own check.">
+  <title>Content notes: five Google Ads free tools</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --paper: #1c1b18;
+      --text: #d6cfbf;
+      --heading: #f0e7d3;
+      --muted: #b7ab96;
+      --link: #e0b582;
+      --rule: #494339;
+      --cell: #24221e;
+      color: var(--text);
+      background: var(--paper);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      font: clamp(1.08rem, 1rem + .32vw, 1.24rem)/1.72 Georgia, "Times New Roman", serif;
+      overflow-wrap: break-word;
+    }
+    main { max-width: 35em; margin-inline: auto; padding: clamp(2.5rem, 7vw, 6rem) 0 6rem; width: calc(100% - 2.5rem); }
+    h1, h2, h3, h4 { color: var(--heading); line-height: 1.2; text-wrap: balance; }
+    h1 { margin: 0; max-width: 17ch; font-size: clamp(2.55rem, 7vw, 4.15rem); font-weight: 400; letter-spacing: -.04em; }
+    h2 { border-top: 1px solid var(--rule); padding-top: 1.05em; margin: 2.15em 0 .65em; font-size: clamp(1.8rem, 4.4vw, 2.5rem); font-weight: 400; letter-spacing: -.025em; }
+    h3 { margin: 1.75em 0 .5em; font-size: 1.2em; }
+    p { margin: 0 0 1em; }
+    strong { color: var(--heading); }
+    a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: .18em; }
+    a:hover { text-decoration-thickness: 2px; }
+    a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+    ul { padding-inline-start: 1.5em; }
+    li { margin-block: .55em; padding-inline-start: .15em; }
+    code { font: .82em ui-monospace, Menlo, monospace; background: var(--cell); padding: .05em .3em; border-radius: .2em; }
+    ::selection { background: #d3b895; color: #201e1a; }
+    header .eyebrow { font: .76em/1.5 system-ui, sans-serif; color: var(--muted); margin-bottom: 1.5em; }
+    header .lede { font-size: 1.12em; line-height: 1.55; margin-top: 1.1em; color: var(--heading); }
+    .contents { border-block: 1px solid var(--rule); margin: 1.7em 0 2.1em; padding: 1em 0; font: .78em/2 system-ui, sans-serif; color: var(--muted); }
+    .contents a { display: inline-block; }
+    section { scroll-margin-top: 1.5rem; }
+    section:first-of-type h2 { border-top: 0; padding-top: 0; margin-top: 1.3em; }
+    .tag { display: inline-block; font: 600 .62em/1.4 system-ui, sans-serif; letter-spacing: .03em; text-transform: uppercase; padding: .05em .4em; border-radius: .25em; border: 1px solid currentColor; white-space: nowrap; margin-left: .35em; vertical-align: .15em; }
+    .g { color: #9fb8d6; }
+    .p { color: #9fc79a; }
+    .o { color: #e0b582; }
+    .pitch { border-left: 3px solid var(--link); padding-left: 1em; margin: 1em 0 1.4em; color: var(--heading); font-style: italic; }
+    .card { background: var(--cell); border: 1px solid var(--rule); border-radius: .45em; padding: .9em 1.05em; margin: .6em 0 1.3em; font: .84em/1.55 system-ui, sans-serif; }
+    .card p { margin: 0 0 .5em; }
+    .card p:last-child { margin: 0; }
+    .maths { font: .8em/1.6 ui-monospace, Menlo, monospace; background: var(--cell); border: 1px solid var(--rule); border-radius: .4em; padding: .85em 1em; margin: .5em 0 1.3em; white-space: pre; overflow-x: auto; overflow-wrap: normal; -webkit-overflow-scrolling: touch; }
+    @media (max-width: 34rem) { .maths { font-size: .7em; } }
+    .closing { margin: 1.75em 0; padding: 1.25em 0; border-block: 1px solid var(--rule); }
+    @page { size: letter; margin: .72in .85in; }
+    @media print {
+      :root { color-scheme: light; --paper: white; --text: #222; --heading: #111; --muted: #444; --link: #222; --rule: #aaa; --cell: #f2f2f2; }
+      body { font-size: 11pt; line-height: 1.42; }
+      main { width: auto; max-width: none; padding: 0; }
+      h1 { font-size: 27pt; max-width: none; }
+      h2 { font-size: 19pt; }
+      h1, h2, h3 { break-after: avoid; }
+      li, .card, .maths { break-inside: avoid; }
+      .contents { display: none; }
+      .g, .p, .o { color: #222; }
+      .maths { white-space: pre-wrap; overflow: visible; }
+    }
+  </style>
+</head>
+<body><main>
+<header>
+<p class="eyebrow">Shabba content research · November 25, 2026, 12:43 PM CST</p>
+<h1>Content notes: five Google Ads free tools</h1>
+<p class="lede">Points you could cover in a piece on each of the five new free tools: the settings audit, the broken link checker, the Quality Score dashboard, account breakdowns and page speed. Each piece starts broad, says why the subject matters, what it covers and how to act on it, and only then mentions the tool and how readers could build their own.</p>
+</header>
+
+<nav class="contents" aria-label="Sections"><a href="#how">How to read these</a> · <a href="#shape">One shape for all five</a> · <a href="#settings">Settings audit</a> · <a href="#links">Broken links</a> · <a href="#qs">Quality Score</a> · <a href="#breakdowns">Account breakdowns</a> · <a href="#speed">Page speed</a> · <a href="#gaps">Where you'll need your own experience</a> · <a href="#sources">Sources</a></nav>
+
+<section id="how">
+<h2>How to read these</h2>
+<p>Most points come from the Google Ads knowledge base (the corpus behind the <code>k</code> chat). I asked it about each subject separately, with about 70 searches in all, and only kept what it could back up. Each point carries a tag:</p>
+<ul>
+<li><span class="tag g">Google</span> Google's own documented behaviour, from the knowledge base.</li>
+<li><span class="tag p">Practitioner</span> practitioner advice from the knowledge base: a common approach, not a rule.</li>
+<li><span class="tag o">Outside</span> not in the knowledge base. Added from Google's public documentation (mostly the Google Ads API and PageSpeed Insights). Worth checking against the current help pages before you say it on camera.</li>
+</ul>
+<p>The knowledge base is thin in places. It has only four entries on Quality Score itself, and nothing on Core Web Vitals, the Destination not working policy, ad schedules or bid adjustments. Those gaps are listed at the end of the page, because they are where your own experience will carry the piece.</p>
+</section>
+
+<section id="shape">
+<h2>One shape for all five</h2>
+<p>The same running order works for each piece, in the style of the preemptive negative keywords tool page:</p>
+<ul>
+<li><strong>The subject.</strong> What it is, in plain words, and one myth to clear up early.</li>
+<li><strong>Why it matters.</strong> What goes wrong, in money, when nobody looks.</li>
+<li><strong>What it covers.</strong> The parts to check.</li>
+<li><strong>How to act on it.</strong> What to change, in what order, and how to tell whether it worked.</li>
+<li><strong>Build your own.</strong> The Google Ads API fields or the CSV export that gets you the same data.</li>
+<li><strong>By the way.</strong> "I built a free tool that does this for you."</li>
+</ul>
+<p>One idea runs through all five and could be a series line: <strong>the account can look fine on average while something specific is broken.</strong> Settings drift, a link dies, one keyword drags the Quality Score down, one network wastes the budget, one page loads slowly on a phone. Each tool looks underneath the average.</p>
+</section>
+
+<section id="settings">
+<h2>1. Settings audit</h2>
+<p class="pitch">Most accounts aren't badly managed. They're badly set up, often by someone who left years ago, and nobody has looked at the settings since.</p>
+
+<h3>What it is</h3>
+<ul>
+<li>A settings audit checks the configuration you inherited before you change anything. Use click-through rate, conversion rate and impression share to decide where to look first. Then check targets, network settings and auto-applied recommendations, and write down which changes you keep. <span class="tag p">Practitioner</span></li>
+<li>It is mostly about what Smart Bidding is actually aiming at: which conversion action, its goal category, the account default goals and any campaign-level override. <span class="tag p">Practitioner</span></li>
+<li>Settings sit at more than one level. Tracking templates at account, campaign and ad group level can overwrite or duplicate each other, and a campaign setting overrides the account one. <span class="tag p">Practitioner</span></li>
+</ul>
+
+<h3>Why it matters</h3>
+<ul>
+<li>Settings alone can move reported results while the business stays flat. A change to a lead's static value, a second primary action or a counting setting can lift reported ROAS with no extra revenue. <span class="tag p">Practitioner</span></li>
+<li>Accounts change without anyone noticing. Auto-applied recommendations can broaden keywords, add Display expansion, switch bidding or raise budgets. Third-party tools can edit bids, keywords or tracking templates too. Change history is where it shows. <span class="tag p">Practitioner</span></li>
+<li>Search CTR and conversion rate that look too good, with few real enquiries behind them, often trace back to a network setting or a faulty conversion event. <span class="tag p">Practitioner</span></li>
+<li>Settings can stop ads showing at all. Google's own list of reasons includes status, dates, targeting, bids, budget, policy limits, Ad Rank and conversion tracking problems. <span class="tag g">Google</span></li>
+</ul>
+
+<h3>What it covers</h3>
+<p><strong>Conversion tracking and counting.</strong> The one to spend most time on, because bidding learns from it.</p>
+<ul>
+<li>Primary actions count in the Conversions column and can be bid on. Secondary actions show in All conversions only. <span class="tag g">Google</span></li>
+<li>A secondary action can still be bid on if it is in a custom goal the campaign uses. Good myth to bust. <span class="tag g">Google</span></li>
+<li>Google recommends counting "Every" for sales and "One" for leads, set per conversion action. "One" counts once per click per action. It does not remove duplicates across actions, so two primary lead actions can still double count. <span class="tag g">Google</span></li>
+<li>When several goals track stages of one funnel, Google recommends only one stage as the account default goal. <span class="tag g">Google</span></li>
+<li>Leads should fire on a confirmed submission or booking. Purchases should carry a transaction ID, value and currency that match the order, with one primary action counting them. <span class="tag p">Practitioner</span></li>
+<li>Enhanced conversions for web and for leads are now one setting, with an opt-out per action. <span class="tag g">Google</span></li>
+<li>Auto-tagging: worth a line on what it does (it adds the click ID, gclid, that ties a visit to a click) and why it should be on. <span class="tag o">Outside</span></li>
+</ul>
+<p><strong>Bidding and targets.</strong></p>
+<ul>
+<li>Maximise conversions aims at the number of conversions, Maximise conversion value at the recorded value. Without a target, both try to spend the budget. <span class="tag g">Google</span></li>
+<li>A CPA or ROAS target adds an efficiency aim that can hold back delivery. Check the quality and volume of the conversions first. <span class="tag p">Practitioner</span></li>
+<li>Google cites at least 30 conversions (50 for Target ROAS) in the period it recommends for judging a strategy. <span class="tag g">Google</span></li>
+<li>Since August 2026, budget-limited Target CPA and Target ROAS campaigns bid closer to their target instead of beating it. Google won't change the target or budget for you, and a tighter target will likely cut daily spend. Topical, worth a mention. <span class="tag g">Google</span></li>
+</ul>
+<p><strong>Location targeting.</strong> A classic, easy win for the piece.</p>
+<ul>
+<li>"Presence or interest" can include people who are only interested in a place. "Presence" keeps it to people likely to be in, or regularly in, the area. <span class="tag g">Google</span></li>
+<li>To keep Search ads to a service area, choose Presence. Location is estimated, so check the location report for leakage. <span class="tag g">Google</span></li>
+<li>The right choice depends on the campaign type. Google recommends Presence or interest for Demand Gen. <span class="tag g">Google</span></li>
+</ul>
+<p><strong>Networks.</strong></p>
+<ul>
+<li>Split Google Search, Search Partners and any Display traffic by spend and real results before deciding to keep or drop them. <span class="tag p">Practitioner</span></li>
+<li>Display Network ticked on a Search campaign is one of the settings that is almost always a mistake. <span class="tag o">Outside</span></li>
+</ul>
+<p><strong>Budgets.</strong></p>
+<ul>
+<li>For most campaigns, Google can spend up to twice the average daily budget in a day, and up to 30.4 times it in a month. A day over budget is normal, not a bug. <span class="tag g">Google</span></li>
+<li>"Limited by budget" means the budget is below what Google thinks it could spend. "Limited by bid strategy" points to the target instead. <span class="tag g">Google</span></li>
+</ul>
+<p><strong>AI Max and Performance Max.</strong> The newest settings and the ones people know least.</p>
+<ul>
+<li>AI Max has three parts: search term matching, text customisation and Final URL expansion. Final URL expansion needs text customisation, so turning one off turns off both. <span class="tag g">Google</span></li>
+<li>Final URL expansion can override pinned ad copy. To keep landing pages to an approved list, use ad group URL inclusions with expansion off. <span class="tag g">Google</span></li>
+<li>In Performance Max, Final URL expansion lets Google pick other pages on your domain. URL exclusions limit it, and asset reporting shows what served. <span class="tag g">Google</span></li>
+<li>Google recommends brand exclusions, not negative keywords, for unwanted brand searches in Performance Max. Its negative keywords cover Search and Shopping only. <span class="tag g">Google</span></li>
+</ul>
+<p><strong>Access.</strong> Review who can reach the account once a year: remove or downgrade users, check agency access through manager accounts, use passkeys. <span class="tag p">Practitioner</span></p>
+
+<h3>How to act on it</h3>
+<ul>
+<li>Review each auto-applied recommendation against what the account is for. Many practitioners switch them all off and make the changes by hand. <span class="tag p">Practitioner</span></li>
+<li>Test conversion tracking end to end: submit a real form, check it reaches the CRM, and check the event and how often it fires in Tag Assistant or GTM preview. <span class="tag p">Practitioner</span></li>
+<li>Bring in new CRM lead imports as secondary first. Make them primary once they arrive reliably. <span class="tag p">Practitioner</span></li>
+<li>Change one thing at a time and give it one or two conversion cycles. Raising the budget and tightening the target on the same day makes the result impossible to read. <span class="tag g">Google</span> <span class="tag p">Practitioner</span></li>
+<li>Write down the starting state, the reason, the number you expect to move and a date to look again. <span class="tag p">Practitioner</span></li>
+<li>Then keep watching: alerts on edits by unknown users or tools, and a daily check of conversions against the same weekday in recent weeks. <span class="tag p">Practitioner</span></li>
+<li>Your own angle could be: there is no single right setting. Decide your standards once (Presence only, no Display on Search, auto-apply off) and check every account against them. That is exactly how the tool works. <span class="tag o">Outside</span></li>
+</ul>
+
+<h3>Myths to clear up</h3>
+<ul>
+<li>"One" counting merges all of a customer's conversions. It doesn't.</li>
+<li>Secondary actions never affect bidding. A custom goal can make them biddable.</li>
+<li>A ROAS jump means growth. Check value, counting and primary actions first.</li>
+<li>Pinned headlines are always honoured. Not with AI Max's Final URL expansion on.</li>
+</ul>
+
+<h3>Build your own</h3>
+<ul>
+<li>One GAQL query per resource covers most of it. <code>customer</code>: <code>auto_tagging_enabled</code>, <code>tracking_url_template</code>, <code>final_url_suffix</code>. <code>campaign</code>: <code>network_settings.*</code> (Search Partners and Display), <code>geo_target_type_setting.positive_geo_target_type</code> (Presence or Presence or interest), <code>bidding_strategy_type</code>, budget. <code>conversion_action</code>: <code>counting_type</code>, <code>primary_for_goal</code>, <code>status</code>, <code>type</code>. Auto-apply settings are in <code>recommendation_subscription</code>. <span class="tag o">Outside</span></li>
+<li>Without the API: the campaign table can show columns for networks, location options and bid strategy, and downloads as a CSV. Google Ads Editor exports every setting of every campaign in one file, which is the easiest no-code route. <span class="tag o">Outside</span></li>
+</ul>
+
+<h3>By the way: the tool</h3>
+<div class="card">
+<p>Shabba's Settings audit reads the account and every enabled campaign, and groups each setting by value, so you see "12 campaigns on Presence, 3 on Presence or interest" and which ones. It holds no opinion of its own. You turn on your standards (nine start on: auto-tagging, auto-apply, conversion tracking, lead counting, one primary action per category, Universal Analytics imports, serving status, location option, Display on Search) and it shows what doesn't meet them. Exports to CSV, HTML and JSON. On a schedule it can alert you, for example when an account has no brand campaign.</p>
+</div>
+</section>
+
+<section id="links">
+<h2>2. Broken links</h2>
+<p class="pitch">Google Ads will keep charging you for clicks to a page that doesn't exist. Nothing in the account stops that unless you build the check yourself.</p>
+
+<h3>What it is</h3>
+<ul>
+<li>Every ad, keyword, sitelink and Performance Max asset group can carry its own final URL. Over time pages get moved, deleted or renamed, and the ads keep pointing at the old address. <span class="tag o">Outside</span></li>
+<li>The URLs you typed aren't the only ones in use. With Final URL expansion, Performance Max can send people to other pages on your domain. <span class="tag g">Google</span></li>
+<li>Tracking templates can be set at three levels. Lower levels override higher ones and parameters can be duplicated, so the address a visitor lands on can differ from the one you set. <span class="tag p">Practitioner</span></li>
+<li>In Shopping, a product page Google can't reach shows in Merchant Center as a "Product page unavailable" disapproval. <span class="tag p">Practitioner</span></li>
+</ul>
+
+<h3>Why it matters</h3>
+<ul>
+<li>If the site goes down, the ads keep running and you pay for visitors who land on an error page. <span class="tag p">Practitioner</span></li>
+<li>A broken page looks like a performance problem. When conversions fall, check the site, the conversion path and recent site changes before touching bids or copy. Good hook: people rewrite ads to fix a 404. <span class="tag p">Practitioner</span></li>
+<li>Broken tracking mostly damages measurement. Duplicate UTMs make analytics disagree with Google Ads. <span class="tag p">Practitioner</span></li>
+<li>Google's destination requirements disapprove ads whose landing page doesn't work, but only once Google finds it, and a sitelink or a low-traffic page can sit broken for months. <span class="tag o">Outside</span></li>
+</ul>
+
+<h3>What it covers</h3>
+<ul>
+<li>Status codes, in plain words: 404 (not found) and 410 (gone) mean the page has gone. 5xx means the server failed. A 301 or 302 redirect works but is slower and may land somewhere less relevant. <span class="tag o">Outside</span></li>
+<li>The false alarms: 401, 403 and 429 usually mean the site turned the checker away, not that the page is broken. A time-out can be a blip. Check twice, a few minutes apart, before calling a page broken. (This is how the tool decides.) <span class="tag o">Outside</span></li>
+<li>Pages Performance Max chose itself, not only the ones you entered. <span class="tag g">Google</span></li>
+<li>Shopping product pages, where Merchant Center checks that the feed's price and availability match the page. <span class="tag g">Google</span></li>
+<li>The whole journey after the click: page, form or call, and whether the lead reaches the CRM. A working page with a broken form is still a broken link in all but name. <span class="tag p">Practitioner</span></li>
+</ul>
+
+<h3>How to act on it</h3>
+<ul>
+<li>Check by spend. A broken page that got 2,000 clicks last month matters more than ten that got none. <span class="tag o">Outside</span></li>
+<li>Fix it everywhere at once. The same old URL often sits in ads, sitelinks and keywords across several campaigns. <span class="tag o">Outside</span></li>
+<li>Ask the site owner for a redirect from the old address as well, so organic links and old emails keep working too. <span class="tag o">Outside</span></li>
+<li>Schedule a site check that pauses campaigns when the site is down, sends an alert, and turns them back on when it recovers. Test it on one campaign first, and read any copied script before you run it. <span class="tag p">Practitioner</span></li>
+<li>Set a daily conversion-drop alert against the same weekday in recent weeks. When it fires, check tracking, budget, the site and stock. <span class="tag p">Practitioner</span></li>
+<li>In Performance Max, look at expanded URLs in asset reporting and exclude pages you don't want used. <span class="tag g">Google</span></li>
+<li>For "Product page unavailable", request a site check in Merchant Center for products that sell, and open the page yourself. <span class="tag p">Practitioner</span></li>
+<li>If another team owns the site, send them the evidence and one specific fix. <span class="tag p">Practitioner</span></li>
+</ul>
+
+<h3>Myths to clear up</h3>
+<ul>
+<li>"Google would tell me if a page broke." Only sometimes, and not quickly.</li>
+<li>"My URLs are the ones in my ads." Not with Final URL expansion on.</li>
+<li>"Every disapproval is the site's fault." Check the page directly first.</li>
+</ul>
+
+<h3>Build your own</h3>
+<ul>
+<li>Collect the URLs: <code>ad_group_ad.ad.final_urls</code>, <code>ad_group_criterion.final_urls</code> (keyword-level URLs), <code>asset.final_urls</code> for sitelinks, and <code>asset_group.final_urls</code> for Performance Max. <code>landing_page_view</code> and <code>expanded_landing_page_view</code> list the pages that actually got clicks, with cost, which is the easy way to rank them. <span class="tag o">Outside</span></li>
+<li>Request each one with a normal GET (some servers answer HEAD wrongly), follow redirects, and record the final status. Retry errors once a few minutes later. <span class="tag o">Outside</span></li>
+<li>Without the API: the Landing pages report downloads as a CSV. Paste the URLs into any crawler or a simple script. A Google Ads script can do the whole thing inside the account on a schedule. <span class="tag o">Outside</span></li>
+</ul>
+
+<h3>By the way: the tool</h3>
+<div class="card">
+<p>Shabba's Broken link checker lists every URL in your ads, keywords, sitelinks and asset groups, highest spend first, across one or more accounts, and checks each one. An error is checked again a few minutes later, and a site turning the checker away (401, 403, 429) doesn't count. Fix swaps a broken or redirecting URL for a new one everywhere the account uses it, through the change queue. Each link has 13 months of history, and a schedule can alert you when a page that had impressions yesterday stops working.</p>
+</div>
+</section>
+
+<section id="qs">
+<h2>3. Quality Score</h2>
+<p class="pitch">Quality Score is the most quoted number in Google Ads and one of the most misread. It's a diagnosis, not a target.</p>
+
+<h3>What it is</h3>
+<ul>
+<li>A keyword-level diagnostic, from 1 to 10, built from three parts: expected click-through rate, ad relevance and landing page experience. Each part is rated Above average, Average or Below average. A keyword without enough data shows no score. <span class="tag g">Google</span> <span class="tag o">Outside</span></li>
+<li>Google says the number you see isn't used in the auction. It's a reading of how keyword, ad and page are doing, not a lever. Strong opening myth. <span class="tag g">Google</span></li>
+<li>Expected CTR is a forecast, not your actual CTR. A keyword can have a healthy CTR and still show Below average. <span class="tag p">Practitioner</span></li>
+<li>Ad Strength is a different thing: a rating of your responsive search ad's variety. It doesn't decide Ad Rank. People mix the two up all the time. <span class="tag g">Google</span></li>
+</ul>
+
+<h3>Why it matters</h3>
+<ul>
+<li>Its main use is triage. The three ratings tell you whether to work on the ad, the keyword grouping or the landing page first. <span class="tag p">Practitioner</span></li>
+<li>The same things that make the score better feed Ad Rank, which decides whether and where the ad shows. Google's diagnostics name "insufficient Ad Rank" as a reason ads don't serve. <span class="tag g">Google</span></li>
+<li>To measure what weak quality costs you, use Search lost impression share (rank). It separates impressions lost to Ad Rank from those lost to budget. <span class="tag g">Google</span></li>
+<li>When cost per lead jumps but conversion rate holds, check whether CPC rose first, and split it by query, campaign and network before blaming the market. <span class="tag p">Practitioner</span></li>
+</ul>
+
+<h3>What it covers</h3>
+<ul>
+<li><strong>Expected CTR:</strong> how likely your ad is to be clicked for that keyword. <span class="tag p">Practitioner</span></li>
+<li><strong>Ad relevance:</strong> how closely the ad matches the intent behind the keyword. Tied to grouping keywords by shared buyer intent, so one ad can make one clear promise. <span class="tag p">Practitioner</span></li>
+<li><strong>Landing page experience:</strong> whether the page delivers what the ad promised and works well for the visitor. A natural bridge to the page speed piece. <span class="tag g">Google</span> <span class="tag p">Practitioner</span></li>
+</ul>
+
+<h3>How to read it across an account</h3>
+<p>This is the section the knowledge base can't give you, and where the tool earns its place. <span class="tag o">Outside</span></p>
+<ul>
+<li>A simple average of keyword scores is misleading, because a keyword with ten impressions counts the same as one with ten thousand. Weight by impressions (or by spend) instead.</li>
+<li>Look at the share of spend on each score, not the count of keywords. "40% of spend is on keywords scoring 3 or below" is the sentence that gets action.</li>
+<li>Watch it over time. A score that falls after a site change or a new ad tells you more than the score on its own.</li>
+</ul>
+<p>An illustration with made-up numbers:</p>
+<div class="maths">Keyword   QS   Impressions
+A          3        9,000
+B          9        1,000
+
+Simple average:   (3 + 9) / 2                         = 6
+Weighted:         (3 × 9,000 + 9 × 1,000) / 10,000    = 3.6</div>
+<p>Same account, two very different stories.</p>
+
+<h3>How to act on it</h3>
+<ul>
+<li>Start with the keywords carrying most impressions, not the lowest scores. <span class="tag p">Practitioner</span></li>
+<li>Look at all three ratings together. A Below average expected CTR can really be a relevance or page problem. <span class="tag p">Practitioner</span></li>
+<li><strong>Expected CTR:</strong> see what competitors say in Auction Insights and the Ads Transparency Center, then write a challenger ad. Specific promises help: a time frame, a type of buyer, a price. Judge it on conversion rate and lead quality as well as CTR. <span class="tag p">Practitioner</span></li>
+<li><strong>Ad relevance:</strong> group keywords by intent so each ad group's ad speaks to it. Pin only when you must, because pinning cuts the combinations Google can try. <span class="tag p">Practitioner</span> <span class="tag g">Google</span></li>
+<li><strong>Landing page experience:</strong> follow the promise from query to ad to page. If different buyers need different proof, give them different pages. Load the top pages on a phone as a first-time visitor and time them. <span class="tag p">Practitioner</span></li>
+</ul>
+
+<h3>Myths to clear up</h3>
+<ul>
+<li>"Switch broad to exact and the score goes up." Google says match type doesn't change how the score is calculated. <span class="tag g">Google</span></li>
+<li>"Quality Score is what I bid with." The displayed number isn't an auction input.</li>
+<li>"Below average expected CTR means nobody clicks." It's a forecast.</li>
+<li>"Higher CTR is always better." A high-CTR ad can bring worse leads. <span class="tag p">Practitioner</span></li>
+<li>"Good Ad Strength means good Quality Score." Separate ratings.</li>
+</ul>
+
+<h3>Build your own</h3>
+<ul>
+<li>From <code>keyword_view</code>: <code>ad_group_criterion.quality_info.quality_score</code>, <code>.creative_quality_score</code> (ad relevance), <code>.post_click_quality_score</code> (landing page) and <code>.search_predicted_ctr</code> (expected CTR), plus <code>metrics.impressions</code> and <code>metrics.cost_micros</code> to weight them. <span class="tag o">Outside</span></li>
+<li>For the history, <code>metrics.historical_quality_score</code> and its three component siblings, segmented by <code>segments.date</code> or <code>segments.week</code>. <span class="tag o">Outside</span></li>
+<li>Without the API: add the Quality Score columns (and the "(hist.)" versions) to the keywords table, download it as a CSV, and do the weighting in a spreadsheet with SUMPRODUCT. <span class="tag o">Outside</span></li>
+</ul>
+
+<h3>By the way: the tool</h3>
+<div class="card">
+<p>Shabba's Quality Score dashboard shows, for one account and a date range, how spend splits across scores 1 to 10 (plus spend Google hasn't scored), how it splits across the three ratings, the impression-weighted account score for each of the last 12 weeks, and each campaign's score. Read only. Exports to CSV.</p>
+</div>
+</section>
+
+<section id="breakdowns">
+<h2>4. Account breakdowns</h2>
+<p class="pitch">Averages lie. An account can look healthy overall while half its spend is going somewhere that never converts.</p>
+
+<h3>What it is</h3>
+<ul>
+<li>Splitting spend and results by one thing at a time: match type, brand or non-brand, campaign type, network, device, hour and day of week, location. <span class="tag o">Outside</span></li>
+<li>When you split Search by network (Google Search, Search Partners, Display), you see spend and real results for each. The blended figure hides the difference. <span class="tag p">Practitioner</span></li>
+<li>Brand against non-brand is a split by query, not by campaign name. Sort the searches a campaign actually matched into brand, competitor and non-brand, typos included. <span class="tag p">Practitioner</span></li>
+</ul>
+
+<h3>Why it matters</h3>
+<ul>
+<li>A strong average can be carried by one segment while another wastes money. The knowledge base makes this point for networks and brand. A simple made-up example makes it land: <span class="tag p">Practitioner</span></li>
+</ul>
+<div class="maths">Network           Clicks   Conversions   Conv. rate
+Google Search      1,000            50         5.0%
+Search Partners      500             5         1.0%
+Blended            1,500            55         3.7%</div>
+<ul>
+<li>"3.7%" describes neither network. <span class="tag o">Outside</span></li>
+<li>A non-brand campaign can look strong because brand searches leak into it. Measure brand's share inside it before you trust it. <span class="tag p">Practitioner</span></li>
+<li>Performance Max's return can be propped up by brand searches. Check the brand share before judging it. <span class="tag p">Practitioner</span></li>
+<li>More brand activity can be demand you already had. Compare with new-customer results and total sales. <span class="tag p">Practitioner</span></li>
+<li>When CTR and conversion rate look implausibly high with few real enquiries, a network split shows which network made the clicks and the "conversions". <span class="tag p">Practitioner</span></li>
+</ul>
+
+<h3>What it covers</h3>
+<ul>
+<li><strong>Match type.</strong> Exact and phrase reach close variants, so check the searches they really trigger, not the label. <span class="tag g">Google</span> <span class="tag p">Practitioner</span></li>
+<li><strong>Brand and non-brand.</strong> Across Search, Shopping and Performance Max. <span class="tag p">Practitioner</span></li>
+<li><strong>Campaign type and channel.</strong> Search, Shopping, Performance Max, Demand Gen, and the network each click came from. For Performance Max, use the channel performance report for results by channel. Google says the placement report is for brand safety, not profitability. <span class="tag g">Google</span></li>
+<li><strong>Device.</strong> When conversion rate drops but CPC holds, check the mobile and desktop conversion paths and any shift in the traffic mix. <span class="tag p">Practitioner</span></li>
+<li><strong>Hour and day.</strong> The knowledge base only covers using the same weekday as the baseline for monitoring. The rest is yours. <span class="tag p">Practitioner</span></li>
+<li><strong>Location.</strong> Check the location report for leakage outside the target area. <span class="tag g">Google</span></li>
+</ul>
+
+<h3>How to act on it</h3>
+<ul>
+<li><strong>Networks:</strong> decide on Search Partners or Display only after comparing each one's spend and real results. <span class="tag p">Practitioner</span></li>
+<li><strong>Brand:</strong> in Performance Max, use brand exclusions for unwanted brand searches. There's an option to keep Shopping ads on brand searches while excluding text ads. A brand negative list on non-brand campaigns is the common practitioner route. Check the brand campaign can handle its own demand once you split it out. <span class="tag g">Google</span> <span class="tag p">Practitioner</span></li>
+<li><strong>Structure:</strong> split campaigns when budget, geography or economics need separate control. With a small budget, combine similar campaigns instead, so data isn't thinned. <span class="tag p">Practitioner</span></li>
+<li><strong>Location:</strong> if the report shows leakage, consider Presence. <span class="tag g">Google</span></li>
+<li><strong>Waste over time:</strong> track cost per conversion across all searches against cost per conversion for converting searches. A rising ratio points to waste. <span class="tag p">Practitioner</span></li>
+<li><strong>Device, hour and day:</strong> with Smart Bidding these splits are mostly for understanding, not for bid adjustments. Worth your own view here, since the knowledge base is silent. <span class="tag o">Outside</span></li>
+</ul>
+
+<h3>Myths and mistakes</h3>
+<ul>
+<li>Comparing recent days with older ones while conversions are still arriving. Recent dates always look weak. Google suggests reviewing days-to-conversion on a range that ended at least 30 days ago. <span class="tag g">Google</span></li>
+<li>Splitting a small segment and reading a lot into five conversions.</li>
+<li>Judging a segment on a conversion that doesn't match real enquiries. Reconcile with the CRM first. <span class="tag p">Practitioner</span></li>
+<li>Treating attributed brand conversions as growth. <span class="tag p">Practitioner</span></li>
+<li>Reading Demand Gen channel by channel. Google suggests judging it on the whole campaign. <span class="tag g">Google</span></li>
+</ul>
+
+<h3>Build your own</h3>
+<ul>
+<li>Mostly one field each, added to a <code>campaign</code> query with cost, clicks, conversions and value: <code>segments.ad_network_type</code>, <code>segments.device</code>, <code>segments.hour</code>, <code>segments.day_of_week</code>, and <code>campaign.advertising_channel_type</code> for campaign type. Match type comes from <code>keyword_view</code> with <code>ad_group_criterion.keyword.match_type</code>. Brand needs your own list of brand words matched against <code>search_term_view</code>. Location from <code>user_location_view</code>. <span class="tag o">Outside</span></li>
+<li>Without the API: the Segment button in the campaigns table does most of these, and the predefined reports (time, device, network) download as CSVs. Brand against non-brand needs the search terms report and a filter on your brand words. <span class="tag o">Outside</span></li>
+</ul>
+
+<h3>By the way: the tool</h3>
+<div class="card">
+<p>Shabba's Account breakdowns shows one account's spend split seven ways in one run: keyword spend by match type, brand and non-brand, campaign type, channel, device, hour of day and day of week. Each split shows every segment's share, spend, clicks, conversions and value. Read only. Exports to CSV.</p>
+</div>
+</section>
+
+<section id="speed">
+<h2>5. Landing page speed</h2>
+<p class="pitch">You can have the best ad in the auction and still lose the sale while the page loads. Bids and copy can't fix a slow page.</p>
+
+<h3>What it is</h3>
+<ul>
+<li>Landing page experience is one of Quality Score's three parts. Speed is one part of that experience, alongside a clear offer and a working form or checkout. <span class="tag g">Google</span> <span class="tag p">Practitioner</span></li>
+<li>Two kinds of measurement, worth explaining simply. Lab data is one test run now, on a simulated phone, which is good for finding causes. Field data is what real Chrome visitors experienced over the last 28 days, which is good for knowing the truth, but only exists for pages with enough visitors. <span class="tag o">Outside</span></li>
+<li>Core Web Vitals, Google's three headline measures: LCP (how long until the main content shows, good at 2.5 seconds or less), INP (how quickly the page responds to a tap, good at 200 milliseconds or less, it replaced FID in 2024) and CLS (how much the page jumps around as it loads, good at 0.1 or less). Google judges them at the 75th percentile of visits. <span class="tag o">Outside</span></li>
+</ul>
+
+<h3>Why it matters</h3>
+<ul>
+<li>Slow pages and checkout friction lower conversion rate whatever the ad says. <span class="tag p">Practitioner</span></li>
+<li>Cost per lead is roughly CPC divided by conversion rate, so a slower page raises the cost of every lead directly. A neat way to put speed in money terms. <span class="tag p">Practitioner</span></li>
+<li>Be careful with "a faster page raises your Quality Score and cuts your CPC". The displayed score isn't an auction input. Speed pays through conversion rate first. <span class="tag g">Google</span></li>
+</ul>
+
+<h3>What it covers</h3>
+<ul>
+<li>Mobile and desktop separately. Try the path as a new customer on both. <span class="tag p">Practitioner</span></li>
+<li>The whole journey, not just the first load: form, call, checkout and the CRM receiving the lead. <span class="tag p">Practitioner</span></li>
+<li>The pages that actually get the traffic. With Final URL expansion, Performance Max may be sending people to pages you never chose. Check expanded URLs in asset reporting. <span class="tag g">Google</span></li>
+<li>The usual causes, for a short list in the piece: large images, too many third-party tags and chat widgets, slow server response, web fonts, and banners or cookie notices that push the page down. <span class="tag o">Outside</span></li>
+</ul>
+
+<h3>How to act on it</h3>
+<ul>
+<li>Start with the top landing pages by spend. Load them on a phone as a first-time visitor and time them, before changing bids or copy. <span class="tag p">Practitioner</span></li>
+<li>Measure each fix: speed and completion rate before and after, plus the starting state, reason, expected change and a date to look again. <span class="tag p">Practitioner</span></li>
+<li>If you can, test the faster page against the current one at the same time, one change at a time, allowing for late conversions. <span class="tag p">Practitioner</span></li>
+<li>The ads team often doesn't own the site. Write down the slow steps with evidence and give the site owner one specific change. <span class="tag p">Practitioner</span></li>
+<li>Keep checking. A new tag or plugin can undo the work overnight, so compare each test with the last one. <span class="tag o">Outside</span></li>
+<li>Check that tracking still fires after any site change. A tag migration can double count or drop conversions, and get blamed on the speed fix. <span class="tag p">Practitioner</span></li>
+</ul>
+
+<h3>Myths to clear up</h3>
+<ul>
+<li>"Fix speed and Quality Score jumps." Speed is one input to one of three parts.</li>
+<li>"It's fast on my laptop." Test on a phone, as a new visitor. Repeat buyers hide problems new mobile visitors hit. <span class="tag p">Practitioner</span></li>
+<li>"A score of 100 is the goal." The score is a lab summary. Real-visitor timings and conversion rate are what matter. <span class="tag o">Outside</span></li>
+</ul>
+
+<h3>Build your own</h3>
+<ul>
+<li>Get the pages and their spend from <code>landing_page_view</code> (or <code>expanded_landing_page_view</code>) with <code>metrics.cost_micros</code>, sorted by cost. <span class="tag o">Outside</span></li>
+<li>Run each through the free PageSpeed Insights API (<code>pagespeedonline/v5/runPagespeed</code>, with <code>strategy=mobile</code> and <code>category=performance</code>). It returns the lab score and timings, and real-visitor data when Google has enough. The Chrome UX Report API gives the real-visitor history. A free API key raises the request limit. <span class="tag o">Outside</span></li>
+<li>Without the API: download the Landing pages report as a CSV and paste the top pages into pagespeed.web.dev one by one. Fine for ten pages, tedious for fifty. <span class="tag o">Outside</span></li>
+</ul>
+
+<h3>By the way: the tool</h3>
+<div class="card">
+<p>Shabba's Page speed tool picks the top pages by spend across one or more accounts (from ads, keywords, sitelinks, Performance Max and pages that got clicks), tests them in PageSpeed Insights on mobile or desktop, and shows each page's score, lab timings, real-visitor data and the biggest possible savings. Every check is kept for 13 months, so you can compare a page with its last test and see real-visitor timings week by week. Free.</p>
+</div>
+</section>
+
+<section id="gaps">
+<h2>Where you'll need your own experience</h2>
+<p>The knowledge base had little or nothing on these. They're where your own view, or a fresh look at Google's help pages, will carry the piece.</p>
+<ul>
+<li><strong>Settings audit:</strong> auto-tagging and gclid, GA4 goal imports against the Google Ads tag, ad schedules and device settings, tracking template mechanics (final URL suffix, ValueTrack, parallel tracking), attribution and conversion windows, Performance Max audience signals and customer acquisition goal, and an order and cadence for the audit.</li>
+<li><strong>Broken links:</strong> the Destination not working policy itself (what triggers it, how fast, how to appeal), soft 404s, redirect chains and domain rules, how a broken sitelink is treated against a broken ad, and pages removed from the site after the ads were built.</li>
+<li><strong>Quality Score:</strong> the 1 to 10 scale and its ratings, how quality feeds Ad Rank and actual CPC, how often scores update, weighting by spend, and where Quality Score doesn't apply (Performance Max, Shopping).</li>
+<li><strong>Account breakdowns:</strong> device, schedule and location bid adjustments and how Smart Bidding treats them, how to read hour-of-day data, how much data a segment needs before you act on it, and the Search Partners and Display checkboxes in Search campaigns.</li>
+<li><strong>Page speed:</strong> PageSpeed Insights, lab against field data, Core Web Vitals and their thresholds, Google's own definition of landing page experience, published studies on speed and conversion, and specific fixes.</li>
+</ul>
+<p>Worth adding to the knowledge base later, so the next round (and the Second Opinion notes on the finished pieces) has more to go on.</p>
+</section>
+
+<section id="sources">
+<h2>Sources</h2>
+<ul>
+<li><strong>Google Ads knowledge base</strong> (the corpus behind the <code>k</code> chat and AdEvolver V2 Chat, edition of November 24, 2026): five separate sessions, one per subject, about 70 searches plus topic browsing. Practitioner and Google-official collections.</li>
+<li><strong>Shabba's own tool documentation</strong> for the "By the way" descriptions.</li>
+<li><strong>Google's public documentation</strong> for points tagged Outside: the Google Ads API reference (resources and fields named above), PageSpeed Insights and Chrome UX Report documentation, and web.dev's Core Web Vitals thresholds.</li>
+</ul>
+<p class="closing">These are notes to write from, not finished copy. The worked examples use made-up numbers. Points tagged Outside are from memory of Google's documentation and should be checked against the current help pages before publishing.</p>
+</section>
+</main></body>
+</html>
