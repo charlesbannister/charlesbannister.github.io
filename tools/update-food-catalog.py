@@ -27,6 +27,7 @@ SOURCE_URLS = {
     "RecipeTin Eats": r"https://www\.recipetineats\.com/[a-z0-9-]+/",
     "Budget Bytes": r"https://www\.budgetbytes\.com/[a-z0-9-]+/",
     "King Arthur Baking": r"https://www\.kingarthurbaking\.com/recipes/[a-z0-9-]+",
+    "Serious Eats": r"https://www\.seriouseats\.com/[a-z0-9-]+",
 }
 INDEXABLE_ORIGINS = {
     "Good Food": "https://www.bbcgoodfood.com",
