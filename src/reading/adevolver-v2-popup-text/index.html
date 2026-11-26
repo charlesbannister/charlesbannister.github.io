@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#1c1b18">
+  <meta name="description" content="The Classic banner and pop-up that offer V2, and the V2 welcome that follows: every line, including the ones that only show sometimes.">
+  <title>AdEvolver V2: the pop-up wording</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --paper: #1c1b18;
+      --text: #d6cfbf;
+      --heading: #f0e7d3;
+      --muted: #b7ab96;
+      --link: #e0b582;
+      --rule: #494339;
+      --cell: #24221e;
+      color: var(--text);
+      background: var(--paper);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      font: clamp(1.08rem, 1rem + .32vw, 1.24rem)/1.72 Georgia, "Times New Roman", serif;
+      overflow-wrap: break-word;
+    }
+    main {
+      max-width: 35em;
+      margin-inline: auto;
+      padding: clamp(2.5rem, 7vw, 6rem) 0 6rem;
+      width: calc(100% - 2.5rem);
+    }
+    h1, h2, h3, h4 { color: var(--heading); line-height: 1.2; text-wrap: balance; }
+    h1 {
+      margin: 0;
+      max-width: 17ch;
+      font-size: clamp(2.55rem, 7vw, 4.15rem);
+      font-weight: 400;
+      letter-spacing: -.04em;
+    }
+    h2 {
+      border-top: 1px solid var(--rule);
+      padding-top: 1.05em;
+      margin: 2.15em 0 .65em;
+      font-size: clamp(1.8rem, 4.4vw, 2.5rem);
+      font-weight: 400;
+      letter-spacing: -.025em;
+    }
+    h3 { margin: 1.75em 0 .65em; font-size: 1.33em; }
+    p { margin: 0 0 1em; }
+    strong { color: var(--heading); }
+    a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: .18em; }
+    a:hover { text-decoration-thickness: 2px; }
+    a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+    ol, ul { padding-inline-start: 1.5em; }
+    li { margin-block: .55em; padding-inline-start: .15em; }
+    ::selection { background: #d3b895; color: #201e1a; }
+    header .eyebrow { font: .76em/1.5 system-ui, sans-serif; color: var(--muted); margin-bottom: 1.5em; }
+    header .lede { font-size: 1.12em; line-height: 1.55; margin-top: 1.1em; color: var(--heading); }
+    .contents { border-block: 1px solid var(--rule); margin: 1.7em 0 2.1em; padding: 1em 0; font: .78em/2 system-ui, sans-serif; color: var(--muted); }
+    .contents a { display: inline-block; }
+    section { scroll-margin-top: 1.5rem; }
+    section:first-of-type h2 { border-top: 0; padding-top: 0; margin-top: 1.3em; }
+    .basis { color: var(--muted); font-size: .9em; }
+    .table-wrap { overflow-x: auto; margin: 1.2em 0 1.6em; -webkit-overflow-scrolling: touch; }
+    table { border-collapse: collapse; width: 100%; min-width: 30em; font: .8em/1.5 system-ui, sans-serif; }
+    th, td { text-align: left; vertical-align: top; padding: .6em .7em; border-bottom: 1px solid var(--rule); }
+    th { color: var(--heading); font-weight: 600; background: var(--cell); }
+    td:first-child { color: var(--heading); }
+    .tag { display: inline-block; font: 600 .72em/1.4 system-ui, sans-serif; letter-spacing: .03em; text-transform: uppercase; padding: .1em .45em; border-radius: .25em; border: 1px solid currentColor; white-space: nowrap; }
+    .ok { color: #9fc79a; }
+    .warn { color: #e0b582; }
+    .stop { color: #e79a8e; }
+    .closing { margin: 1.75em 0; padding: 1.25em 0; border-block: 1px solid var(--rule); }
+    @page { size: letter; margin: .72in .85in; }
+    @media print {
+      :root { color-scheme: light; --paper: white; --text: #222; --heading: #111; --muted: #444; --link: #222; --rule: #aaa; --cell: #eee; }
+      body { font-size: 11pt; line-height: 1.42; }
+      main { width: auto; max-width: none; padding: 0; }
+      h1 { font-size: 27pt; max-width: none; }
+      h2 { font-size: 19pt; }
+      h1, h2, h3 { break-after: avoid; }
+      tr, li { break-inside: avoid; }
+      .contents { display: none; }
+      .ok, .warn, .stop { color: #222; }
+      .table-wrap { overflow: visible; }
+      table { min-width: 0; }
+    }
+    .email { margin: 1.6em 0 2.2em; }
+    .email h3 { margin-bottom: .3em; }
+    .meta { font: .78em/1.55 system-ui, sans-serif; color: var(--muted); margin: 0 0 .7em; }
+    .meta .tag { white-space: normal; }
+    .subject { font: .86em/1.5 system-ui, sans-serif; color: var(--heading); margin: 0 0 .6em; }
+    .body { white-space: pre-wrap; font: .82em/1.6 ui-monospace, Menlo, monospace; background: var(--cell); border: 1px solid var(--rule); border-radius: .4em; padding: .9em 1em; margin: 0; overflow-wrap: anywhere; }
+    @media print { .body { background: none; } }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <p class="eyebrow">November 25, 2026 · AdEvolver</p>
+    <h1>AdEvolver V2: the pop-up wording</h1>
+    <p class="lede">What someone reads when Classic offers them V2, and when they arrive.</p>
+  </header>
+  <p class="basis">This is the wording ready for release, not yet live. The line about making changes is true once the matching V2 release is out and live changes are opened to all accounts. [number] stands for the team's own count.</p>
+  <nav class="contents" aria-label="Contents"><a href="#classic">In Classic</a> · <a href="#welcome">The V2 welcome</a> · <a href="#after">Afterwards in V2</a></nav>
+
+  <section id="classic">
+    <h2>In Classic</h2>
+    <h3>Banner</h3>
+    <p><strong>Meet AdEvolver V2</strong><br>Spot critical account changes with V2's smarter alerts.</p>
+    <p>Button: Explore V2 →</p>
+
+    <h3>Pop-up</h3>
+    <p class="basis">The new AdEvolver is ready</p>
+    <p><strong>Your next step: AdEvolver V2</strong></p>
+    <p>We've got you well covered with V2's dedicated, intelligent alerts, including a new breach detection system.</p>
+
+    <h4>Three cards</h4>
+    <ul>
+      <li><strong>Breach detection</strong><br>Ad links switching to an unfamiliar domain, or new admins added to Google Ads.</li>
+      <li><strong>Critical alerts</strong><br>Conversions stopping while ads still get clicks, or your busiest landing pages going down.</li>
+      <li><strong>Delivery you control</strong><br>Choose which alerts reach you by email and which stay in the app.</li>
+    </ul>
+
+    <h4>What changes when you move</h4>
+    <ul>
+      <li><strong>You have [number] alerts.</strong> They'll be paused in favour of the alerts in the new version, so you don't get too many alert emails.<br><span class="basis">Only if the team has alerts.</span></li>
+      <li><strong>Budget Commander alerts move too.</strong> Your [number] Budget Commander alerts will be paused. Set up the alerts you want in V2's Budget Commander.<br><span class="basis">Only if the team has Budget Commander alerts.</span></li>
+      <li><strong>Make changes in V2.</strong> Add or remove negative keywords, exclude placements, pause or enable campaigns and change campaign budgets. You can't yet add keywords or change ads, links or bids there.</li>
+      <li><strong>Automatic campaign pausing stays here.</strong> If Budget Commander pauses campaigns for you, it carries on, and you can still change it in this version.</li>
+      <li><strong>Your whole team moves together.</strong> Everyone on the team will see V2 the next time they sign in.</li>
+      <li><strong>No Slack notifications in V2 yet.</strong> If you relied on them, let us know and we'll add them.</li>
+    </ul>
+    <p>Give it a try. You can switch back at any time.</p>
+    <p>Buttons: Stay on Classic · Go to V2 →</p>
+  </section>
+
+  <section id="welcome">
+    <h2>The V2 welcome</h2>
+    <p class="basis">You've arrived</p>
+    <p><strong>Welcome to AdEvolver V2</strong></p>
+    <p>We've improved some of the old favourites, added a powerful AI chat, an intelligent feed and lots of new reports and tools.</p>
+
+    <h4>Alert status (one of these)</h4>
+    <ul>
+      <li>Your Classic alerts are paused; V2 alerts are on.</li>
+      <li>Pausing your Classic alerts and switching on V2 alerts…</li>
+      <li>Pausing your Classic alerts is taking longer than usual. We'll keep trying in the background; until then your Classic alerts may still send.</li>
+      <li>Your Classic alerts couldn't be paused yet, so they may still send. Contact support and we'll sort it.</li>
+      <li>Your Classic alerts are still on.</li>
+    </ul>
+
+    <h4>What was paused (once confirmed)</h4>
+    <ul>
+      <li>Your [number] Classic alerts are paused in favour of V2's alerts, so you don't get duplicate alert emails.</li>
+      <li>Your [number] Budget Commander alerts in Classic are paused; you can set up the same in V2's Budget Commander.</li>
+    </ul>
+    <p class="basis">A “Play the walkthrough” button shows here once there is a video.</p>
+
+    <h4>A note on AI</h4>
+    <p>AI is on by default, which means your account data is sent to Anthropic. Through Anthropic's API, your data <a href="https://www.anthropic.com/legal/commercial-terms">isn't used to train models</a> and is <a href="https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data">deleted within 30 days</a> (longer only if flagged for misuse). You can turn AI off for each account.</p>
+    <p>Buttons: Update AI settings · Open the dashboard →</p>
+  </section>
+
+  <section id="after">
+    <h2>Afterwards in V2</h2>
+    <p>Top bar, for people who came from Classic: <strong>V2 · Back to Classic</strong> (on a phone: ← Classic).</p>
+    <p>Budget Commander, for teams that moved: Automatic campaign pausing set up in Classic still runs there. <strong>Manage it in Classic</strong></p>
+  </section>
+</main>
+</body>
+</html>
