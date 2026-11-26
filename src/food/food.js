@@ -65,7 +65,9 @@ function ingredientLine(ingredients) {
     : escapeHtml(text)).join(" · ");
 }
 
-function recipeCard({ recipe, ingredients }) {
+function recipeCard(entry) {
+  const { recipe, ingredients } = entry;
+  const index = shownRecipes.indexOf(entry);
   return `
     <article class="card">
       <div class="top">
@@ -78,6 +80,7 @@ function recipeCard({ recipe, ingredients }) {
       <div class="ingredients">${ingredientLine(ingredients)}</div>` : ""}
       ${recipe.method ? `<div class="method"><strong>Method</strong> ${escapeHtml(recipe.method)}</div>` : ""}
       ${sourceLink(recipe.source)}
+      ${index >= 0 ? `<button class="open-cook" type="button" data-index="${index}"><span class="expand-icon" aria-hidden="true"></span>Full screen</button>` : ""}
     </article>`;
 }
 
@@ -254,3 +257,105 @@ search.addEventListener("input", render);
 inStockOnly.addEventListener("change", render);
 printButton.addEventListener("click", () => window.print());
 render();
+
+// ---------- Full-screen cooking view ----------
+const cookDialog = document.getElementById("cook-dialog");
+const cookBody = document.getElementById("cook-body");
+const closeCook = document.getElementById("close-cook");
+
+function methodSteps(method) {
+  return method.split(/(?<=[.!?])\s+(?=[A-Z0-9])/).map((step) => step.trim()).filter(Boolean);
+}
+
+function cookView({ recipe, ingredients }) {
+  const steps = recipe.method ? methodSteps(recipe.method) : [];
+  const missing = ingredients.filter((item) => item.missing).length;
+  const facts = [
+    recipe.category && `<span>${escapeHtml(recipe.category)}</span>`,
+    Number.isFinite(recipe.minutes) && `<span>~${recipe.minutes} min</span>`,
+    ingredients.length && `<span>${ingredients.length} ingredients</span>`,
+    steps.length && `<span>${steps.length} steps</span>`,
+    missing && `<span class="cook-missing">${missing} missing</span>`,
+  ].filter(Boolean).join("");
+  return `
+    <div class="cook-head">
+      <h2 id="cook-title">${escapeHtml(recipe.title)}</h2>
+      <div class="cook-facts">${facts}</div>
+      ${recipe.description ? `<p class="cook-description">${escapeHtml(recipe.description)}</p>` : ""}
+    </div>
+    ${ingredients.length ? `<section class="cook-ingredients" aria-label="Ingredients">
+      <h3>Ingredients <small>tap to tick off</small></h3>
+      <ul>${ingredients.map((item) => `<li><label>
+        <input type="checkbox"><span>${escapeHtml(item.text)}${item.missing ? ' <strong class="cook-missing">Missing</strong>' : ""}</span>
+      </label></li>`).join("")}</ul>
+    </section>` : ""}
+    ${steps.length ? `<section class="cook-method" aria-label="Method">
+      <h3>Method <small>tap a step when done</small></h3>
+      <ol>${steps.map((step) => `<li>${escapeHtml(step)}</li>`).join("")}</ol>
+    </section>` : ""}
+    ${recipe.source ? `<div class="cook-source">${sourceLink(recipe.source)}</div>` : ""}`;
+}
+
+function openCook(entry) {
+  if (randomDialog.open) randomDialog.close();
+  cookBody.innerHTML = cookView(entry);
+  cookDialog.showModal();
+  cookBody.scrollTop = 0;
+  closeCook.focus();
+  document.documentElement.requestFullscreen?.({ navigationUI: "hide" }).catch(() => {});
+}
+
+document.addEventListener("click", (event) => {
+  const button = event.target.closest(".open-cook");
+  if (button) {
+    const entry = shownRecipes[Number(button.dataset.index)];
+    if (entry) openCook(entry);
+    return;
+  }
+  const step = event.target.closest(".cook-method li");
+  if (step) step.classList.toggle("done");
+});
+cookBody.addEventListener("change", ({ target }) => {
+  target.closest("li")?.classList.toggle("done", target.checked);
+});
+closeCook.addEventListener("click", () => cookDialog.close());
+cookDialog.addEventListener("close", () => {
+  if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
+});
+
+// ---------- Keep screen awake ----------
+const wakeButtons = document.querySelectorAll(".wake-button");
+let wakeLock = null;
+let wantAwake = false;
+
+function showWakeState() {
+  for (const button of wakeButtons) {
+    button.setAttribute("aria-pressed", String(wantAwake));
+    button.querySelector(".wake-text").textContent = wantAwake ? "Screen stays on" : "Keep screen on";
+  }
+}
+
+async function requestWake() {
+  try {
+    wakeLock = await navigator.wakeLock.request("screen");
+    wakeLock.addEventListener("release", () => { wakeLock = null; });
+  } catch {
+    wantAwake = false;
+    showWakeState();
+  }
+}
+
+if ("wakeLock" in navigator) {
+  for (const button of wakeButtons) {
+    button.hidden = false;
+    button.addEventListener("click", async () => {
+      wantAwake = !wantAwake;
+      showWakeState();
+      if (wantAwake) await requestWake();
+      else await wakeLock?.release();
+    });
+  }
+  document.addEventListener("visibilitychange", () => {
+    if (wantAwake && !wakeLock && document.visibilityState === "visible") requestWake();
+  });
+}

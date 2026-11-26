@@ -26,6 +26,7 @@
           <span class="dice" aria-hidden="true"></span>Random
         </button>
         <button id="print" class="print" type="button">Print list</button>
+        <button class="wake-button" type="button" aria-pressed="false" hidden><span class="wake-icon" aria-hidden="true"></span><span class="wake-text">Keep screen on</span></button>
         <span id="count" class="count" role="status"></span>
       </div>
       <label class="stock-option">
@@ -67,6 +68,13 @@
         <span class="dice" aria-hidden="true"></span>Random
       </button>
     </div>
+  </dialog>
+  <dialog id="cook-dialog" class="cook-dialog" aria-labelledby="cook-title">
+    <div class="cook-bar">
+      <button class="wake-button" type="button" aria-pressed="false" hidden><span class="wake-icon" aria-hidden="true"></span><span class="wake-text">Keep screen on</span></button>
+      <button id="close-cook" class="random-close" type="button" aria-label="Close full screen recipe">×</button>
+    </div>
+    <div id="cook-body" class="cook-body"></div>
   </dialog>
 </body>
 </html>
