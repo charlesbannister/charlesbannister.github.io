@@ -869,3 +869,163 @@ strong.cook-missing {
 @media print {
   .open-cook, .wake-button { display: none !important; }
 }
+
+/* ---------- Stock changes from recipes ---------- */
+button.ing {
+  padding: 0 2px;
+  border: 0;
+  border-bottom: 1px dashed #9bb49e;
+  border-radius: 3px;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+button.ing:hover { background: #edf2e9; }
+button.ing.ingredient-missing { padding: 1px 4px; background: #fff0d5; border-bottom-color: #c98a4a; }
+button.ing.ingredient-missing:hover { background: #ffe3b3; }
+
+.cook-ingredients li {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: .5em;
+}
+
+.cook-ingredients li label { flex: 1; }
+.cook-ingredients li.is-missing span { color: #743b12; }
+
+.ing-stock {
+  flex: none;
+  min-width: 2.9em;
+  margin-top: .15em;
+  padding: .1em .55em;
+  border: 1px solid #b9d0bd;
+  border-radius: 99px;
+  background: #e6efe1;
+  color: var(--green);
+  font: 800 .66em system-ui;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  cursor: pointer;
+}
+
+.is-missing .ing-stock { border-color: #e6b676; background: #fff0d5; color: #743b12; }
+
+.stock-dialog {
+  width: min(420px, calc(100% - 24px));
+  max-height: calc(100dvh - 24px);
+  margin: auto auto max(12px, env(safe-area-inset-bottom));
+  padding: 20px;
+  border: 1px solid #ccd9cb;
+  border-radius: 22px;
+  background: var(--card);
+  color: var(--ink);
+  box-shadow: 0 24px 90px #13291e55;
+}
+
+@media (min-width: 700px) { .stock-dialog { margin: auto; } }
+
+.stock-dialog::backdrop,
+.pantry-dialog::backdrop { background: #142b2299; }
+
+.stock-title {
+  margin: 0;
+  font: 700 21px/1.2 Georgia, serif;
+}
+
+.stock-hint { margin: 4px 0 14px; color: var(--muted); font-size: 13px; }
+
+.stock-items { display: grid; gap: 8px; }
+
+.stock-toggle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 52px;
+  padding: 8px 14px;
+  border: 1px solid #b9d0bd;
+  border-radius: 14px;
+  background: #edf5ea;
+  cursor: pointer;
+}
+
+.stock-toggle.is-out { border-color: #e6b676; background: #fff6e6; }
+.stock-toggle input { position: absolute; opacity: 0; pointer-events: none; }
+.stock-toggle:has(input:focus-visible) { outline: 2px solid var(--green); outline-offset: 2px; }
+.stock-name { flex: 1; font-weight: 650; }
+
+.stock-state {
+  min-width: 52px;
+  padding: 4px 10px;
+  border-radius: 99px;
+  background: var(--green);
+  color: #fff;
+  font: 800 12px system-ui;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.is-out .stock-state { background: #b8641f; }
+
+.stock-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.stock-primary,
+.stock-secondary {
+  min-height: 44px;
+  padding: 8px 18px;
+  border: 1px solid var(--green);
+  border-radius: 12px;
+  font: 700 14px system-ui;
+  cursor: pointer;
+}
+
+.stock-primary { background: var(--green); color: #fff; }
+.stock-secondary { background: var(--card); color: var(--green); }
+
+.pantry-dialog {
+  width: min(900px, 100%);
+  height: min(100dvh, 900px);
+  max-width: none;
+  max-height: none;
+  padding: 0;
+  border: 0;
+  border-radius: 22px;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+@media (max-width: 700px) { .pantry-dialog { height: 100dvh; border-radius: 0; } }
+
+.pantry-dialog[open] { display: grid; grid-template-rows: auto minmax(0, 1fr); }
+
+.pantry-dialog-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: max(10px, env(safe-area-inset-top)) 18px 10px;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(125deg,#e8f1e3 0%,#f9f3de 65%,#fbead5);
+}
+
+.pantry-dialog-bar h2 { margin: 0; font: 700 24px Georgia, serif; }
+.pantry-dialog-body { padding: 18px; overflow: auto; overscroll-behavior: contain; }
+
+.pantry-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.pantry-tools .pantry-search { flex: 1 1 200px; }
+.pantry-tools .stock-option { margin-bottom: 0; }
+.pantry-all-in:disabled { opacity: .5; cursor: default; }

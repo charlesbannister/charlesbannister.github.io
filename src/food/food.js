@@ -1,5 +1,5 @@
 import { items } from "./a-la-carte.js";
-import { getUnavailableIds, pantryGroups, recipeIngredients, saveUnavailableIds } from "./pantry.js";
+import { getUnavailableIds, pantryGroups, pantryLabels, recipeIngredients, saveUnavailableIds } from "./pantry.js";
 import { popularMeals } from "./popular-meals.js";
 import { meals } from "./recipes.js";
 
@@ -28,7 +28,6 @@ const recipeNotes = document.getElementById("recipe-notes");
 const search = document.getElementById("search");
 const count = document.getElementById("count");
 const inStockOnly = document.getElementById("in-stock-only");
-const pantryList = document.querySelector(".pantry-groups");
 const printButton = document.getElementById("print");
 const randomButton = document.getElementById("random");
 const randomDialog = document.getElementById("random-dialog");
@@ -60,16 +59,18 @@ function sourceLink(source) {
 }
 
 function ingredientLine(ingredients) {
-  return ingredients.map(({ text, missing }) => missing
-    ? `<span class="ingredient-missing">${escapeHtml(text)} <strong>Missing</strong></span>`
-    : escapeHtml(text)).join(" · ");
+  return ingredients.map(({ text, missing, ids }, i) => {
+    const label = `${escapeHtml(text)}${missing ? " <strong>Missing</strong>" : ""}`;
+    if (!ids.length) return missing ? `<span class="ingredient-missing">${label}</span>` : label;
+    return `<button type="button" class="ing${missing ? " ingredient-missing" : ""}" data-ing="${i}" title="Change whether it’s in">${label}</button>`;
+  }).join(" · ");
 }
 
 function recipeCard(entry) {
   const { recipe, ingredients } = entry;
   const index = shownRecipes.indexOf(entry);
   return `
-    <article class="card">
+    <article class="card"${index >= 0 ? ` data-index="${index}"` : ""}>
       <div class="top">
         <span class="category">${escapeHtml(recipe.category)}</span>
         ${Number.isFinite(recipe.minutes) ? `<span class="time">~${recipe.minutes} min</span>` : ""}
@@ -210,22 +211,6 @@ for (const [index, section] of sections.entries()) {
   }
 }
 
-pantryList.innerHTML = pantryGroups.map(({ label, items }) => `
-  <fieldset class="pantry-group">
-    <legend class="pantry-group-name">${escapeHtml(label)}</legend>
-    <div class="pantry-items">
-      ${items.map(({ id, label: name }) => `<label class="pantry-item">
-        <input type="checkbox" value="${escapeHtml(id)}"${unavailableIds.has(id) ? "" : " checked"}>
-        <span class="pantry-item-name">${escapeHtml(name)}</span>
-      </label>`).join("")}
-    </div>
-  </fieldset>`).join("");
-pantryList.addEventListener("change", ({ target }) => {
-  if (!target.matches('input[type="checkbox"]')) return;
-  if (target.checked) unavailableIds.delete(target.value);
-  else unavailableIds.add(target.value);
-  saveUnavailableIds(unavailableIds);
-});
 
 function resetRandomRecipe() {
   window.clearInterval(shuffleTimer);
@@ -262,6 +247,7 @@ render();
 const cookDialog = document.getElementById("cook-dialog");
 const cookBody = document.getElementById("cook-body");
 const closeCook = document.getElementById("close-cook");
+let cookRecipe = null;
 
 function methodSteps(method) {
   return method.split(/(?<=[.!?])\s+(?=[A-Z0-9])/).map((step) => step.trim()).filter(Boolean);
@@ -285,9 +271,9 @@ function cookView({ recipe, ingredients }) {
     </div>
     ${ingredients.length ? `<section class="cook-ingredients" aria-label="Ingredients">
       <h3>Ingredients <small>tap to tick off</small></h3>
-      <ul>${ingredients.map((item) => `<li><label>
-        <input type="checkbox"><span>${escapeHtml(item.text)}${item.missing ? ' <strong class="cook-missing">Missing</strong>' : ""}</span>
-      </label></li>`).join("")}</ul>
+      <ul>${ingredients.map((item, i) => `<li data-ing="${i}"${item.missing ? ' class="is-missing"' : ""}><label>
+        <input type="checkbox"><span>${escapeHtml(item.text)}</span>
+      </label>${item.ids.length ? `<button type="button" class="ing-stock" data-ing="${i}" aria-label="${escapeHtml(item.text)}: change stock">${item.missing ? "Out" : "In"}</button>` : ""}</li>`).join("")}</ul>
     </section>` : ""}
     ${steps.length ? `<section class="cook-method" aria-label="Method">
       <h3>Method <small>tap a step when done</small></h3>
@@ -298,6 +284,7 @@ function cookView({ recipe, ingredients }) {
 
 function openCook(entry) {
   if (randomDialog.open) randomDialog.close();
+  cookRecipe = entry.recipe;
   cookBody.innerHTML = cookView(entry);
   cookDialog.showModal();
   cookBody.scrollTop = 0;
@@ -358,4 +345,144 @@ if ("wakeLock" in navigator) {
   document.addEventListener("visibilitychange", () => {
     if (wantAwake && !wakeLock && document.visibilityState === "visible") requestWake();
   });
+}
+
+// ---------- Stock: change what's in from anywhere ----------
+const stockDialog = document.getElementById("stock-dialog");
+const stockTitle = document.getElementById("stock-title");
+const stockItems = document.getElementById("stock-items");
+const pantryDialog = document.getElementById("pantry-dialog");
+const pantryManagers = [...document.querySelectorAll(".pantry-manager")];
+let stockIds = [];
+
+function stockToggle(id) {
+  const isIn = !unavailableIds.has(id);
+  return `<label class="stock-toggle${isIn ? "" : " is-out"}">
+    <input type="checkbox" class="stock-input" value="${escapeHtml(id)}"${isIn ? " checked" : ""}>
+    <span class="stock-name">${escapeHtml(pantryLabels.get(id) ?? id)}</span>
+    <span class="stock-state" aria-hidden="true">${isIn ? "In" : "Out"}</span>
+  </label>`;
+}
+
+function renderStockSheet() {
+  stockItems.innerHTML = stockIds.map(stockToggle).join("");
+}
+
+function openStock(ingredient) {
+  stockIds = ingredient.ids;
+  stockTitle.textContent = ingredient.text;
+  renderStockSheet();
+  stockDialog.showModal();
+  stockItems.querySelector("input")?.focus();
+}
+
+function renderPantryManager(manager) {
+  const query = manager.querySelector(".pantry-search").value.toLowerCase().trim();
+  const outOnly = manager.querySelector(".pantry-out-only").checked;
+  const groups = pantryGroups.map(({ label, items }) => ({
+    label,
+    items: items.filter(({ id, label: name }) => (!outOnly || unavailableIds.has(id))
+      && (!query || name.toLowerCase().includes(query))),
+  })).filter(({ items }) => items.length);
+  const total = pantryGroups.reduce((sum, { items }) => sum + items.length, 0);
+  manager.querySelector(".pantry-summary").textContent = `${total - unavailableIds.size} in · ${unavailableIds.size} out`;
+  manager.querySelector(".pantry-all-in").disabled = unavailableIds.size === 0;
+  manager.querySelector(".pantry-groups").innerHTML = groups.length ? groups.map(({ label, items }) => `
+    <fieldset class="pantry-group">
+      <legend class="pantry-group-name">${escapeHtml(label)}</legend>
+      <div class="pantry-items">
+        ${items.map(({ id, label: name }) => `<label class="pantry-item">
+          <input type="checkbox" class="stock-input" value="${escapeHtml(id)}"${unavailableIds.has(id) ? "" : " checked"}>
+          <span class="pantry-item-name">${escapeHtml(name)}</span>
+        </label>`).join("")}
+      </div>
+    </fieldset>`).join("") : `<div class="empty">${outOnly && !query ? "Everything’s in." : "Nothing matches that."}</div>`;
+}
+
+for (const manager of pantryManagers) {
+  manager.innerHTML = `
+    <div class="pantry-tools">
+      <input class="pantry-search search" type="search" placeholder="Find an item" aria-label="Find a pantry item">
+      <label class="stock-option"><input class="pantry-out-only" type="checkbox">Out only</label>
+      <button class="pantry-all-in print" type="button">Everything’s in</button>
+      <span class="pantry-summary count" role="status"></span>
+    </div>
+    <div class="pantry-groups"></div>`;
+  manager.querySelector(".pantry-search").addEventListener("input", () => renderPantryManager(manager));
+  manager.querySelector(".pantry-out-only").addEventListener("change", () => renderPantryManager(manager));
+  manager.querySelector(".pantry-all-in").addEventListener("click", () => {
+    unavailableIds.clear();
+    stockChanged();
+  });
+  renderPantryManager(manager);
+}
+
+function refreshCook() {
+  if (!cookDialog.open || !cookRecipe) return;
+  const ingredients = recipeIngredients(cookRecipe, unavailableIds);
+  for (const li of cookBody.querySelectorAll(".cook-ingredients li")) {
+    const item = ingredients[Number(li.dataset.ing)];
+    li.classList.toggle("is-missing", item.missing);
+    const button = li.querySelector(".ing-stock");
+    if (button) button.textContent = item.missing ? "Out" : "In";
+  }
+  const missing = ingredients.filter((item) => item.missing).length;
+  const badge = cookBody.querySelector(".cook-facts .cook-missing");
+  if (missing && badge) badge.textContent = `${missing} missing`;
+  else if (missing) cookBody.querySelector(".cook-facts").insertAdjacentHTML("beforeend", `<span class="cook-missing">${missing} missing</span>`);
+  else badge?.remove();
+}
+
+function stockChanged() {
+  saveUnavailableIds(unavailableIds);
+  const scroll = window.scrollY;
+  render();
+  window.scrollTo(0, scroll);
+  if (randomDialog.open && pickedRecipe) {
+    const fresh = shownRecipes.find(({ recipe }) => recipe === pickedRecipe.recipe)
+      ?? { recipe: pickedRecipe.recipe, ingredients: recipeIngredients(pickedRecipe.recipe, unavailableIds) };
+    pickedRecipe = fresh;
+    randomResult.innerHTML = recipeCard(fresh);
+  }
+  refreshCook();
+  if (stockDialog.open) renderStockSheet();
+  for (const manager of pantryManagers) renderPantryManager(manager);
+}
+
+document.addEventListener("change", ({ target }) => {
+  if (!target.matches(".stock-input")) return;
+  if (target.checked) unavailableIds.delete(target.value);
+  else unavailableIds.add(target.value);
+  const focusId = target.value;
+  const inSheet = stockDialog.contains(target);
+  stockChanged();
+  // Keep keyboard focus on the same item after re-rendering.
+  (inSheet ? stockItems : target.closest(".pantry-manager") ?? document)
+    ?.querySelector(`.stock-input[value="${CSS.escape(focusId)}"]`)?.focus();
+});
+
+document.addEventListener("click", (event) => {
+  const ing = event.target.closest(".ing, .ing-stock");
+  if (ing) {
+    event.preventDefault();
+    const i = Number(ing.dataset.ing);
+    const card = ing.closest("[data-index]");
+    const ingredients = ing.matches(".ing-stock")
+      ? recipeIngredients(cookRecipe, unavailableIds)
+      : (card && shownRecipes[Number(card.dataset.index)]?.ingredients)
+        ?? (pickedRecipe && recipeIngredients(pickedRecipe.recipe, unavailableIds));
+    if (ingredients?.[i]) openStock(ingredients[i]);
+    return;
+  }
+  if (event.target.closest(".open-pantry")) {
+    if (stockDialog.open) stockDialog.close();
+    for (const manager of pantryManagers) renderPantryManager(manager);
+    pantryDialog.showModal();
+  }
+});
+
+document.getElementById("stock-done").addEventListener("click", () => stockDialog.close());
+document.getElementById("close-pantry").addEventListener("click", () => pantryDialog.close());
+for (const dialog of [stockDialog, pantryDialog]) {
+  dialog.addEventListener("click", (event) => { if (event.target === dialog) dialog.close(); });
 }

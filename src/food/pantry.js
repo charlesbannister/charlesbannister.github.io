@@ -114,9 +114,21 @@ function isAvailable(text, unavailableIds) {
   return required.length > 1 && required.every((part) => isAvailable(part, unavailableIds));
 }
 
+// Every pantry item an ingredient line depends on, so the UI can let people change its stock.
+function linkedIds(text) {
+  const name = ingredientName(text);
+  const ids = ingredientOptions(name);
+  if (ids) return ids;
+  const parts = name.split(/\s+(?:or|and)\s+/);
+  return parts.length > 1 ? [...new Set(parts.flatMap(linkedIds))] : [];
+}
+
+export const pantryLabels = new Map(pantryItems.map(({ id, label }) => [id, label]));
+
 export function recipeIngredients(recipe, unavailableIds = new Set()) {
   return (recipe.ingredients ?? "").split("·").map((text) => text.trim()).filter(Boolean).map((text) => ({
     text,
+    ids: linkedIds(text),
     missing: !isAvailable(text, unavailableIds),
     optional: OPTIONAL.test(text),
   }));
